@@ -6,8 +6,10 @@ from app.bedrock import BedrockFactExtractor, BedrockRuleCompiler
 class FakeBedrock:
     def __init__(self, payload: dict) -> None:
         self.payload = payload
+        self.last_call: dict = {}
 
-    def structured(self, **_: object) -> dict:
+    def structured(self, **kwargs: object) -> dict:
+        self.last_call = kwargs
         return self.payload
 
 
@@ -71,6 +73,33 @@ def test_fact_extractor_grounds_abbreviated_quote_to_unique_sentence() -> None:
     facts = extractor.extract(note)
 
     assert facts[0].source_text == "EGFR, ALK, and ROS1 negative."
+
+
+def test_guided_answer_targets_one_grounded_fact() -> None:
+    evidence = "Calculate creatinine clearance: 72 mL/min"
+    bedrock = FakeBedrock(
+        {
+            "facts": [
+                {
+                    "field": "creatinine_clearance_ml_min",
+                    "value": 72,
+                    "source_text": evidence,
+                }
+            ]
+        }
+    )
+    extractor = BedrockFactExtractor(bedrock)
+
+    facts = extractor.extract_guided_answer(
+        "creatinine_clearance_ml_min",
+        "Calculate creatinine clearance",
+        evidence,
+    )
+
+    assert facts[0].field == "creatinine_clearance_ml_min"
+    assert facts[0].value == 72
+    assert facts[0].source_text == evidence
+    assert "target field is 'creatinine_clearance_ml_min'" in bedrock.last_call["prompt"]
 
 
 def test_rule_compiler_rejects_duplicate_rule_ids() -> None:

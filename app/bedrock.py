@@ -177,6 +177,29 @@ CHART NOTE:
         facts = [PatientFact.model_validate(item) for item in payload["facts"]]
         return self._ground_evidence(note, facts)
 
+    def extract_guided_answer(
+        self,
+        target_field: str,
+        action_label: str,
+        evidence: str,
+    ) -> list[PatientFact]:
+        prompt = f"""Translate a coordinator's focused answer into one patient fact.
+The target field is {target_field!r}, requested as: {action_label}.
+Return exactly one fact for that target field when the evidence explicitly answers
+the request. Return an empty facts list when it does not. Never return other fields,
+guess a value, or add clinical information. For source_text, copy the complete
+evidence line verbatim.
+
+COORDINATOR EVIDENCE:
+{evidence}"""
+        payload = self.bedrock.structured(
+            prompt=prompt,
+            schema_name="trialcompiler_guided_patient_fact",
+            schema=FACT_SCHEMA,
+        )
+        facts = [PatientFact.model_validate(item) for item in payload["facts"]]
+        return self._ground_evidence(evidence, facts)
+
     @classmethod
     def _ground_evidence(
         cls,

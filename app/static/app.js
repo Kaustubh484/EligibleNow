@@ -8,6 +8,10 @@ const state = {
   openTrialId: null,
   refreshTimer: null,
   actionsExpanded: false,
+  guidedActive: false,
+  guidedSubmitting: false,
+  guidedMessage: "",
+  guidedHistory: [],
 };
 
 const elements = {
@@ -27,6 +31,16 @@ const elements = {
   excludedCount: document.querySelector("#excluded-count"),
   actionList: document.querySelector("#action-list"),
   actionsMore: document.querySelector("#actions-more"),
+  guidedStart: document.querySelector("#guided-start"),
+  guidedPanel: document.querySelector("#guided-panel"),
+  guidedStop: document.querySelector("#guided-stop"),
+  guidedQuestion: document.querySelector("#guided-question"),
+  guidedImpact: document.querySelector("#guided-impact"),
+  guidedForm: document.querySelector("#guided-form"),
+  guidedAnswer: document.querySelector("#guided-answer"),
+  guidedSubmit: document.querySelector("#guided-submit"),
+  guidedStatus: document.querySelector("#guided-status"),
+  guidedHistory: document.querySelector("#guided-history"),
   factList: document.querySelector("#fact-list"),
   factsToggle: document.querySelector("#facts-toggle"),
   trialList: document.querySelector("#trial-list"),
@@ -206,6 +220,7 @@ async function screenPatient() {
   }
 
   elements.screenButton.disabled = true;
+  resetGuidedScreening();
   elements.screenButton.querySelector("span").textContent = "Finding relevant trials…";
   showView("loading");
 
@@ -268,8 +283,113 @@ function renderResults() {
   }).format(new Date())}`;
 
   renderActions(payload.actions);
+  renderGuidedScreening();
   renderFacts(payload.facts);
   setFilter(state.filter);
+}
+
+function renderGuidedScreening() {
+  elements.guidedStart.classList.toggle("hidden", state.guidedActive);
+  elements.guidedPanel.classList.toggle("hidden", !state.guidedActive);
+  if (!state.guidedActive) return;
+
+  const action = state.response?.actions?.[0];
+  const complete = !action;
+  elements.guidedForm.classList.toggle("hidden", complete);
+  elements.guidedQuestion.textContent = complete
+    ? "The guided review has no remaining evidence requests."
+    : `Next evidence request: ${action.label}.`;
+  elements.guidedImpact.textContent = complete
+    ? "The study team must still verify final eligibility."
+    : `Highest-impact next step · could clarify ${action.trial_count} ${action.trial_count === 1 ? "trial" : "trials"}`;
+  elements.guidedAnswer.placeholder = guidedPlaceholder(action?.field);
+  elements.guidedSubmit.disabled = state.guidedSubmitting;
+  elements.guidedSubmit.textContent = state.guidedSubmitting
+    ? "Bedrock is reviewing…"
+    : "Apply & re-screen";
+  elements.guidedStatus.textContent =
+    state.guidedMessage ||
+    "Bedrock structures the answer. Deterministic rules decide.";
+  elements.guidedStatus.classList.toggle(
+    "error",
+    state.guidedMessage.startsWith("Could not"),
+  );
+  elements.guidedHistory.innerHTML = state.guidedHistory
+    .map(
+      (item) => `
+        <div class="guided-history-item">
+          <span aria-hidden="true">✓</span>
+          <span><strong>${escapeHtml(item.label)}</strong> · ${escapeHtml(item.value)}</span>
+        </div>`,
+    )
+    .join("");
+}
+
+function guidedPlaceholder(field) {
+  const examples = {
+    creatinine_clearance_ml_min: "e.g. 72 mL/min",
+    lvef_pct: "e.g. 60%",
+    ecog: "e.g. ECOG 1",
+    age_years: "e.g. 58 years",
+    life_expectancy_months: "e.g. 6 months",
+    pd_l1_expression_pct: "e.g. TPS 40%",
+  };
+  return examples[field] ?? "Enter yes/no, a value, or a brief chart fact";
+}
+
+function resetGuidedScreening() {
+  state.guidedActive = false;
+  state.guidedSubmitting = false;
+  state.guidedMessage = "";
+  state.guidedHistory = [];
+}
+
+async function submitGuidedAnswer(event) {
+  event.preventDefault();
+  const answer = elements.guidedAnswer.value.trim();
+  if (!answer || !state.response || state.guidedSubmitting) return;
+
+  state.guidedSubmitting = true;
+  state.guidedMessage = "";
+  renderGuidedScreening();
+  try {
+    const response = await fetch("/api/guided-answer", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        cancer_type: state.response.cancer_type,
+        note: state.response.patient_note,
+        facts: state.response.facts,
+        answer,
+        retrieval_limit: Number(elements.retrievalLimit.value),
+      }),
+    });
+    const payload = await response.json();
+    if (!response.ok) {
+      throw new Error(payload.detail || "The guided review could not use that answer.");
+    }
+
+    state.response = payload.screening;
+    state.filter = payload.screening.candidate_count ? "candidates" : "excluded";
+    state.openTrialId =
+      payload.screening.results.find((result) => result.fail_count === 0)?.trial_id ??
+      payload.screening.results[0]?.trial_id ??
+      null;
+    state.guidedHistory.unshift({
+      label: payload.resolved_action.label,
+      value: answer,
+    });
+    state.guidedMessage = `Added ${formatField(payload.resolved_fact.field)} evidence and re-screened ${payload.screening.screened_trial_count} trials.`;
+    elements.chartNote.value = payload.screening.patient_note;
+    elements.guidedAnswer.value = "";
+    updateCharacterCount();
+    renderResults();
+  } catch (error) {
+    state.guidedMessage = `Could not apply that answer. ${error.message}`;
+  } finally {
+    state.guidedSubmitting = false;
+    renderGuidedScreening();
+  }
 }
 
 function renderActions(actions) {
@@ -490,7 +610,12 @@ function formatField(field) {
   const labels = {
     age_years: "Age",
     creatinine_mg_dl: "Creatinine",
+    creatinine_clearance_ml_min: "Creatinine clearance",
     bilirubin_mg_dl: "Bilirubin",
+    bilirubin_uln_multiple: "Bilirubin vs. ULN",
+    alt_uln_multiple: "ALT vs. ULN",
+    ast_uln_multiple: "AST vs. ULN",
+    alp_uln_multiple: "ALP vs. ULN",
     lvef_pct: "LVEF",
     prior_systemic_therapy: "Prior therapy",
     brain_mets_active: "Active brain mets",
@@ -534,6 +659,15 @@ elements.actionsMore.addEventListener("click", () => {
   state.actionsExpanded = !state.actionsExpanded;
   renderActions(state.response.actions);
 });
+elements.guidedStart.addEventListener("click", () => {
+  state.guidedActive = true;
+  state.guidedMessage = "";
+  renderGuidedScreening();
+  elements.guidedAnswer.focus();
+});
+elements.guidedStop.addEventListener("click", resetGuidedScreening);
+elements.guidedStop.addEventListener("click", renderGuidedScreening);
+elements.guidedForm.addEventListener("submit", submitGuidedAnswer);
 
 elements.chartNote.addEventListener("input", updateCharacterCount);
 elements.screenButton.addEventListener("click", screenPatient);

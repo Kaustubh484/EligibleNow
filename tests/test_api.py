@@ -3,6 +3,7 @@ import pytest
 
 import app.main as main_module
 from app.main import app
+from app.models import PatientFact
 
 
 client = TestClient(app)
@@ -91,6 +92,45 @@ def test_screen_demo_patient() -> None:
         criterion["evidence"] or criterion["verdict"] == "unknown"
         for result in payload["results"]
         for criterion in result["criteria"]
+    )
+
+
+def test_guided_answer_resolves_highest_impact_action(monkeypatch) -> None:
+    initial = client.post("/api/screen", json={"patient_id": "gap-patient"}).json()
+    action = initial["actions"][0]
+
+    class GuidedExtractor:
+        def extract(self, evidence: str):
+            return [
+                PatientFact(
+                    field=action["field"],
+                    value=60,
+                    source_text=evidence,
+                )
+            ]
+
+    monkeypatch.setattr(main_module, "extractor", GuidedExtractor())
+    response = client.post(
+        "/api/guided-answer",
+        json={
+            "cancer_type": initial["cancer_type"],
+            "note": initial["patient_note"],
+            "facts": initial["facts"],
+            "answer": "60 with the protocol-required units",
+            "retrieval_limit": initial["screened_trial_count"],
+        },
+    )
+
+    assert response.status_code == 200
+    payload = response.json()
+    assert payload["resolved_action"]["field"] == action["field"]
+    assert payload["resolved_fact"]["field"] == action["field"]
+    assert any(
+        fact["field"] == action["field"]
+        for fact in payload["screening"]["facts"]
+    )
+    assert payload["screening"]["patient_note"].endswith(
+        f'{action["label"]}: 60 with the protocol-required units'
     )
 
 

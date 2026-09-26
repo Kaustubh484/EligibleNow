@@ -14,7 +14,14 @@ from fastapi.staticfiles import StaticFiles
 
 from app.evaluator import build_actions, screen_trials
 from app.extractor import DemoFactExtractor
-from app.models import ScreenRequest, ScreenResponse
+from app.models import (
+    GuidedAnswerRequest,
+    GuidedAnswerResponse,
+    PatientFact,
+    ScreenRequest,
+    ScreenResponse,
+    Trial,
+)
 from app.repository import JsonRepository
 from app.retrieval import retrieve_trials
 
@@ -200,16 +207,105 @@ def screen(request: ScreenRequest) -> ScreenResponse:
             detail="No supported clinical facts were found in the note",
         )
 
+    return _build_screen_response(
+        cancer_type=cancer_type,
+        note=note,
+        facts=facts,
+        trials=trials,
+        retrieval_limit=request.retrieval_limit,
+        patient_id=patient.patient_id if patient else request.patient_id,
+    )
+
+
+@app.post("/api/guided-answer", response_model=GuidedAnswerResponse)
+def guided_answer(request: GuidedAnswerRequest) -> GuidedAnswerResponse:
+    trials = repository.get_trials(request.cancer_type)
+    if trials is None:
+        raise HTTPException(status_code=404, detail="Cancer cohort not found")
+
+    current_screening = _build_screen_response(
+        cancer_type=request.cancer_type,
+        note=request.note,
+        facts=request.facts,
+        trials=trials,
+        retrieval_limit=request.retrieval_limit,
+    )
+    if not current_screening.actions:
+        raise HTTPException(
+            status_code=409,
+            detail="No unresolved coordinator actions remain.",
+        )
+
+    action = current_screening.actions[0]
+    evidence = f"{action.label}: {request.answer.strip()}"
+    try:
+        if hasattr(extractor, "extract_guided_answer"):
+            extracted = extractor.extract_guided_answer(
+                action.field,
+                action.label,
+                evidence,
+            )
+        else:
+            extracted = extractor.extract(evidence)
+    except Exception as exc:
+        logger.exception("Guided fact extraction failed")
+        raise HTTPException(
+            status_code=502,
+            detail=(
+                "The model could not structure that answer. "
+                "Include a clear value, yes/no response, and units when relevant."
+            ),
+        ) from exc
+
+    resolved_fact = next(
+        (fact for fact in extracted if fact.field == action.field),
+        None,
+    )
+    if resolved_fact is None:
+        raise HTTPException(
+            status_code=422,
+            detail=(
+                f"The answer did not resolve “{action.label}”. "
+                "Include the documented value, yes/no response, and units when relevant."
+            ),
+        )
+
+    merged_facts = {fact.field: fact for fact in request.facts}
+    merged_facts[resolved_fact.field] = resolved_fact
+    updated_note = f"{request.note.rstrip()}\n{evidence}"
+    screening = _build_screen_response(
+        cancer_type=request.cancer_type,
+        note=updated_note,
+        facts=list(merged_facts.values()),
+        trials=trials,
+        retrieval_limit=request.retrieval_limit,
+    )
+    return GuidedAnswerResponse(
+        screening=screening,
+        resolved_action=action,
+        resolved_fact=resolved_fact,
+    )
+
+
+def _build_screen_response(
+    *,
+    cancer_type: str,
+    note: str,
+    facts: list[PatientFact],
+    trials: list[Trial],
+    retrieval_limit: int,
+    patient_id: str | None = None,
+) -> ScreenResponse:
     retrieved_trials = retrieve_trials(
         trials,
         note,
         facts,
-        request.retrieval_limit,
+        retrieval_limit,
     )
     results = screen_trials(retrieved_trials, facts)
     return ScreenResponse(
         cancer_type=cancer_type,
-        patient_id=patient.patient_id if patient else request.patient_id,
+        patient_id=patient_id,
         patient_note=note,
         facts=facts,
         results=results,

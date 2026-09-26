@@ -182,6 +182,39 @@
               </div>
               <div id="action-list" class="action-list"></div>
               <button id="actions-more" class="actions-more hidden" type="button"></button>
+              <div class="guided-divider"></div>
+              <button id="guided-start" class="guided-start" type="button">
+                <span aria-hidden="true">✦</span>
+                Start guided screening
+              </button>
+              <div id="guided-panel" class="guided-panel hidden">
+                <div class="guided-heading">
+                  <div>
+                    <span class="agent-label">Bedrock guide</span>
+                    <strong>One evidence gap at a time</strong>
+                  </div>
+                  <button id="guided-stop" class="guided-stop" type="button">Exit</button>
+                </div>
+                <p id="guided-question" class="guided-question"></p>
+                <p id="guided-impact" class="guided-impact"></p>
+                <form id="guided-form" class="guided-form">
+                  <label for="guided-answer">Coordinator answer</label>
+                  <div class="guided-input-row">
+                    <input
+                      id="guided-answer"
+                      type="text"
+                      maxlength="1000"
+                      autocomplete="off"
+                      placeholder="Enter the documented value or yes/no"
+                    />
+                    <button id="guided-submit" type="submit">Apply &amp; re-screen</button>
+                  </div>
+                </form>
+                <p id="guided-status" class="guided-status">
+                  Bedrock structures the answer. Deterministic rules decide.
+                </p>
+                <div id="guided-history" class="guided-history"></div>
+              </div>
             </section>
 
             <section class="facts-section" aria-labelledby="facts-title">

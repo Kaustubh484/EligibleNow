@@ -625,6 +625,159 @@ textarea:focus {
   text-decoration: underline;
 }
 
+.guided-divider {
+  height: 1px;
+  margin: 16px 0 13px;
+  background: rgba(20, 92, 77, 0.14);
+}
+
+.guided-start {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  border: 1px solid var(--green);
+  border-radius: 999px;
+  padding: 7px 12px;
+  background: var(--green);
+  color: white;
+  font-size: 0.69rem;
+  font-weight: 780;
+}
+
+.guided-start:hover {
+  background: var(--green-deep);
+}
+
+.guided-panel {
+  border: 1px solid #b8d0c7;
+  border-radius: 11px;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.88);
+}
+
+.guided-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 13px;
+}
+
+.guided-heading > div {
+  display: grid;
+  gap: 2px;
+}
+
+.guided-heading strong {
+  font-family: Georgia, serif;
+  font-size: 0.96rem;
+  font-weight: 500;
+}
+
+.agent-label {
+  color: var(--green);
+  font-size: 0.56rem;
+  font-weight: 820;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.guided-stop {
+  border: 0;
+  padding: 2px 0;
+  background: transparent;
+  color: var(--muted);
+  font-size: 0.62rem;
+  font-weight: 740;
+}
+
+.guided-question {
+  margin-bottom: 4px;
+  color: var(--ink);
+  font-size: 0.76rem;
+  font-weight: 730;
+}
+
+.guided-impact {
+  margin-bottom: 13px;
+  color: var(--green);
+  font-size: 0.64rem;
+  font-weight: 700;
+}
+
+.guided-form label {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--muted);
+  font-size: 0.61rem;
+  font-weight: 720;
+}
+
+.guided-input-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 7px;
+}
+
+.guided-input-row input {
+  min-width: 0;
+  border: 1px solid var(--line-dark);
+  border-radius: 8px;
+  outline: none;
+  padding: 9px 10px;
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.7rem;
+}
+
+.guided-input-row input:focus {
+  border-color: var(--green);
+  box-shadow: 0 0 0 3px rgba(20, 92, 77, 0.1);
+}
+
+.guided-input-row button {
+  border: 0;
+  border-radius: 8px;
+  padding: 0 12px;
+  background: var(--green);
+  color: white;
+  font-size: 0.66rem;
+  font-weight: 780;
+}
+
+.guided-input-row button:disabled {
+  cursor: wait;
+  opacity: 0.68;
+}
+
+.guided-status {
+  margin: 9px 0 0;
+  color: var(--muted);
+  font-size: 0.61rem;
+}
+
+.guided-status.error {
+  color: var(--red);
+}
+
+.guided-history {
+  display: grid;
+  gap: 5px;
+  margin-top: 10px;
+}
+
+.guided-history-item {
+  display: flex;
+  gap: 6px;
+  color: var(--muted);
+  font-size: 0.61rem;
+}
+
+.guided-history-item > span:first-child {
+  color: var(--green);
+  font-weight: 820;
+}
+
 .facts-section {
   overflow: hidden;
   border: 1px solid var(--line);
@@ -1176,6 +1329,14 @@ textarea:focus {
 
   .action-impact {
     grid-column: 2;
+  }
+
+  .guided-input-row {
+    grid-template-columns: 1fr;
+  }
+
+  .guided-input-row button {
+    min-height: 38px;
   }
 
   .criteria-table,

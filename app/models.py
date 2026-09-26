@@ -142,3 +142,17 @@ class ScreenResponse(BaseModel):
         "Decision support only. A qualified clinical-trial coordinator must verify "
         "eligibility against the current protocol."
     )
+
+
+class GuidedAnswerRequest(BaseModel):
+    cancer_type: str
+    note: str = Field(min_length=10, max_length=20_000)
+    facts: list[PatientFact]
+    answer: str = Field(min_length=1, max_length=1_000)
+    retrieval_limit: int = Field(default=25, ge=5, le=100)
+
+
+class GuidedAnswerResponse(BaseModel):
+    screening: ScreenResponse
+    resolved_action: ActionItem
+    resolved_fact: PatientFact
