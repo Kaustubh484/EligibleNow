@@ -1,8 +1,12 @@
 from __future__ import annotations
 
+from datetime import datetime, timezone
 import logging
 from pathlib import Path
 import os
+import subprocess
+import sys
+import threading
 
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import FileResponse
@@ -27,6 +31,13 @@ app = FastAPI(
 app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
 
 repository = JsonRepository()
+refresh_lock = threading.Lock()
+refresh_state = {
+    "status": "idle",
+    "message": "Trial cache is ready.",
+    "started_at": None,
+    "finished_at": None,
+}
 
 
 def build_extractor():
@@ -98,6 +109,40 @@ def list_trials(cancer_type: str | None = None):
     return trials
 
 
+@app.get("/api/trial-refresh")
+def get_trial_refresh():
+    with refresh_lock:
+        return dict(refresh_state)
+
+
+@app.post("/api/trial-refresh", status_code=202)
+def start_trial_refresh():
+    if not os.getenv("BEDROCK_MODEL"):
+        raise HTTPException(
+            status_code=503,
+            detail="Bedrock must be configured before refreshing trial rules.",
+        )
+
+    with refresh_lock:
+        if refresh_state["status"] == "running":
+            raise HTTPException(
+                status_code=409,
+                detail="A trial refresh is already running.",
+            )
+        refresh_state.update(
+            {
+                "status": "running",
+                "message": "Fetching and compiling trial updates…",
+                "started_at": _utc_now(),
+                "finished_at": None,
+            }
+        )
+
+    _start_trial_refresh_thread()
+    with refresh_lock:
+        return dict(refresh_state)
+
+
 @app.get("/api/trials/{trial_id}")
 @app.get("/trials/{trial_id}", include_in_schema=False)
 def get_trial(trial_id: str):
@@ -163,3 +208,53 @@ def screen(request: ScreenRequest) -> ScreenResponse:
         candidate_count=sum(result.fail_count == 0 for result in results),
         excluded_count=sum(result.fail_count > 0 for result in results),
     )
+
+
+def _run_trial_refresh() -> None:
+    global repository
+
+    try:
+        subprocess.run(
+            [
+                sys.executable,
+                "-m",
+                "scripts.sync_cohorts",
+                "--workers",
+                "3",
+            ],
+            cwd=BASE_DIR,
+            capture_output=True,
+            text=True,
+            check=True,
+        )
+        repository = JsonRepository()
+    except Exception:
+        logger.exception("Manual trial refresh failed")
+        with refresh_lock:
+            refresh_state.update(
+                {
+                    "status": "failed",
+                    "message": "Refresh failed. Check the server log and try again.",
+                    "finished_at": _utc_now(),
+                }
+            )
+        return
+
+    with refresh_lock:
+        refresh_state.update(
+            {
+                "status": "succeeded",
+                "message": (
+                    f"Loaded {len(repository.all_trials)} refreshed trials."
+                ),
+                "finished_at": _utc_now(),
+            }
+        )
+
+
+def _start_trial_refresh_thread() -> None:
+    threading.Thread(target=_run_trial_refresh, daemon=True).start()
+
+
+def _utc_now() -> str:
+    return datetime.now(timezone.utc).isoformat()

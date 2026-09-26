@@ -71,6 +71,9 @@ The response reports both `total_trial_count` and `screened_trial_count`, so
 retrieval narrowing is explicit rather than hidden. Set `retrieval_limit` to `100`
 to evaluate the full cached cohort.
 
+The header's **Refresh trials** button runs the same incremental synchronization in
+the background and reloads the updated cohorts without restarting the app.
+
 ## Safety and data
 
 The patient examples are synthetic. The cohort caches referenced by

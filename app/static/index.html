@@ -22,6 +22,15 @@
         <span>TrialCompiler</span>
       </a>
       <div class="topbar-meta">
+        <button
+          id="refresh-button"
+          class="refresh-button"
+          type="button"
+          title="Fetch current trials from ClinicalTrials.gov"
+        >
+          <span class="refresh-icon" aria-hidden="true">↻</span>
+          <span id="refresh-label">Refresh trials</span>
+        </button>
         <span class="status-dot" aria-hidden="true"></span>
         <span id="runtime-status">Connecting…</span>
         <span id="data-source" class="demo-pill">Loading trials</span>

@@ -6,6 +6,7 @@ const state = {
   response: null,
   filter: "candidates",
   openTrialId: null,
+  refreshTimer: null,
 };
 
 const elements = {
@@ -33,6 +34,8 @@ const elements = {
   runtimeStatus: document.querySelector("#runtime-status"),
   dataSource: document.querySelector("#data-source"),
   runtimeDetail: document.querySelector("#runtime-detail"),
+  refreshButton: document.querySelector("#refresh-button"),
+  refreshLabel: document.querySelector("#refresh-label"),
 };
 
 function escapeHtml(value) {
@@ -62,13 +65,17 @@ async function loadPatients() {
   state.patients = await response.json();
 }
 
-async function loadCancerTypes() {
+async function loadCancerTypes(preferredCancerType = null) {
   const response = await fetch("/api/cancer-types");
   if (!response.ok) throw new Error("Could not load cancer cohorts.");
   state.cancerTypes = await response.json();
   const defaultCohort =
     state.cancerTypes.find((cohort) => cohort.default) ?? state.cancerTypes[0];
-  state.selectedCancerType = defaultCohort?.cancer_type ?? null;
+  const preferredCohort = state.cancerTypes.find(
+    (cohort) => cohort.cancer_type === preferredCancerType,
+  );
+  state.selectedCancerType =
+    preferredCohort?.cancer_type ?? defaultCohort?.cancer_type ?? null;
   elements.cancerSelect.innerHTML = state.cancerTypes
     .map(
       (cohort) =>
@@ -106,6 +113,67 @@ async function loadRuntime() {
     ? `${runtime.model} connected`
     : `${runtime.extractor} ready`;
   elements.dataSource.textContent = runtime.data_source;
+}
+
+function renderRefreshStatus(payload) {
+  const running = payload.status === "running";
+  elements.refreshButton.disabled = running;
+  elements.refreshButton.classList.toggle("syncing", running);
+  elements.refreshButton.title = payload.message;
+
+  if (running) {
+    elements.refreshLabel.textContent = "Refreshing…";
+  } else if (payload.status === "succeeded") {
+    elements.refreshLabel.textContent = "Trials updated";
+  } else if (payload.status === "failed") {
+    elements.refreshLabel.textContent = "Refresh failed";
+  } else {
+    elements.refreshLabel.textContent = "Refresh trials";
+  }
+}
+
+async function pollTrialRefresh() {
+  const response = await fetch("/api/trial-refresh");
+  if (!response.ok) throw new Error("Could not read trial refresh status.");
+  const payload = await response.json();
+  renderRefreshStatus(payload);
+
+  if (payload.status === "running") {
+    state.refreshTimer = window.setTimeout(pollTrialRefresh, 2000);
+    return;
+  }
+
+  state.refreshTimer = null;
+  if (payload.status === "succeeded") {
+    const selectedCancerType = state.selectedCancerType;
+    await Promise.all([
+      loadRuntime(),
+      loadCancerTypes(selectedCancerType),
+    ]);
+    updateRuntimeDetail();
+  }
+}
+
+async function refreshTrials() {
+  window.clearTimeout(state.refreshTimer);
+  elements.refreshButton.disabled = true;
+  elements.refreshButton.classList.add("syncing");
+  elements.refreshLabel.textContent = "Starting…";
+
+  try {
+    const response = await fetch("/api/trial-refresh", { method: "POST" });
+    const payload = await response.json();
+    if (!response.ok) {
+      throw new Error(payload.detail || "Could not start trial refresh.");
+    }
+    renderRefreshStatus(payload);
+    state.refreshTimer = window.setTimeout(pollTrialRefresh, 1000);
+  } catch (error) {
+    elements.refreshButton.disabled = false;
+    elements.refreshButton.classList.remove("syncing");
+    elements.refreshLabel.textContent = "Refresh failed";
+    elements.refreshButton.title = error.message;
+  }
 }
 
 function updateRuntimeDetail() {
@@ -372,6 +440,7 @@ elements.cancerSelect.addEventListener("change", async (event) => {
 });
 
 elements.retrievalLimit.addEventListener("change", screenPatient);
+elements.refreshButton.addEventListener("click", refreshTrials);
 
 elements.chartNote.addEventListener("input", updateCharacterCount);
 elements.screenButton.addEventListener("click", screenPatient);
@@ -400,6 +469,7 @@ async function initialize() {
     await Promise.all([loadRuntime(), loadCancerTypes(), loadPatients()]);
     selectCancerType(state.selectedCancerType);
     await screenPatient();
+    await pollTrialRefresh();
   } catch (error) {
     elements.errorMessage.textContent = error.message;
     showView("error");

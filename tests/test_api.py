@@ -1,10 +1,25 @@
 from fastapi.testclient import TestClient
+import pytest
 
 import app.main as main_module
 from app.main import app
 
 
 client = TestClient(app)
+
+
+@pytest.fixture(autouse=True)
+def reset_refresh_state():
+    with main_module.refresh_lock:
+        main_module.refresh_state.update(
+            {
+                "status": "idle",
+                "message": "Trial cache is ready.",
+                "started_at": None,
+                "finished_at": None,
+            }
+        )
+    yield
 
 
 def test_health() -> None:
@@ -28,6 +43,35 @@ def test_lists_default_cancer_cohort() -> None:
     assert payload[0]["trial_count"] == 6
     assert payload[0]["rule_count"] > 0
     assert payload[0]["default"] is True
+
+
+def test_trial_refresh_status_starts_idle() -> None:
+    response = client.get("/api/trial-refresh")
+
+    assert response.status_code == 200
+    assert response.json()["status"] == "idle"
+
+
+def test_trial_refresh_requires_bedrock(monkeypatch) -> None:
+    monkeypatch.delenv("BEDROCK_MODEL", raising=False)
+
+    response = client.post("/api/trial-refresh")
+
+    assert response.status_code == 503
+
+
+def test_trial_refresh_starts_in_background(monkeypatch) -> None:
+    monkeypatch.setenv("BEDROCK_MODEL", "test-model")
+    monkeypatch.setattr(
+        main_module,
+        "_start_trial_refresh_thread",
+        lambda: None,
+    )
+
+    response = client.post("/api/trial-refresh")
+
+    assert response.status_code == 202
+    assert response.json()["status"] == "running"
 
 
 def test_screen_demo_patient() -> None:
