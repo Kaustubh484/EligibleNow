@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import logging
 from pathlib import Path
 import os
 
@@ -15,6 +16,7 @@ from app.repository import JsonRepository
 
 BASE_DIR = Path(__file__).resolve().parents[1]
 STATIC_DIR = BASE_DIR / "app" / "static"
+logger = logging.getLogger(__name__)
 
 app = FastAPI(
     title="TrialCompiler",
@@ -96,7 +98,20 @@ def screen(request: ScreenRequest) -> ScreenResponse:
         raise HTTPException(status_code=404, detail="Patient example not found")
 
     note = request.note or (patient.note if patient else "")
-    facts = request.facts or extractor.extract(note)
+    if request.facts:
+        facts = request.facts
+    else:
+        try:
+            facts = extractor.extract(note)
+        except Exception as exc:
+            logger.exception("Patient fact extraction failed")
+            raise HTTPException(
+                status_code=502,
+                detail=(
+                    "The model could not produce evidence-grounded patient facts. "
+                    "Please retry the screening request."
+                ),
+            ) from exc
     if not facts:
         raise HTTPException(
             status_code=422,

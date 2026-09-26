@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 import os
+import re
 from typing import Any
 
 from app.extractor import FIELD_VOCABULARY
@@ -161,8 +162,9 @@ class BedrockFactExtractor:
     def extract(self, note: str) -> list[PatientFact]:
         prompt = f"""Extract patient facts from the de-identified chart note below.
 Use only the allowed field vocabulary in the schema. Normalize numeric lab values
-to the units implied by each field name. Copy source_text exactly from the note.
-Do not infer facts that are not explicitly documented.
+to the units implied by each field name. For source_text, copy the complete sentence
+verbatim from the note. Do not shorten or paraphrase evidence. Do not infer facts
+that are not explicitly documented.
 
 CHART NOTE:
 {note}"""
@@ -172,22 +174,49 @@ CHART NOTE:
             schema=FACT_SCHEMA,
         )
         facts = [PatientFact.model_validate(item) for item in payload["facts"]]
-        self._validate_evidence(note, facts)
-        return facts
+        return self._ground_evidence(note, facts)
 
-    @staticmethod
-    def _validate_evidence(note: str, facts: list[PatientFact]) -> None:
+    @classmethod
+    def _ground_evidence(
+        cls,
+        note: str,
+        facts: list[PatientFact],
+    ) -> list[PatientFact]:
         seen: set[str] = set()
+        grounded: list[PatientFact] = []
         for fact in facts:
             if fact.field not in FIELD_VOCABULARY:
                 raise ValueError(f"Unsupported fact field: {fact.field}")
             if fact.field in seen:
                 raise ValueError(f"Duplicate fact field: {fact.field}")
-            if fact.source_text.strip() not in note:
+
+            quote = fact.source_text.strip()
+            if quote not in note:
+                source_tokens = cls._tokens(quote)
+                candidates = [
+                    sentence
+                    for sentence in re.split(r"(?<=[.!?])\s+|\n+", note)
+                    if sentence.strip()
+                    and len(source_tokens) >= 2
+                    and source_tokens <= cls._tokens(sentence)
+                ]
+                if len(candidates) != 1:
+                    raise ValueError(
+                        f"Evidence for {fact.field} is not an exact quote from the note"
+                    )
+                quote = candidates[0].strip()
+
+            if quote not in note:
                 raise ValueError(
                     f"Evidence for {fact.field} is not an exact quote from the note"
                 )
+            grounded.append(fact.model_copy(update={"source_text": quote}))
             seen.add(fact.field)
+        return grounded
+
+    @staticmethod
+    def _tokens(text: str) -> set[str]:
+        return set(re.findall(r"[a-z0-9]+", text.casefold()))
 
 
 class BedrockRuleCompiler:

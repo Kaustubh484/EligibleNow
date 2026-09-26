@@ -102,7 +102,17 @@ async function screenPatient() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ note }),
     });
-    const payload = await response.json();
+    const responseText = await response.text();
+    let payload;
+    try {
+      payload = JSON.parse(responseText);
+    } catch {
+      throw new Error(
+        response.ok
+          ? "The screening service returned an unreadable result."
+          : "The screening service returned an unexpected error. Please retry.",
+      );
+    }
     if (!response.ok) {
       const detail = Array.isArray(payload.detail)
         ? payload.detail.map((item) => item.msg).join(" ")

@@ -1,5 +1,6 @@
 from fastapi.testclient import TestClient
 
+import app.main as main_module
 from app.main import app
 
 
@@ -36,3 +37,22 @@ def test_unknown_patient_is_404() -> None:
     response = client.post("/api/screen", json={"patient_id": "does-not-exist"})
 
     assert response.status_code == 404
+
+
+def test_model_extraction_failure_returns_clean_error(monkeypatch) -> None:
+    class FailingExtractor:
+        def extract(self, _: str):
+            raise ValueError("raw provider failure")
+
+    monkeypatch.setattr(main_module, "extractor", FailingExtractor())
+
+    response = client.post(
+        "/api/screen",
+        json={"note": "A sufficiently long de-identified patient note."},
+    )
+
+    assert response.status_code == 502
+    assert response.json()["detail"].startswith(
+        "The model could not produce evidence-grounded patient facts"
+    )
+    assert "provider" not in response.text
