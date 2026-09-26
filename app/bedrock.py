@@ -236,7 +236,7 @@ For source_text, copy the complete eligibility criterion line verbatim, includin
 its number when present; never paraphrase, shorten, or normalize it. Set
 manual_review=true only when no allowed field can represent a requirement; do not
 mark a rule for manual review merely because its source line contains multiple
-requirements. Never drop a criterion.
+requirements. Give every rule a unique rule_id. Never drop a criterion.
 
 TRIAL ID: {trial_id}
 ELIGIBILITY CRITERIA:
@@ -250,6 +250,9 @@ ELIGIBILITY CRITERIA:
             Rule.model_validate({"trial_id": trial_id, **item})
             for item in payload["rules"]
         ]
+        rule_ids = [rule.rule_id for rule in rules]
+        if len(set(rule_ids)) != len(rule_ids):
+            raise ValueError("Compiled rules contain duplicate rule IDs")
         for rule in rules:
             if rule.source_text.strip() not in eligibility_text:
                 raise ValueError(

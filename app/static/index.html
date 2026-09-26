@@ -57,6 +57,16 @@
             <span class="private-label">No PHI</span>
           </div>
 
+          <label class="field-label" for="cancer-select">Cancer cohort</label>
+          <div class="select-wrap cohort-select-wrap">
+            <select id="cancer-select">
+              <option>Loading cancer cohorts…</option>
+            </select>
+          </div>
+          <p class="field-help">
+            Open interventional drug and biological studies only.
+          </p>
+
           <label class="field-label" for="patient-select">Demo patient</label>
           <div class="select-wrap">
             <select id="patient-select" aria-describedby="patient-help">
@@ -81,7 +91,7 @@
           </div>
 
           <button id="screen-button" class="primary-button" type="button">
-            <span>Screen against all trials</span>
+            <span>Screen selected cancer trials</span>
             <span aria-hidden="true">→</span>
           </button>
 

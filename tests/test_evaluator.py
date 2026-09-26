@@ -51,6 +51,35 @@ def test_inclusion_rule_passes_and_fails() -> None:
     assert evaluate_rule(rule(), fact(value=2.0)).verdict == Verdict.fail
 
 
+def test_numeric_fact_matches_string_choices() -> None:
+    choice_rule = rule(
+        field="ecog",
+        operator=Operator.in_,
+        value=["0", "1"],
+    )
+
+    assert (
+        evaluate_rule(choice_rule, fact("ecog", 1)).verdict
+        == Verdict.pass_
+    )
+
+
+def test_diagnosis_alias_matches_trial_abbreviation() -> None:
+    diagnosis_rule = rule(
+        field="diagnosis",
+        operator=Operator.in_,
+        value=["NSCLC", "TNBC"],
+    )
+
+    assert (
+        evaluate_rule(
+            diagnosis_rule,
+            fact("diagnosis", "triple-negative breast cancer"),
+        ).verdict
+        == Verdict.pass_
+    )
+
+
 def test_exclusion_match_is_a_fail() -> None:
     exclusion = rule(
         rule_type=RuleType.exclusion,

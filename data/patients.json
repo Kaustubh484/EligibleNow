@@ -3,19 +3,49 @@
     "patient_id": "gap-patient",
     "name": "Maya R.",
     "label": "Likely match, missing tests",
+    "cancer_type": "nsclc",
     "note": "58-year-old woman with stage IV non-small cell lung cancer, adenocarcinoma. EGFR negative. ECOG 1. Creatinine 1.1 mg/dL. Bilirubin 0.8 mg/dL. No prior systemic therapy. History of well-controlled hypertension."
   },
   {
     "patient_id": "clear-match",
     "name": "Elena S.",
     "label": "Clear match",
+    "cancer_type": "nsclc",
     "note": "54-year-old woman with stage IV non-small cell lung cancer, adenocarcinoma. EGFR negative. ECOG 0. Creatinine 0.9 mg/dL. Bilirubin 0.7 mg/dL. LVEF 64%. No prior systemic therapy. No active brain metastases."
   },
   {
     "patient_id": "clear-fail",
     "name": "Jordan T.",
     "label": "Clear exclusion",
+    "cancer_type": "nsclc",
     "note": "63-year-old man with stage IV non-small cell lung cancer, squamous histology. EGFR negative. ECOG 3. Creatinine 2.1 mg/dL. Bilirubin 1.4 mg/dL. Received prior systemic therapy. Active brain metastases are present."
+  },
+  {
+    "patient_id": "breast-her2",
+    "name": "Priya N.",
+    "label": "HER2-positive metastatic disease",
+    "cancer_type": "breast",
+    "note": "52-year-old woman with metastatic breast adenocarcinoma. HER2 positive, estrogen receptor negative, and progesterone receptor negative. ECOG 1. Previously treated with trastuzumab and paclitaxel, followed by disease progression. No active brain metastases. Creatinine clearance 86 mL/min."
+  },
+  {
+    "patient_id": "breast-tnbc",
+    "name": "Avery L.",
+    "label": "Triple-negative, treatment naive",
+    "cancer_type": "breast",
+    "note": "46-year-old woman with unresectable stage III triple-negative breast cancer. HER2, estrogen receptor, and progesterone receptor negative. ECOG 0. No prior systemic therapy for advanced disease. No active autoimmune disease. LVEF 63%."
+  },
+  {
+    "patient_id": "colorectal-kras",
+    "name": "Daniel K.",
+    "label": "KRAS-mutated metastatic disease",
+    "cancer_type": "colorectal",
+    "note": "61-year-old man with stage IV colorectal adenocarcinoma and liver metastases. KRAS G12D mutation detected, BRAF wild type, and microsatellite stable. ECOG 1. Previously treated with FOLFOX and bevacizumab with disease progression. Creatinine clearance 78 mL/min."
+  },
+  {
+    "patient_id": "colorectal-msi",
+    "name": "Sofia M.",
+    "label": "MSI-high disease",
+    "cancer_type": "colorectal",
+    "note": "57-year-old woman with metastatic colorectal adenocarcinoma. Microsatellite instability high and mismatch repair deficient. KRAS and BRAF wild type. ECOG 1. No prior immunotherapy. No active brain metastases. Bilirubin 0.9 mg/dL."
   }
 ]
-

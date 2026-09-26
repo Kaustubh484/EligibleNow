@@ -62,6 +62,8 @@ class Trial(BaseModel):
     conditions: list[str]
     locations: list[TrialLocation]
     rules: list[Rule]
+    study_type: str = "Interventional"
+    intervention_types: list[str] = Field(default_factory=list)
     synthetic: bool = True
 
 
@@ -70,6 +72,7 @@ class PatientExample(BaseModel):
     name: str
     label: str
     note: str
+    cancer_type: str = "nsclc"
 
 
 class CriterionResult(BaseModel):
@@ -90,6 +93,8 @@ class TrialResult(BaseModel):
     status: str
     summary: str
     locations: list[TrialLocation]
+    study_type: str
+    intervention_types: list[str]
     disposition: str
     pass_count: int
     fail_count: int
@@ -106,6 +111,7 @@ class ActionItem(BaseModel):
 
 
 class ScreenRequest(BaseModel):
+    cancer_type: str | None = None
     patient_id: str | None = None
     note: str | None = Field(default=None, min_length=10, max_length=20_000)
     facts: list[PatientFact] | None = None
@@ -118,6 +124,7 @@ class ScreenRequest(BaseModel):
 
 
 class ScreenResponse(BaseModel):
+    cancer_type: str
     patient_id: str | None
     patient_note: str
     facts: list[PatientFact]

@@ -10,8 +10,9 @@ This repository contains a complete hackathon demo:
 - FastAPI API and single-page coordinator UI
 - deterministic eligibility evaluator with inclusion and exclusion semantics
 - evidence-preserving fact extraction through an OpenAI model on Amazon Bedrock
-- a live cache of 20 Recruiting or Not Yet Recruiting ClinicalTrials.gov studies
-- six synthetic fallback trials and three synthetic patient examples
+- three cancer cohorts with 30 Recruiting or Not Yet Recruiting treatment studies
+- NSCLC, breast cancer, and colorectal cancer screening
+- six synthetic fallback trials and seven synthetic patient examples
 - ranked candidates, hard-fail visibility, and unknowns-to-actions grouping
 - unit and API tests
 
@@ -63,11 +64,11 @@ The `/screen` and `/trials/{id}` aliases match the original project plan.
 
 ## Safety and data
 
-The patient examples are synthetic. `data/trials.live.json` is compiled from the
-public ClinicalTrials.gov API; `data/trials.json` remains an offline synthetic
-fallback. The app is decision support, not a medical device, and does not determine
-final enrollment. A qualified study team must check the current protocol and source
-record.
+The patient examples are synthetic. The cohort caches referenced by
+`data/cohorts.json` are compiled from the public ClinicalTrials.gov API;
+`data/trials.json` remains an offline synthetic fallback. The app is decision
+support, not a medical device, and does not determine final enrollment. A qualified
+study team must check the current protocol and source record.
 
 The model translates trial prose and de-identified chart text into constrained,
 evidence-linked facts and rules. Deterministic Python code makes every
@@ -87,7 +88,7 @@ export AWS_BEARER_TOKEN_BEDROCK='...'
 export AWS_REGION='us-east-1'
 export BEDROCK_MODEL='openai.gpt-5.6-luna'
 export TRIALCOMPILER_EXTRACTOR='bedrock'
-export TRIALCOMPILER_TRIALS_FILE='trials.live.json'
+export TRIALCOMPILER_COHORTS_FILE='cohorts.json'
 uvicorn app.main:app --reload
 ```
 
@@ -106,31 +107,32 @@ python3 -m scripts.check_bedrock --region us-east-1 --profile default
 
 ## Refresh the trial cache
 
-Fetch public recruiting studies before the demo:
+Fetch public recruiting interventional drug or biological studies before the demo:
 
 ```bash
 python3 -m scripts.fetch_trials \
-  --condition 'non-small cell lung cancer' \
-  --limit 20 \
-  --output data/raw_trials.json
+  --condition 'breast cancer' \
+  --limit 10 \
+  --output data/raw_trials.breast.json
 ```
 
-The default status filter is `RECRUITING|NOT_YET_RECRUITING`; closed and
-active-but-not-recruiting studies are excluded.
+The default status filter is `RECRUITING|NOT_YET_RECRUITING`. Observational,
+behavioral, device-only, closed, and active-but-not-recruiting studies are excluded.
+Pass `--all-study-types` to disable the treatment-study filter.
 
 Compile every eligibility criterion into cached rules with the configured Bedrock
 model:
 
 ```bash
 python3 -m scripts.compile_trials \
-  --input data/raw_trials.json \
-  --output data/trials.live.json
+  --input data/raw_trials.breast.json \
+  --output data/trials.breast.json
 ```
 
 Point the app at that cache:
 
 ```bash
-export TRIALCOMPILER_TRIALS_FILE='trials.live.json'
+export TRIALCOMPILER_COHORTS_FILE='cohorts.json'
 export TRIALCOMPILER_EXTRACTOR='bedrock'
 uvicorn app.main:app --reload
 ```

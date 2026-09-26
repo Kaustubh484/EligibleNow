@@ -43,6 +43,24 @@ def main() -> None:
 
     for index, raw in enumerate(selected_trials, start=1):
         if raw["trial_id"] in compiled_by_id:
+            cached = compiled_by_id[raw["trial_id"]]
+            locations = raw.get("locations") or [
+                {"facility": "Contact study team", "city": "Unknown", "state": ""}
+            ]
+            metadata = {
+                key: value
+                for key, value in raw.items()
+                if key not in {"eligibility_text", "locations"}
+            }
+            refreshed = Trial(
+                **metadata,
+                locations=[
+                    TrialLocation.model_validate(item)
+                    for item in locations
+                ],
+                rules=cached["rules"],
+            )
+            compiled_by_id[raw["trial_id"]] = refreshed.model_dump(mode="json")
             print(f"[{index}/{len(selected_trials)}] cached {raw['trial_id']}")
             continue
         eligibility_text = raw["eligibility_text"]

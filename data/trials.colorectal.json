@@ -1,0 +1,4588 @@
+[
+  {
+    "trial_id": "NCT05286814",
+    "title": "PDS01ADC in Combination With Hepatic Artery Infusion Pump (HAIP) and Systemic Therapy for Subjects With Metastatic Colorectal Cancer, Intrahepatic Cholangiocarcinoma, or Metastatic Adrenocortical Carcinoma",
+    "phase": "Phase2",
+    "status": "Recruiting",
+    "summary": "Background:\n\nOne way to treat liver cancer is to deliver chemotherapy drugs only to the liver (and not to the whole body). Researchers want to see if adding the drug PDS01ADC can improve the treatment. The drug triggers the immune system to fight cancer.\\<TAB\\>\n\nObjective:\n\nTo see if treatment with HAIPs to deliver liver-directed FUDR and Dexamethasone chemotherapy in combination with PDS01ADC is effective for certain cancers.\n\nEligibility:\n\nPeople aged 18 and older who have cancer of the bile ducts that is only in the liver, or colorectal cancer that has spread to the liver, or cancer of the adrenal glands that has spread to the liver, who are also receiving or planning to receive standard systemic chemotherapy for their disease.\n\nDesign:\n\nParticipants will be screened with:\n\nMedical history\n\nPhysical exam\n\nBlood tests\n\nPregnancy test (if needed)\n\nTumor biopsy (if needed)\n\nElectrocardiogram\n\nComputed tomography (CT) scans\n\nParticipants will have an abdominal operation. A catheter will be placed into an artery that feeds blood to the liver. The catheter will then be attached to the HAIP. The HAIP will lay under the skin on the left side of the abdomen.\n\nAll participants will have liver-directed FUDR and Dexamethasone chemotherapy drugs or heparin with saline infused into the HAIP every 2 weeks. PDS01ADC will be injected under the skin every 4 weeks. They will receive this treatment until their cancer gets worse or they have bad side effects.\n\nParticipants will also receive standard systemic chemotherapy for their disease, assigned based on diagnosis, through an IV by their medical oncologist (at NIH or by a local provider) every 2 weeks.\n\nParticipants will have 2 study visits at NIH each month. They will have CT scans every 8 weeks. At visits, they will repeat some screening tests.\n\nParticipants will have a follow-up visit 1 month after treatment ends. Then they will be contacted every 6 months for 5 years.",
+    "conditions": [
+      "Metastatic Colorectal Cancer (Mcrc)",
+      "Intrahepatic Cholangiocarcinoma (Icc)",
+      "Intrahepatic Bile Duct Cancer",
+      "Colorectal Neoplasms",
+      "Colorectal Cancer",
+      "Cholangiocarcinoma",
+      "Bile Duct Neoplasms",
+      "Bile Duct Cancer",
+      "Adrenocortical Carcinoma (ACC)",
+      "Adrenal Cortical Carcinoma",
+      "Adrenal Gland Cancer",
+      "Adrenal Gland Neoplasms",
+      "Adrenal Cortex Neoplasms"
+    ],
+    "locations": [
+      {
+        "facility": "National Institutes of Health Clinical Center",
+        "city": "Bethesda",
+        "state": "Maryland"
+      }
+    ],
+    "rules": [
+      {
+        "trial_id": "NCT05286814",
+        "rule_id": "I1",
+        "type": "inclusion",
+        "field": "diagnosis",
+        "operator": "in",
+        "value": [
+          "metastatic colorectal cancer",
+          "intrahepatic cholangiocarcinoma",
+          "adrenocortical carcinoma"
+        ],
+        "source_text": "* Participants must have a documented diagnosis of one of the following cancers:",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT05286814",
+        "rule_id": "I2",
+        "type": "inclusion",
+        "field": "age_years",
+        "operator": "gte",
+        "value": 18,
+        "source_text": "* Age >= 18 years.",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT05286814",
+        "rule_id": "I3",
+        "type": "inclusion",
+        "field": "pregnant",
+        "operator": "eq",
+        "value": false,
+        "source_text": "* Negative serum or urine pregnancy test at screening for individuals of childbearing potential (IOCBP).",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT05286814",
+        "rule_id": "I4",
+        "type": "inclusion",
+        "field": "contraception_agreement",
+        "operator": "eq",
+        "value": true,
+        "source_text": "* All participants (regardless of childbearing potential) must agree to use highly effective contraception prior to study entry, for the duration of study participation, and for 3 months after completion of study treatment for those able to father a child or 6 months after completion of study treatment for those of child-bearing potential (i.e., IOCBP). Highly effective birth control (failure rate of less than 1%), e.g., intrauterine device (IUD), intrauterine hormone-releasing system (IUS), bilateral tubal occlusion, vasectomized partner and sexual abstinence. Note: The use of condoms by participants who are able to get other individuals pregnant is required unless the partner of childbearing potential is permanently sterile.",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT05286814",
+        "rule_id": "I5",
+        "type": "inclusion",
+        "field": "breastfeeding",
+        "operator": "eq",
+        "value": false,
+        "source_text": "* Nursing (including breastfeeding) participants must agree to discontinue nursing.",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT05286814",
+        "rule_id": "I6",
+        "type": "inclusion",
+        "field": "diagnosis",
+        "operator": "present",
+        "value": null,
+        "source_text": "* Participants must have an identified medical oncologist who has recommended and is planning to oversee treatment with one of the following standard chemotherapy regimens (based on disease type) not to begin sooner than 28 days after initiation of study-directed HAIP intervention:",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT05286814",
+        "rule_id": "I7",
+        "type": "inclusion",
+        "field": "diagnosis",
+        "operator": "present",
+        "value": null,
+        "source_text": "  * mCRC: FOLFOX or FOLFIRI",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT05286814",
+        "rule_id": "I8",
+        "type": "inclusion",
+        "field": "diagnosis",
+        "operator": "present",
+        "value": null,
+        "source_text": "  * ICC: GemOx or FOLFOX",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT05286814",
+        "rule_id": "I9",
+        "type": "inclusion",
+        "field": "diagnosis",
+        "operator": "present",
+        "value": null,
+        "source_text": "  * ACC: GemOx",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT05286814",
+        "rule_id": "I10",
+        "type": "inclusion",
+        "field": "diagnosis",
+        "operator": "present",
+        "value": null,
+        "source_text": "* Arterial anatomy on CT angiogram or CT chest, abdomen and pelvis multiphase (i.e., CT C/A/P multiphase) amenable to placement of the HAIP.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT05286814",
+        "rule_id": "I11",
+        "type": "inclusion",
+        "field": "diagnosis",
+        "operator": "present",
+        "value": null,
+        "source_text": "* Participant must sign the informed consent form to participate in this study.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT05286814",
+        "rule_id": "I12",
+        "type": "inclusion",
+        "field": "hiv_positive",
+        "operator": "eq",
+        "value": true,
+        "source_text": "* HIV-positive participants may be considered for this study only if they have an undetectable viral load.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT05286814",
+        "rule_id": "I13",
+        "type": "inclusion",
+        "field": "diagnosis",
+        "operator": "present",
+        "value": null,
+        "source_text": "* Participants must agree to co-enroll on the Surgical Oncology Program s tissue collection protocol 13C0176, \"Tumor, Normal Tissue and Specimens from Patients Undergoing Evaluation or Surgical Resection of Solid Tumors\".",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT05286814",
+        "rule_id": "I14",
+        "type": "inclusion",
+        "field": "liver_metastases",
+        "operator": "eq",
+        "value": true,
+        "source_text": "* Participant's liver metastases must not be amenable to resection/ablation to No Evidence of Disease (NED) in one stage.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT05286814",
+        "rule_id": "I15",
+        "type": "inclusion",
+        "field": "histology",
+        "operator": "eq",
+        "value": "colorectal adenocarcinoma",
+        "source_text": "* Participants must have histologically or cytologically confirmed diagnosis of colorectal adenocarcinoma metastatic to the liver (Cohort 1).",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT05286814",
+        "rule_id": "I16",
+        "type": "inclusion",
+        "field": "liver_metastases",
+        "operator": "eq",
+        "value": true,
+        "source_text": "* Participants must have measurable liver metastatic disease.",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT05286814",
+        "rule_id": "I17",
+        "type": "inclusion",
+        "field": "prior_systemic_therapy",
+        "operator": "eq",
+        "value": true,
+        "source_text": "* Participants must have received 1st line systemic chemotherapy.",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT05286814",
+        "rule_id": "I18",
+        "type": "inclusion",
+        "field": "prior_therapy_lines",
+        "operator": "gte",
+        "value": 1,
+        "source_text": "* Participants must have received 1st line systemic chemotherapy.",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT05286814",
+        "rule_id": "I19",
+        "type": "inclusion",
+        "field": "ecog",
+        "operator": "lte",
+        "value": 1,
+        "source_text": "* ECOG performance status <= 1.",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT05286814",
+        "rule_id": "I20",
+        "type": "inclusion",
+        "field": "anc_10e9_l",
+        "operator": "gt",
+        "value": 1.5,
+        "source_text": "  * absolute neutrophil count > 1,500/mcL",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT05286814",
+        "rule_id": "I21",
+        "type": "inclusion",
+        "field": "platelets_10e9_l",
+        "operator": "gt",
+        "value": 90,
+        "source_text": "  * platelets > 90,000/mcL",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT05286814",
+        "rule_id": "I22",
+        "type": "inclusion",
+        "field": "hemoglobin_g_dl",
+        "operator": "gt",
+        "value": 8,
+        "source_text": "  * hemoglobin > 8 g/dL",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT05286814",
+        "rule_id": "I23",
+        "type": "inclusion",
+        "field": "bilirubin_uln_multiple",
+        "operator": "lt",
+        "value": 1.5,
+        "source_text": "  * total bilirubin < 1.5 X institutional upper limit of normal",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT05286814",
+        "rule_id": "I24",
+        "type": "inclusion",
+        "field": "ast_uln_multiple",
+        "operator": "lt",
+        "value": 2.5,
+        "source_text": "  * AST(SGOT)/ALT(SGPT) < 2.5 X institutional upper limit of normal",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT05286814",
+        "rule_id": "I25",
+        "type": "inclusion",
+        "field": "alt_uln_multiple",
+        "operator": "lt",
+        "value": 2.5,
+        "source_text": "  * AST(SGOT)/ALT(SGPT) < 2.5 X institutional upper limit of normal",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT05286814",
+        "rule_id": "I26",
+        "type": "inclusion",
+        "field": "creatinine_clearance_ml_min",
+        "operator": "gt",
+        "value": 60,
+        "source_text": "  * creatinine within normal institutional limits OR eGFR within normal as predicted by the CKD-EPI equation > 60 mL/min/1.73 m2.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT05286814",
+        "rule_id": "I27",
+        "type": "inclusion",
+        "field": "histology",
+        "operator": "eq",
+        "value": "intrahepatic cholangiocarcinoma",
+        "source_text": "* Participants must have histologically or cytologically confirmed diagnosis of intrahepatic cholangiocarcinoma confined to the liver (Cohort 2). Archival tumor sample may be used but if archival tissue is not available or is not adequate, tissue biopsy will be required.",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT05286814",
+        "rule_id": "I28",
+        "type": "inclusion",
+        "field": "metastatic_disease",
+        "operator": "eq",
+        "value": true,
+        "source_text": "* Clinical or radiographic evidence of metastatic disease to regional (porta hepatis) lymph nodes will be allowed, provided it is amenable to resection.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT05286814",
+        "rule_id": "I29",
+        "type": "inclusion",
+        "field": "measurable_disease",
+        "operator": "eq",
+        "value": true,
+        "source_text": "* Participants must have radiographically measurable disease.",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT05286814",
+        "rule_id": "I30",
+        "type": "inclusion",
+        "field": "unresectable_disease",
+        "operator": "eq",
+        "value": true,
+        "source_text": "* Disease must be considered unresectable at the time of preoperative evaluation.",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT05286814",
+        "rule_id": "I31",
+        "type": "inclusion",
+        "field": "prior_systemic_therapy",
+        "operator": "eq",
+        "value": true,
+        "source_text": "* Participants must have received 1st line systemic chemotherapy.",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT05286814",
+        "rule_id": "I32",
+        "type": "inclusion",
+        "field": "prior_therapy_lines",
+        "operator": "gte",
+        "value": 1,
+        "source_text": "* Participants must have received 1st line systemic chemotherapy.",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT05286814",
+        "rule_id": "I33",
+        "type": "inclusion",
+        "field": "ecog",
+        "operator": "lte",
+        "value": 1,
+        "source_text": "* ECOG performance status <=1.",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT05286814",
+        "rule_id": "I34",
+        "type": "inclusion",
+        "field": "anc_10e9_l",
+        "operator": "gt",
+        "value": 1.5,
+        "source_text": "  * absolute neutrophil count > 1,500/mcL",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT05286814",
+        "rule_id": "I35",
+        "type": "inclusion",
+        "field": "platelets_10e9_l",
+        "operator": "gte",
+        "value": 75,
+        "source_text": "  * platelets >= 75,000/ mm\\^3",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT05286814",
+        "rule_id": "I36",
+        "type": "inclusion",
+        "field": "hemoglobin_g_dl",
+        "operator": "gt",
+        "value": 8,
+        "source_text": "  * hemoglobin > 8 g/dL",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT05286814",
+        "rule_id": "I37",
+        "type": "inclusion",
+        "field": "bilirubin_mg_dl",
+        "operator": "lt",
+        "value": 1.5,
+        "source_text": "  * total bilirubin < 1.5 mg/dl",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT05286814",
+        "rule_id": "I38",
+        "type": "inclusion",
+        "field": "creatinine_mg_dl",
+        "operator": "lte",
+        "value": 1.5,
+        "source_text": "  * creatinine <= 1.5 mg/dl",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT05286814",
+        "rule_id": "I39",
+        "type": "inclusion",
+        "field": "histology",
+        "operator": "eq",
+        "value": "adrenocortical carcinoma",
+        "source_text": "* Participants must have histologically or cytologically confirmed diagnosis of adrenocortical carcinoma (ACC), also referred to as \"adrenocortical cancer\".",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT05286814",
+        "rule_id": "I40",
+        "type": "inclusion",
+        "field": "prior_systemic_therapy",
+        "operator": "eq",
+        "value": true,
+        "source_text": "* Participants must have received at least one line of systemic chemotherapy.",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT05286814",
+        "rule_id": "I41",
+        "type": "inclusion",
+        "field": "prior_therapy_lines",
+        "operator": "gte",
+        "value": 1,
+        "source_text": "* Participants must have received at least one line of systemic chemotherapy.",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT05286814",
+        "rule_id": "I42",
+        "type": "inclusion",
+        "field": "liver_metastases",
+        "operator": "eq",
+        "value": true,
+        "source_text": "* Participants must have measurable liver metastatic disease.",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT05286814",
+        "rule_id": "I43",
+        "type": "inclusion",
+        "field": "ecog",
+        "operator": "lte",
+        "value": 1,
+        "source_text": "* ECOG performance status <= 1.",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT05286814",
+        "rule_id": "I44",
+        "type": "inclusion",
+        "field": "anc_10e9_l",
+        "operator": "gt",
+        "value": 1.5,
+        "source_text": "  * absolute neutrophil count > 1,500/mcL",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT05286814",
+        "rule_id": "I45",
+        "type": "inclusion",
+        "field": "platelets_10e9_l",
+        "operator": "gt",
+        "value": 90,
+        "source_text": "  * platelets > 90,000/mcL",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT05286814",
+        "rule_id": "I46",
+        "type": "inclusion",
+        "field": "hemoglobin_g_dl",
+        "operator": "gt",
+        "value": 8,
+        "source_text": "  * hemoglobin > 8 g/dL",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT05286814",
+        "rule_id": "I47",
+        "type": "inclusion",
+        "field": "bilirubin_uln_multiple",
+        "operator": "lt",
+        "value": 1.5,
+        "source_text": "  * total bilirubin < 1.5 X institutional upper limit of normal",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT05286814",
+        "rule_id": "I48",
+        "type": "inclusion",
+        "field": "ast_uln_multiple",
+        "operator": "lt",
+        "value": 3,
+        "source_text": "  * AST(SGOT)/ALT(SGPT) < 3 X institutional upper limit of normal",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT05286814",
+        "rule_id": "I49",
+        "type": "inclusion",
+        "field": "alt_uln_multiple",
+        "operator": "lt",
+        "value": 3,
+        "source_text": "  * AST(SGOT)/ALT(SGPT) < 3 X institutional upper limit of normal",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT05286814",
+        "rule_id": "I50",
+        "type": "inclusion",
+        "field": "creatinine_mg_dl",
+        "operator": "lt",
+        "value": 2,
+        "source_text": "  * creatinine < 2 X institutional upper limit of normal",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT05286814",
+        "rule_id": "E1",
+        "type": "exclusion",
+        "field": "diagnosis",
+        "operator": "present",
+        "value": null,
+        "source_text": "Participants who are receiving any other investigational agents.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT05286814",
+        "rule_id": "E2",
+        "type": "exclusion",
+        "field": "diagnosis",
+        "operator": "present",
+        "value": null,
+        "source_text": "* Participants who have previously received rIL-12.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT05286814",
+        "rule_id": "E3",
+        "type": "exclusion",
+        "field": "autoimmune_disease_active",
+        "operator": "eq",
+        "value": true,
+        "source_text": "* Participants with active autoimmune diseases, that might deteriorate when receiving an immunostimulatory agent with the exceptions:",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT05286814",
+        "rule_id": "E4",
+        "type": "exclusion",
+        "field": "immunocompromised",
+        "operator": "eq",
+        "value": true,
+        "source_text": "* History of organ transplant, except for transplants that do not require immunosuppression.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT05286814",
+        "rule_id": "E5",
+        "type": "exclusion",
+        "field": "autoimmune_disease_active",
+        "operator": "eq",
+        "value": true,
+        "source_text": "* History of or active inflammatory bowel disease (e.g., Crohn s disease, ulcerative colitis).",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT05286814",
+        "rule_id": "E6",
+        "type": "exclusion",
+        "field": "diagnosis",
+        "operator": "present",
+        "value": null,
+        "source_text": "* Known hypersensitivity or allergic reactions attributed to any compounds of similar chemical or biologic composition to the study medication, such as recombinant IL-12 or other monoclonal antibodies and history of allergic reactions attributed to compounds of similar chemical composition to FUDR or heparin.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT05286814",
+        "rule_id": "E7",
+        "type": "exclusion",
+        "field": "diagnosis",
+        "operator": "present",
+        "value": null,
+        "source_text": "* Clinically significant (i.e., active) cardiovascular disease: cerebral vascular accident/stroke < 6 months prior to enrollment, myocardial infarction < 6 months prior to enrollment, unstable angina, congestive heart failure (>= NYHA III) or serious cardiac arrhythmia requiring medication.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT05286814",
+        "rule_id": "E8",
+        "type": "exclusion",
+        "field": "diagnosis",
+        "operator": "present",
+        "value": null,
+        "source_text": "* All conditions associated with significant necrosis of nontumor-bearing tissues.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT05286814",
+        "rule_id": "E9",
+        "type": "exclusion",
+        "field": "diagnosis",
+        "operator": "present",
+        "value": null,
+        "source_text": "* Esophageal or gastroduodenal ulcers < 6 months prior to treatment.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT05286814",
+        "rule_id": "E10",
+        "type": "exclusion",
+        "field": "diagnosis",
+        "operator": "present",
+        "value": null,
+        "source_text": "* Active ischemic bowel disease.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT05286814",
+        "rule_id": "E11",
+        "type": "exclusion",
+        "field": "diagnosis",
+        "operator": "present",
+        "value": null,
+        "source_text": "* Psychiatric illness/social situations that would limit compliance with study requirements.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT05286814",
+        "rule_id": "E12",
+        "type": "exclusion",
+        "field": "other_malignancy_active",
+        "operator": "eq",
+        "value": true,
+        "source_text": "* Active concurrent malignancies within the last five years other than colorectal primary except basal cell skin carcinoma and thyroid carcinoma.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT05286814",
+        "rule_id": "E13",
+        "type": "exclusion",
+        "field": "radiation_within_days",
+        "operator": "present",
+        "value": null,
+        "source_text": "* Prior radiation to liver.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT05286814",
+        "rule_id": "E14",
+        "type": "exclusion",
+        "field": "hepatitis_b_active",
+        "operator": "eq",
+        "value": true,
+        "source_text": "* Participants with active Hepatitis B or C infection.",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT05286814",
+        "rule_id": "E15",
+        "type": "exclusion",
+        "field": "hepatitis_c_active",
+        "operator": "eq",
+        "value": true,
+        "source_text": "* Participants with active Hepatitis B or C infection.",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT05286814",
+        "rule_id": "E16",
+        "type": "exclusion",
+        "field": "diagnosis",
+        "operator": "present",
+        "value": null,
+        "source_text": "* Significant acute or chronic infections (i.e., tuberculosis) history of exposure or history of positive tuberculosis test; plus, presence of clinical symptoms, physical or radiographic findings).",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT05286814",
+        "rule_id": "E17",
+        "type": "exclusion",
+        "field": "diagnosis",
+        "operator": "present",
+        "value": null,
+        "source_text": "* Any condition, including the presence of laboratory abnormalities and/or insufficient normal liver parenchyma, which places the participant at unacceptable risk if they were to participate in the study or confounds the ability to interpret data from the study.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT05286814",
+        "rule_id": "E18",
+        "type": "exclusion",
+        "field": "metastatic_disease",
+        "operator": "eq",
+        "value": true,
+        "source_text": "-Participants with incontrovertible radiographic evidence of disease outside of the colon/rectum (primary) and liver given unlikelihood of benefit from liver-directed therapy.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT05286814",
+        "rule_id": "E19",
+        "type": "exclusion",
+        "field": "prior_therapy_lines",
+        "operator": "present",
+        "value": null,
+        "source_text": "* Participants who have undergone extra-hepatic metastasectomy and have a documented disease-free interval less than or equal to 4 months.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT05286814",
+        "rule_id": "E20",
+        "type": "exclusion",
+        "field": "msi_high",
+        "operator": "eq",
+        "value": true,
+        "source_text": "* Participants with a history of MSI-high results who need to be treated with check-point inhibitors.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT05286814",
+        "rule_id": "E21",
+        "type": "exclusion",
+        "field": "diagnosis",
+        "operator": "present",
+        "value": null,
+        "source_text": "* Prior treatment with FUDR.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT05286814",
+        "rule_id": "E22",
+        "type": "exclusion",
+        "field": "metastatic_disease",
+        "operator": "eq",
+        "value": true,
+        "source_text": "-Presence of distant metastatic disease. Clinical or radiographic evidence of metastatic disease to regional lymph nodes will be allowed, provided it is amenable to resection.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT05286814",
+        "rule_id": "E23",
+        "type": "exclusion",
+        "field": "diagnosis",
+        "operator": "present",
+        "value": null,
+        "source_text": "* Prior treatment with FUDR.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT05286814",
+        "rule_id": "E24",
+        "type": "exclusion",
+        "field": "diagnosis",
+        "operator": "present",
+        "value": null,
+        "source_text": "* Diagnosis of sclerosing cholangitis.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT05286814",
+        "rule_id": "E25",
+        "type": "exclusion",
+        "field": "ascites_symptomatic",
+        "operator": "eq",
+        "value": true,
+        "source_text": "* Clinical evidence or portal hypertension (ascites, gastroesophageal varices, or portal vein thrombosis).",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT05286814",
+        "rule_id": "E26",
+        "type": "exclusion",
+        "field": "diagnosis",
+        "operator": "present",
+        "value": null,
+        "source_text": "* Clinical evidence or portal hypertension (ascites, gastroesophageal varices, or portal vein thrombosis).",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT05286814",
+        "rule_id": "E27",
+        "type": "exclusion",
+        "field": "metastatic_disease",
+        "operator": "eq",
+        "value": true,
+        "source_text": "* Participants with incontrovertible radiographic evidence of additional abdominal disease outside of the liver (including the primary tumor) that is not amenable to complete surgical extirpation at the time of pump placement.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT05286814",
+        "rule_id": "E28",
+        "type": "exclusion",
+        "field": "diagnosis",
+        "operator": "present",
+        "value": null,
+        "source_text": "* Clinical evidence or portal hypertension (ascites, gastroesophageal varices, or portal vein thrombosis).",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT05286814",
+        "rule_id": "E29",
+        "type": "exclusion",
+        "field": "diagnosis",
+        "operator": "present",
+        "value": null,
+        "source_text": "* Diagnosis of sclerosing cholangitis.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT05286814",
+        "rule_id": "E30",
+        "type": "exclusion",
+        "field": "metastatic_disease",
+        "operator": "eq",
+        "value": true,
+        "source_text": "* Participants with pulmonary metastases that have progressed by RECIST criteria in the preceding 3 months prior to study enrollment.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT05286814",
+        "rule_id": "E31",
+        "type": "exclusion",
+        "field": "mmr_deficient",
+        "operator": "eq",
+        "value": true,
+        "source_text": "* Participants with known mismatch repair mutation who have not been treated with a checkpoint inhibitor. Acceptable methods of MSI testing for history of MSI results include immunohistochemistry (IHC) and next generation sequencing (NGS) of tumor material.",
+        "manual_review": true
+      }
+    ],
+    "study_type": "Interventional",
+    "intervention_types": [
+      "Device",
+      "Drug"
+    ],
+    "synthetic": false
+  },
+  {
+    "trial_id": "NCT06903858",
+    "title": "Toripalimab Plus Celecoxib for dMMR/MSI-H Locally Advanced Colorectal Cancer",
+    "phase": "Phase2",
+    "status": "Recruiting",
+    "summary": "The PICC-3 study is a multicentre, single-arm, phase II trial evaluating toripalimab plus celecoxib in patients with mismatch repair-deficient (dMMR) or microsatellite instability-high (MSI-H) locally advanced colorectal cancer. The trial uses a response-adapted treatment strategy, whereby patients with clinical complete response (cCR) after therapy may enter a non-operative management pathway, while patients without cCR proceed to surgery. Response assessment is based on imaging, endoscopy, biopsy evaluation, and ctDNA analysis.",
+    "conditions": [
+      "Colorectal Cancer",
+      "Microsatellite Instability High",
+      "Mismatch Repair Deficiency"
+    ],
+    "locations": [
+      {
+        "facility": "The Sixth Affiliated Hospital, Sun Yat-sen University",
+        "city": "Guangzhou",
+        "state": "Guangdong"
+      }
+    ],
+    "rules": [
+      {
+        "trial_id": "NCT06903858",
+        "rule_id": "I1",
+        "type": "inclusion",
+        "field": "diagnosis",
+        "operator": "present",
+        "value": null,
+        "source_text": "1. Signed informed consent and willingness/compliance with study procedures.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06903858",
+        "rule_id": "I2",
+        "type": "inclusion",
+        "field": "age_years",
+        "operator": "gte",
+        "value": 18,
+        "source_text": "2. Age \u226518 years.",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06903858",
+        "rule_id": "I3",
+        "type": "inclusion",
+        "field": "diagnosis",
+        "operator": "eq",
+        "value": "colorectal adenocarcinoma",
+        "source_text": "3. Histologically confirmed colorectal adenocarcinoma.",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06903858",
+        "rule_id": "I4",
+        "type": "inclusion",
+        "field": "ecog",
+        "operator": "in",
+        "value": [
+          "0",
+          "1"
+        ],
+        "source_text": "4. ECOG performance status 0-1.",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06903858",
+        "rule_id": "I5a",
+        "type": "inclusion",
+        "field": "stage",
+        "operator": "in",
+        "value": [
+          "T3",
+          "T4"
+        ],
+        "source_text": "5. Locally advanced primary tumor (T3/T4 and/or N+) confirmed by CT/MRI (pelvic MRI for rectal cancer).",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06903858",
+        "rule_id": "I5b",
+        "type": "inclusion",
+        "field": "stage",
+        "operator": "eq",
+        "value": "N+",
+        "source_text": "5. Locally advanced primary tumor (T3/T4 and/or N+) confirmed by CT/MRI (pelvic MRI for rectal cancer).",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06903858",
+        "rule_id": "I6a",
+        "type": "inclusion",
+        "field": "mmr_deficient",
+        "operator": "eq",
+        "value": true,
+        "source_text": "6. dMMR (IHC) or MSI-H (PCR) status.",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06903858",
+        "rule_id": "I6b",
+        "type": "inclusion",
+        "field": "msi_high",
+        "operator": "eq",
+        "value": true,
+        "source_text": "6. dMMR (IHC) or MSI-H (PCR) status.",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06903858",
+        "rule_id": "I7a",
+        "type": "inclusion",
+        "field": "prior_systemic_therapy",
+        "operator": "eq",
+        "value": false,
+        "source_text": "7. No prior anti-cancer therapy for colonrectal cancer (surgery/chemotherapy/targeted therapy/radiation).",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06903858",
+        "rule_id": "I7b",
+        "type": "inclusion",
+        "field": "diagnosis",
+        "operator": "present",
+        "value": null,
+        "source_text": "7. No prior anti-cancer therapy for colonrectal cancer (surgery/chemotherapy/targeted therapy/radiation).",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06903858",
+        "rule_id": "I8",
+        "type": "inclusion",
+        "field": "diagnosis",
+        "operator": "present",
+        "value": null,
+        "source_text": "8. Adequate organ function",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06903858",
+        "rule_id": "I9a",
+        "type": "inclusion",
+        "field": "pregnant",
+        "operator": "eq",
+        "value": false,
+        "source_text": "9. For women of childbearing potential: negative pregnancy test and contraception use during and for 3 months post-treatment. Male participants with fertile partners must use contraception.",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06903858",
+        "rule_id": "I9b",
+        "type": "inclusion",
+        "field": "contraception_agreement",
+        "operator": "eq",
+        "value": true,
+        "source_text": "9. For women of childbearing potential: negative pregnancy test and contraception use during and for 3 months post-treatment. Male participants with fertile partners must use contraception.",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06903858",
+        "rule_id": "I10",
+        "type": "inclusion",
+        "field": "diagnosis",
+        "operator": "present",
+        "value": null,
+        "source_text": "10. Willingness to adhere to study requirements.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06903858",
+        "rule_id": "E1",
+        "type": "exclusion",
+        "field": "metastatic_disease",
+        "operator": "eq",
+        "value": true,
+        "source_text": "1. Presence of distant metastases (M1) confirmed by CT/MRI or PET-CT (at least covering the chest, abdomen, and pelvis).",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06903858",
+        "rule_id": "E2",
+        "type": "exclusion",
+        "field": "diagnosis",
+        "operator": "present",
+        "value": null,
+        "source_text": "2. Complete intestinal obstruction, active bleeding, or perforation requiring emergency surgery.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06903858",
+        "rule_id": "E3",
+        "type": "exclusion",
+        "field": "unresectable_disease",
+        "operator": "eq",
+        "value": true,
+        "source_text": "3. Inability to achieve complete resection of the primary colorectal tumor.",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06903858",
+        "rule_id": "E4",
+        "type": "exclusion",
+        "field": "other_malignancy_active",
+        "operator": "eq",
+        "value": true,
+        "source_text": "4. History or concurrent active malignancy (except malignancies cured \u22655 years ago or adequately treated carcinoma in situ).",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06903858",
+        "rule_id": "E5a",
+        "type": "exclusion",
+        "field": "prior_pd1_pdl1_therapy",
+        "operator": "eq",
+        "value": true,
+        "source_text": "5. Prior treatment with anti-PD-1/PD-L1 antibodies, anti-CTLA-4 antibodies, or other drugs/antibodies targeting T-cell co-stimulation or checkpoint pathways.",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06903858",
+        "rule_id": "E5b",
+        "type": "exclusion",
+        "field": "prior_ctla4_therapy",
+        "operator": "eq",
+        "value": true,
+        "source_text": "5. Prior treatment with anti-PD-1/PD-L1 antibodies, anti-CTLA-4 antibodies, or other drugs/antibodies targeting T-cell co-stimulation or checkpoint pathways.",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06903858",
+        "rule_id": "E5c",
+        "type": "exclusion",
+        "field": "diagnosis",
+        "operator": "present",
+        "value": null,
+        "source_text": "5. Prior treatment with anti-PD-1/PD-L1 antibodies, anti-CTLA-4 antibodies, or other drugs/antibodies targeting T-cell co-stimulation or checkpoint pathways.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06903858",
+        "rule_id": "E6",
+        "type": "exclusion",
+        "field": "diagnosis",
+        "operator": "present",
+        "value": null,
+        "source_text": "6. Major surgery (e.g., laparotomy, thoracotomy, organ resection via laparoscopy) or severe trauma within 4 weeks before enrollment (surgical incision must be fully healed).",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06903858",
+        "rule_id": "E7",
+        "type": "exclusion",
+        "field": "diagnosis",
+        "operator": "present",
+        "value": null,
+        "source_text": "7. Thromboembolic events (e.g., cerebrovascular accident, transient ischemic attack, pulmonary embolism, deep vein thrombosis) within 12 months before enrollment.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06903858",
+        "rule_id": "E8",
+        "type": "exclusion",
+        "field": "diagnosis",
+        "operator": "present",
+        "value": null,
+        "source_text": "8. Active coronary artery disease, severe/unstable angina, or newly diagnosed angina/myocardial infarction within 12 months before enrollment.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06903858",
+        "rule_id": "E9",
+        "type": "exclusion",
+        "field": "diagnosis",
+        "operator": "present",
+        "value": null,
+        "source_text": "9. New York Heart Association (NYHA) Class II or higher congestive heart failure (see Appendix 3).",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06903858",
+        "rule_id": "E10a",
+        "type": "exclusion",
+        "field": "hiv_positive",
+        "operator": "eq",
+        "value": true,
+        "source_text": "10. HIV infection, AIDS, or untreated active hepatitis (HBV-DNA \u2265500 IU/mL; HCV-RNA above detection limit).",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06903858",
+        "rule_id": "E10b",
+        "type": "exclusion",
+        "field": "hepatitis_b_active",
+        "operator": "eq",
+        "value": true,
+        "source_text": "10. HIV infection, AIDS, or untreated active hepatitis (HBV-DNA \u2265500 IU/mL; HCV-RNA above detection limit).",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06903858",
+        "rule_id": "E10c",
+        "type": "exclusion",
+        "field": "hepatitis_c_active",
+        "operator": "eq",
+        "value": true,
+        "source_text": "10. HIV infection, AIDS, or untreated active hepatitis (HBV-DNA \u2265500 IU/mL; HCV-RNA above detection limit).",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06903858",
+        "rule_id": "E11",
+        "type": "exclusion",
+        "field": "diagnosis",
+        "operator": "present",
+        "value": null,
+        "source_text": "11. Active inflammatory bowel disease or other colorectal disorders causing chronic diarrhea.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06903858",
+        "rule_id": "E12",
+        "type": "exclusion",
+        "field": "autoimmune_disease_active",
+        "operator": "eq",
+        "value": true,
+        "source_text": "12. Active, known, or suspected autoimmune disease (exceptions: stable conditions like type 1 diabetes, hypothyroidism on hormone replacement, or skin disorders without systemic treatment, e.g., vitiligo, psoriasis, alopecia).",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06903858",
+        "rule_id": "E13a",
+        "type": "exclusion",
+        "field": "interstitial_lung_disease",
+        "operator": "eq",
+        "value": true,
+        "source_text": "13. Interstitial lung disease, non-infectious pneumonitis, or uncontrolled systemic diseases (e.g., diabetes, hypertension, pulmonary fibrosis, acute pneumonia).",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06903858",
+        "rule_id": "E13b",
+        "type": "exclusion",
+        "field": "pneumonitis_history",
+        "operator": "eq",
+        "value": true,
+        "source_text": "13. Interstitial lung disease, non-infectious pneumonitis, or uncontrolled systemic diseases (e.g., diabetes, hypertension, pulmonary fibrosis, acute pneumonia).",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06903858",
+        "rule_id": "E13c",
+        "type": "exclusion",
+        "field": "diagnosis",
+        "operator": "present",
+        "value": null,
+        "source_text": "13. Interstitial lung disease, non-infectious pneumonitis, or uncontrolled systemic diseases (e.g., diabetes, hypertension, pulmonary fibrosis, acute pneumonia).",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06903858",
+        "rule_id": "E14",
+        "type": "exclusion",
+        "field": "treatment_toxicity_grade",
+        "operator": "gte",
+        "value": 2,
+        "source_text": "14. Residual toxicity \u2265Grade 2 (per CTCAE v5.0) from prior therapies (except anemia, alopecia, skin pigmentation).",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06903858",
+        "rule_id": "E15",
+        "type": "exclusion",
+        "field": "diagnosis",
+        "operator": "present",
+        "value": null,
+        "source_text": "15. Known or suspected hypersensitivity to any study-related drugs.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06903858",
+        "rule_id": "E16a",
+        "type": "exclusion",
+        "field": "pregnant",
+        "operator": "eq",
+        "value": true,
+        "source_text": "16. Pregnancy or lactation.",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06903858",
+        "rule_id": "E16b",
+        "type": "exclusion",
+        "field": "breastfeeding",
+        "operator": "eq",
+        "value": true,
+        "source_text": "16. Pregnancy or lactation.",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06903858",
+        "rule_id": "E17a",
+        "type": "exclusion",
+        "field": "menopausal_status",
+        "operator": "eq",
+        "value": "childbearing_potential",
+        "source_text": "17. Women of childbearing potential (last menstruation <2 years ago) or fertile men unwilling to use effective non-hormonal contraception.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06903858",
+        "rule_id": "E17b",
+        "type": "exclusion",
+        "field": "contraception_agreement",
+        "operator": "eq",
+        "value": false,
+        "source_text": "17. Women of childbearing potential (last menstruation <2 years ago) or fertile men unwilling to use effective non-hormonal contraception.",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06903858",
+        "rule_id": "E18",
+        "type": "exclusion",
+        "field": "diagnosis",
+        "operator": "present",
+        "value": null,
+        "source_text": "18. Any unstable medical condition compromising safety or protocol compliance.",
+        "manual_review": true
+      }
+    ],
+    "study_type": "Interventional",
+    "intervention_types": [
+      "Drug",
+      "Procedure"
+    ],
+    "synthetic": false
+  },
+  {
+    "trial_id": "NCT07562490",
+    "title": "A Randomized Controlled Trial of Plasma ctDNA Methylation-Guided Adjuvant Chemotherapy Decision-Making in High-Risk Stage III (T4N+ or T1-3N2) Colorectal Cancer",
+    "phase": "Phase2",
+    "status": "Recruiting",
+    "summary": "Patients with T4N+ or T1-3N2 disease will be randomly assigned to either the control group (FOLFOX/CAPOX for 6 months) or the intervention group (FOLFOX/CAPOX plus bevacizumab for 6 months) to receive adjuvant therapy. Venous blood samples (8-16 mL) will be collected at 1 month, 3 months, and 6 months postoperatively for dynamic monitoring of plasma ctDNA.",
+    "conditions": [
+      "ctDNA",
+      "Chemotherapy",
+      "Colorectal Cancer"
+    ],
+    "locations": [
+      {
+        "facility": "Fudan University Shanghai Cancer Center",
+        "city": "Shanghai",
+        "state": ""
+      }
+    ],
+    "rules": [
+      {
+        "trial_id": "NCT07562490",
+        "rule_id": "inc_1_age",
+        "type": "inclusion",
+        "field": "age_years",
+        "operator": "gte",
+        "value": 18,
+        "source_text": "1. Age \u226518 years, regardless of sex;",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT07562490",
+        "rule_id": "inc_2_ecog",
+        "type": "inclusion",
+        "field": "ecog",
+        "operator": "in",
+        "value": [
+          "0",
+          "1",
+          "2"
+        ],
+        "source_text": "2. Eastern Cooperative Oncology Group (ECOG) performance status of 0-2, with an expected survival of >3 months;",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT07562490",
+        "rule_id": "inc_2_survival",
+        "type": "inclusion",
+        "field": "life_expectancy_months",
+        "operator": "gt",
+        "value": 3,
+        "source_text": "2. Eastern Cooperative Oncology Group (ECOG) performance status of 0-2, with an expected survival of >3 months;",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT07562490",
+        "rule_id": "inc_3_histology",
+        "type": "inclusion",
+        "field": "histology",
+        "operator": "eq",
+        "value": "colorectal cancer",
+        "source_text": "3. Histologically confirmed postoperative pTNM stage high-risk stage II colorectal cancer;",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT07562490",
+        "rule_id": "inc_3_stage",
+        "type": "inclusion",
+        "field": "stage",
+        "operator": "eq",
+        "value": "postoperative pTNM high-risk stage II",
+        "source_text": "3. Histologically confirmed postoperative pTNM stage high-risk stage II colorectal cancer;",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT07562490",
+        "rule_id": "inc_4_ctdna",
+        "type": "inclusion",
+        "field": "biomarkers",
+        "operator": "eq",
+        "value": "positive ctDNA at 1 month after surgery",
+        "source_text": "4. Positive ctDNA status at 1 month after surgery;",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT07562490",
+        "rule_id": "inc_5_survival",
+        "type": "inclusion",
+        "field": "life_expectancy_months",
+        "operator": "gt",
+        "value": 12,
+        "source_text": "5. Expected survival of >12 months;",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT07562490",
+        "rule_id": "inc_6_consent",
+        "type": "inclusion",
+        "field": "diagnosis",
+        "operator": "present",
+        "value": null,
+        "source_text": "6. Ability to understand and willingness to sign a written informed consent form (personally or via a legally authorized representative/guardian), indicating that the subject understands the study objectives and required procedures and agrees to participate.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT07562490",
+        "rule_id": "exc_1_neoadjuvant",
+        "type": "exclusion",
+        "field": "prior_systemic_therapy",
+        "operator": "present",
+        "value": null,
+        "source_text": "1. Receipt of neoadjuvant therapy prior to surgery;",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT07562490",
+        "rule_id": "exc_2_transfusion",
+        "type": "exclusion",
+        "field": "diagnosis",
+        "operator": "present",
+        "value": null,
+        "source_text": "2. Blood transfusion during surgery or within 2 weeks prior to surgery;",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT07562490",
+        "rule_id": "exc_3_pregnant",
+        "type": "exclusion",
+        "field": "pregnant",
+        "operator": "eq",
+        "value": true,
+        "source_text": "3. Pregnant or breastfeeding women, or individuals of reproductive potential who are not using adequate contraception;",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT07562490",
+        "rule_id": "exc_3_breastfeeding",
+        "type": "exclusion",
+        "field": "breastfeeding",
+        "operator": "eq",
+        "value": true,
+        "source_text": "3. Pregnant or breastfeeding women, or individuals of reproductive potential who are not using adequate contraception;",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT07562490",
+        "rule_id": "exc_3_contraception",
+        "type": "exclusion",
+        "field": "contraception_agreement",
+        "operator": "eq",
+        "value": false,
+        "source_text": "3. Pregnant or breastfeeding women, or individuals of reproductive potential who are not using adequate contraception;",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT07562490",
+        "rule_id": "exc_4_malignancy",
+        "type": "exclusion",
+        "field": "other_malignancy_active",
+        "operator": "present",
+        "value": null,
+        "source_text": "4. History of other malignancies within the past 5 years, except for adequately treated carcinoma in situ of the cervix or non-melanoma skin cancer;",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT07562490",
+        "rule_id": "exc_5_brain_mets",
+        "type": "exclusion",
+        "field": "brain_mets_active",
+        "operator": "eq",
+        "value": true,
+        "source_text": "5. Uncontrolled primary brain tumors or central nervous system metastases, or presence of significant intracranial hypertension or neuropsychiatric symptoms;",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT07562490",
+        "rule_id": "exc_5_brain_tumor",
+        "type": "exclusion",
+        "field": "diagnosis",
+        "operator": "present",
+        "value": null,
+        "source_text": "5. Uncontrolled primary brain tumors or central nervous system metastases, or presence of significant intracranial hypertension or neuropsychiatric symptoms;",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT07562490",
+        "rule_id": "exc_5_intracranial_hypertension",
+        "type": "exclusion",
+        "field": "diagnosis",
+        "operator": "present",
+        "value": null,
+        "source_text": "5. Uncontrolled primary brain tumors or central nervous system metastases, or presence of significant intracranial hypertension or neuropsychiatric symptoms;",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT07562490",
+        "rule_id": "exc_5_neuropsychiatric",
+        "type": "exclusion",
+        "field": "diagnosis",
+        "operator": "present",
+        "value": null,
+        "source_text": "5. Uncontrolled primary brain tumors or central nervous system metastases, or presence of significant intracranial hypertension or neuropsychiatric symptoms;",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT07562490",
+        "rule_id": "exc_6_cardiac",
+        "type": "exclusion",
+        "field": "diagnosis",
+        "operator": "present",
+        "value": null,
+        "source_text": "6. Presence of severe or uncontrolled comorbidities, including but not limited to:Severe cardiac disease that remains unstable despite treatment, including myocardial infarction, congestive heart failure, unstable angina, symptomatic pericardial effusion, or unstable arrhythmia within 6 months prior to enrollment; Clearly diagnosed neurological or psychiatric disorders, including dementia or seizure disorders;Severe or uncontrolled infections;Active disseminated intravascular coagulation (DIC) or significant bleeding tendency;Significant impairment of major organ function;",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT07562490",
+        "rule_id": "exc_6_neurologic_psychiatric",
+        "type": "exclusion",
+        "field": "diagnosis",
+        "operator": "present",
+        "value": null,
+        "source_text": "6. Presence of severe or uncontrolled comorbidities, including but not limited to:Severe cardiac disease that remains unstable despite treatment, including myocardial infarction, congestive heart failure, unstable angina, symptomatic pericardial effusion, or unstable arrhythmia within 6 months prior to enrollment; Clearly diagnosed neurological or psychiatric disorders, including dementia or seizure disorders;Severe or uncontrolled infections;Active disseminated intravascular coagulation (DIC) or significant bleeding tendency;Significant impairment of major organ function;",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT07562490",
+        "rule_id": "exc_6_infection",
+        "type": "exclusion",
+        "field": "diagnosis",
+        "operator": "present",
+        "value": null,
+        "source_text": "6. Presence of severe or uncontrolled comorbidities, including but not limited to:Severe cardiac disease that remains unstable despite treatment, including myocardial infarction, congestive heart failure, unstable angina, symptomatic pericardial effusion, or unstable arrhythmia within 6 months prior to enrollment; Clearly diagnosed neurological or psychiatric disorders, including dementia or seizure disorders;Severe or uncontrolled infections;Active disseminated intravascular coagulation (DIC) or significant bleeding tendency;Significant impairment of major organ function;",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT07562490",
+        "rule_id": "exc_6_dic_bleeding",
+        "type": "exclusion",
+        "field": "diagnosis",
+        "operator": "present",
+        "value": null,
+        "source_text": "6. Presence of severe or uncontrolled comorbidities, including but not limited to:Severe cardiac disease that remains unstable despite treatment, including myocardial infarction, congestive heart failure, unstable angina, symptomatic pericardial effusion, or unstable arrhythmia within 6 months prior to enrollment; Clearly diagnosed neurological or psychiatric disorders, including dementia or seizure disorders;Severe or uncontrolled infections;Active disseminated intravascular coagulation (DIC) or significant bleeding tendency;Significant impairment of major organ function;",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT07562490",
+        "rule_id": "exc_6_organ_function",
+        "type": "exclusion",
+        "field": "diagnosis",
+        "operator": "present",
+        "value": null,
+        "source_text": "6. Presence of severe or uncontrolled comorbidities, including but not limited to:Severe cardiac disease that remains unstable despite treatment, including myocardial infarction, congestive heart failure, unstable angina, symptomatic pericardial effusion, or unstable arrhythmia within 6 months prior to enrollment; Clearly diagnosed neurological or psychiatric disorders, including dementia or seizure disorders;Severe or uncontrolled infections;Active disseminated intravascular coagulation (DIC) or significant bleeding tendency;Significant impairment of major organ function;",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT07562490",
+        "rule_id": "exc_7_other_condition",
+        "type": "exclusion",
+        "field": "diagnosis",
+        "operator": "present",
+        "value": null,
+        "source_text": "7. Any other condition that, in the opinion of the investigator, would make the patient unsuitable for participation in this study.",
+        "manual_review": true
+      }
+    ],
+    "study_type": "Interventional",
+    "intervention_types": [
+      "Drug"
+    ],
+    "synthetic": false
+  },
+  {
+    "trial_id": "NCT07176182",
+    "title": "Clinical Trial of Neoadjuvant mFOLFOX Plus Alvenor for LARC Patients With High YWHAB Expression",
+    "phase": "Phase2",
+    "status": "Recruiting",
+    "summary": "This study is a prospective, multicenter, open-label, randomized controlled Phase II clinical trial enrolling patients with locally advanced rectal cancer who tested positive for YWHAB (tyrosine 3-monooxygenase/tryptophan 5-monooxygenase-activating protein \u03b2) prior to surgery. The trial aims to evaluate the efficacy of combining the mFOLFOX chemotherapy regimen with citrus flavonoid tablets (Aimilang) for neoadjuvant (preoperative) treatment.\n\nTreatment Regimen 4-6 cycles preoperatively, with each cycle lasting 14 days.\n\nTranslated with DeepL.com (free version)\n\nOxaliplatin: 85 mg/m\u00b2 via 180-minute intravenous infusion on Day 1.\n\nLeucovorin: 400 mg/m\u00b2 via 120-minute intravenous infusion on Day 1.\n\n5-Fluorouracil: 2400 mg/m\u00b2 via continuous intravenous infusion over 46 hours.\n\nCitrus flavonoid tablets (Aimailang) : 500 mg orally twice times daily (Days 1-14), administered with or without the chemotherapy regimen (depending on group assignment).\n\nKey Trial Design Features Dose Adjustments: Permitted during the trial based on patient tolerance.\n\nDiscontinuation Criteria:\n\nPatients with disease progression during neoadjuvant therapy will cease study treatment and proceed to surgery or alternative therapies per local guidelines.\n\nSurgery may be initiated early if patients cannot tolerate the planned 6 cycles of neoadjuvant therapy.\n\nPatients receiving non-protocol anticancer therapies preoperatively will be withdrawn from the study.\n\nPostoperative Management:\n\nPost-treatment plans (e.g., continuation of mFOLFOX + Aimailang) are determined by the investigator.\n\nControl Group Restriction: Patients in the control arm are not permitted to self-administer citrus flavonoid tablets (Aimailang) during the trial. Any requirement for this medication must be discussed with the treating physician, who will decide on alternative therapies or trial withdrawal.",
+    "conditions": [
+      "Rectal Cancer Patients",
+      "Rectal Cancer Stage II",
+      "Rectal Cancer Stage III"
+    ],
+    "locations": [
+      {
+        "facility": "The Sixth Affiliated Hospital of Sun Yat-sen University",
+        "city": "Guangzhou",
+        "state": "Guangdong"
+      }
+    ],
+    "rules": [
+      {
+        "trial_id": "NCT07176182",
+        "rule_id": "1a",
+        "type": "inclusion",
+        "field": "diagnosis",
+        "operator": "eq",
+        "value": "rectal adenocarcinoma",
+        "source_text": "1. Histopathologically confirmed rectal adenocarcinoma; all other histologic subtypes are excluded. Presence of hemorrhoids confirmed by colonoscopy or clinical physical examination.",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT07176182",
+        "rule_id": "1b",
+        "type": "exclusion",
+        "field": "histology",
+        "operator": "not_in",
+        "value": [
+          "adenocarcinoma"
+        ],
+        "source_text": "1. Histopathologically confirmed rectal adenocarcinoma; all other histologic subtypes are excluded. Presence of hemorrhoids confirmed by colonoscopy or clinical physical examination.",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT07176182",
+        "rule_id": "1c",
+        "type": "inclusion",
+        "field": "diagnosis",
+        "operator": "eq",
+        "value": "hemorrhoids present",
+        "source_text": "1. Histopathologically confirmed rectal adenocarcinoma; all other histologic subtypes are excluded. Presence of hemorrhoids confirmed by colonoscopy or clinical physical examination.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT07176182",
+        "rule_id": "2a",
+        "type": "inclusion",
+        "field": "measurable_disease",
+        "operator": "eq",
+        "value": true,
+        "source_text": "2. Radiographically measurable or clinically evaluable rectal tumor lesion; clinical pathologic stage T2N+ or T3-4aAnyN, M0. Clinical staging is determined by physical examination, contrast-enhanced chest and abdominopelvic CT, and pelvic MRI. For patients with MRI contraindications, staging is performed with contrast-enhanced pelvic CT plus transrectal ultrasound. Staging adheres to the 9th AJCC TNM Staging System (Appendix 1).",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT07176182",
+        "rule_id": "2b",
+        "type": "inclusion",
+        "field": "stage",
+        "operator": "in",
+        "value": [
+          "T2N+",
+          "T3-4aAnyN"
+        ],
+        "source_text": "2. Radiographically measurable or clinically evaluable rectal tumor lesion; clinical pathologic stage T2N+ or T3-4aAnyN, M0. Clinical staging is determined by physical examination, contrast-enhanced chest and abdominopelvic CT, and pelvic MRI. For patients with MRI contraindications, staging is performed with contrast-enhanced pelvic CT plus transrectal ultrasound. Staging adheres to the 9th AJCC TNM Staging System (Appendix 1).",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT07176182",
+        "rule_id": "2c",
+        "type": "inclusion",
+        "field": "metastatic_disease",
+        "operator": "eq",
+        "value": false,
+        "source_text": "2. Radiographically measurable or clinically evaluable rectal tumor lesion; clinical pathologic stage T2N+ or T3-4aAnyN, M0. Clinical staging is determined by physical examination, contrast-enhanced chest and abdominopelvic CT, and pelvic MRI. For patients with MRI contraindications, staging is performed with contrast-enhanced pelvic CT plus transrectal ultrasound. Staging adheres to the 9th AJCC TNM Staging System (Appendix 1).",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT07176182",
+        "rule_id": "3",
+        "type": "inclusion",
+        "field": "diagnosis",
+        "operator": "eq",
+        "value": "MRF-negative; tumor-MRF distance >= 2 mm",
+        "source_text": "3. Pelvic MRI confirms the tumor is not adherent to the mesorectal fascia (MRF-negative), defined as a tumor-MRF distance \u2265 2 mm (tumor distance < 2 mm is defined as MRF involvement).",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT07176182",
+        "rule_id": "4",
+        "type": "inclusion",
+        "field": "biomarkers",
+        "operator": "eq",
+        "value": "high YWHAB expression by immunohistochemistry",
+        "source_text": "4. ectal cancer tumor specimens demonstrate high YWHAB expression by immunohistochemistry.",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT07176182",
+        "rule_id": "5",
+        "type": "inclusion",
+        "field": "age_years",
+        "operator": "gte",
+        "value": 18,
+        "source_text": "5. Age 18-75 years at the time of informed consent.",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT07176182",
+        "rule_id": "5b",
+        "type": "inclusion",
+        "field": "age_years",
+        "operator": "lte",
+        "value": 75,
+        "source_text": "5. Age 18-75 years at the time of informed consent.",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT07176182",
+        "rule_id": "6",
+        "type": "inclusion",
+        "field": "ecog",
+        "operator": "in",
+        "value": [
+          "0",
+          "1"
+        ],
+        "source_text": "6. Eastern Cooperative Oncology Group (ECOG) performance status 0 or 1 (Appendix 3).",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT07176182",
+        "rule_id": "7a",
+        "type": "exclusion",
+        "field": "prior_systemic_therapy",
+        "operator": "eq",
+        "value": true,
+        "source_text": "7. No prior systemic anticancer therapy for rectal cancer, including cytotoxic chemotherapy, immune checkpoint inhibitors, molecular targeted agents, or endocrine therapy.",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT07176182",
+        "rule_id": "7b",
+        "type": "exclusion",
+        "field": "prior_fluoropyrimidine_therapy",
+        "operator": "eq",
+        "value": true,
+        "source_text": "7. No prior systemic anticancer therapy for rectal cancer, including cytotoxic chemotherapy, immune checkpoint inhibitors, molecular targeted agents, or endocrine therapy.",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT07176182",
+        "rule_id": "7c",
+        "type": "exclusion",
+        "field": "prior_pd1_pdl1_therapy",
+        "operator": "eq",
+        "value": true,
+        "source_text": "7. No prior systemic anticancer therapy for rectal cancer, including cytotoxic chemotherapy, immune checkpoint inhibitors, molecular targeted agents, or endocrine therapy.",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT07176182",
+        "rule_id": "7d",
+        "type": "exclusion",
+        "field": "prior_endocrine_therapy",
+        "operator": "eq",
+        "value": true,
+        "source_text": "7. No prior systemic anticancer therapy for rectal cancer, including cytotoxic chemotherapy, immune checkpoint inhibitors, molecular targeted agents, or endocrine therapy.",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT07176182",
+        "rule_id": "8a",
+        "type": "inclusion",
+        "field": "diagnosis",
+        "operator": "eq",
+        "value": "white blood cell count >= 3 \u00d7 10\u2079/L",
+        "source_text": "   * White blood cell count \u2265 3 \u00d7 10\u2079/L",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT07176182",
+        "rule_id": "8b",
+        "type": "inclusion",
+        "field": "anc_10e9_l",
+        "operator": "gte",
+        "value": 1.5,
+        "source_text": "   * Absolute neutrophil count \u2265 1.5 \u00d7 10\u2079/L",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT07176182",
+        "rule_id": "8c",
+        "type": "inclusion",
+        "field": "platelets_10e9_l",
+        "operator": "gte",
+        "value": 75,
+        "source_text": "   * Platelet count \u2265 75 \u00d7 10\u2079/L",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT07176182",
+        "rule_id": "8d",
+        "type": "inclusion",
+        "field": "bilirubin_uln_multiple",
+        "operator": "lte",
+        "value": 1.5,
+        "source_text": "   * Total bilirubin \u2264 1.5 \u00d7 upper limit of normal (ULN)",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT07176182",
+        "rule_id": "8e",
+        "type": "inclusion",
+        "field": "ast_uln_multiple",
+        "operator": "lte",
+        "value": 2.5,
+        "source_text": "   * Aspartate aminotransferase (AST) and alanine aminotransferase (ALT) \u2264 2.5 \u00d7 ULN",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT07176182",
+        "rule_id": "8f",
+        "type": "inclusion",
+        "field": "alt_uln_multiple",
+        "operator": "lte",
+        "value": 2.5,
+        "source_text": "   * Aspartate aminotransferase (AST) and alanine aminotransferase (ALT) \u2264 2.5 \u00d7 ULN",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT07176182",
+        "rule_id": "8g",
+        "type": "inclusion",
+        "field": "creatinine_mg_dl",
+        "operator": "lte",
+        "value": 1.5,
+        "source_text": "   * Serum creatinine \u2264 1.5 \u00d7 ULN",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT07176182",
+        "rule_id": "9a",
+        "type": "inclusion",
+        "field": "pregnant",
+        "operator": "eq",
+        "value": false,
+        "source_text": "9. Females of childbearing potential must have a negative serum pregnancy test within 3 days prior to initiation of study treatment and agree to use a highly effective, medically acceptable contraceptive method (e.g., intrauterine device, combined oral contraceptives, barrier methods) throughout the study and for 3 months after the last study drug administration.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT07176182",
+        "rule_id": "9b",
+        "type": "inclusion",
+        "field": "contraception_agreement",
+        "operator": "eq",
+        "value": true,
+        "source_text": "9. Females of childbearing potential must have a negative serum pregnancy test within 3 days prior to initiation of study treatment and agree to use a highly effective, medically acceptable contraceptive method (e.g., intrauterine device, combined oral contraceptives, barrier methods) throughout the study and for 3 months after the last study drug administration.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT07176182",
+        "rule_id": "10",
+        "type": "inclusion",
+        "field": "contraception_agreement",
+        "operator": "eq",
+        "value": true,
+        "source_text": "10. Male patients with partners of childbearing potential must practice effective contraception during the study and for 3 months following the last study drug administration.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT07176182",
+        "rule_id": "11",
+        "type": "inclusion",
+        "field": "diagnosis",
+        "operator": "eq",
+        "value": "written informed consent provided; willing and able to comply with protocol requirements",
+        "source_text": "11. The patient voluntarily provides written informed consent and is willing and able to comply with all scheduled study visits, treatment administration, laboratory assessments, and protocol-specified procedures.",
+        "manual_review": true
+      }
+    ],
+    "study_type": "Interventional",
+    "intervention_types": [
+      "Drug"
+    ],
+    "synthetic": false
+  },
+  {
+    "trial_id": "NCT06696768",
+    "title": "Clinical Trial of an Anti-cancer Drug, CA-4948 (Emavusertib), in Combination With Chemotherapy Treatment (FOLFOX Plus Bevacizumab) in Metastatic Colorectal Cancer",
+    "phase": "Phase1",
+    "status": "Recruiting",
+    "summary": "This phase I trial studies the side effects and best dose of CA-4948 when given together with fluorouracil, leucovorin, oxaliplatin (FOLFOX) plus bevacizumab in treating patients with colorectal cancer that has spread from where it first started (primary site) to other places in the body (metastatic). CA-4948 may stop the growth of tumor cells by blocking some of the enzymes needed for cell growth. The chemotherapy drugs used in FOLFOX, fluorouracil and oxaliplatin, work in different ways to stop the growth of tumor cells, either by killing the cells, by stopping them from dividing, or by stopping them from spreading. Leucovorin is used with fluorouracil to treat colorectal cancer. Bevacizumab is in a class of medications called anti-angiogenic agents. It works by stopping the formation of blood vessels that bring oxygen and nutrients to the tumor. This may slow the growth and spread of the tumor. Giving CA-4948 with FOLFOX plus bevacizumab may be safe, tolerable and/or effective in treating patients with metastatic colorectal cancer.",
+    "conditions": [
+      "Metastatic Colorectal Adenocarcinoma",
+      "Stage III Colorectal Cancer AJCC v8",
+      "Stage IV Colorectal Cancer AJCC v8",
+      "Unresectable Colorectal Adenocarcinoma"
+    ],
+    "locations": [
+      {
+        "facility": "UF Health Cancer Institute - Gainesville",
+        "city": "Gainesville",
+        "state": "Florida"
+      },
+      {
+        "facility": "Memorial Hospital East",
+        "city": "Shiloh",
+        "state": "Illinois"
+      },
+      {
+        "facility": "University of Kansas Clinical Research Center",
+        "city": "Fairway",
+        "state": "Kansas"
+      },
+      {
+        "facility": "University of Kansas Cancer Center",
+        "city": "Kansas City",
+        "state": "Kansas"
+      },
+      {
+        "facility": "University of Kansas Hospital-Indian Creek Campus",
+        "city": "Overland Park",
+        "state": "Kansas"
+      },
+      {
+        "facility": "University of Kansas Hospital-Westwood Cancer Center",
+        "city": "Westwood",
+        "state": "Kansas"
+      },
+      {
+        "facility": "Siteman Cancer Center at Saint Peters Hospital",
+        "city": "City of Saint Peters",
+        "state": "Missouri"
+      },
+      {
+        "facility": "Siteman Cancer Center at West County Hospital",
+        "city": "Creve Coeur",
+        "state": "Missouri"
+      }
+    ],
+    "rules": [
+      {
+        "trial_id": "NCT06696768",
+        "rule_id": "I1",
+        "type": "inclusion",
+        "field": "diagnosis",
+        "operator": "eq",
+        "value": "colorectal adenocarcinoma",
+        "source_text": "Patients must have histologically or cytologically confirmed colorectal adenocarcinoma",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06696768",
+        "rule_id": "I2",
+        "type": "inclusion",
+        "field": "unresectable_disease",
+        "operator": "eq",
+        "value": true,
+        "source_text": "Patients must have unresectable or metastatic measurable disease on imaging for Response Evaluation Criteria in Solid Tumors (RECIST) 1.1 determination within 28 days of registration",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06696768",
+        "rule_id": "I3",
+        "type": "inclusion",
+        "field": "metastatic_disease",
+        "operator": "eq",
+        "value": true,
+        "source_text": "Patients must have unresectable or metastatic measurable disease on imaging for Response Evaluation Criteria in Solid Tumors (RECIST) 1.1 determination within 28 days of registration",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06696768",
+        "rule_id": "I4",
+        "type": "inclusion",
+        "field": "measurable_disease",
+        "operator": "eq",
+        "value": true,
+        "source_text": "Patients must have unresectable or metastatic measurable disease on imaging for Response Evaluation Criteria in Solid Tumors (RECIST) 1.1 determination within 28 days of registration",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06696768",
+        "rule_id": "I5",
+        "type": "inclusion",
+        "field": "tumor_tissue_available",
+        "operator": "eq",
+        "value": true,
+        "source_text": "For patients enrolling to the expansion cohort, lesions must be amenable to research biopsy",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06696768",
+        "rule_id": "I6",
+        "type": "inclusion",
+        "field": "age_years",
+        "operator": "gte",
+        "value": 18,
+        "source_text": "Age \u2265 18 years. Because no dosing or adverse event data are currently available on the use of CA-4948 (emavusertib) and FOLFOX in combination with bevacizumab in patients < 18 years of age, children are excluded from this study",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06696768",
+        "rule_id": "I7",
+        "type": "inclusion",
+        "field": "ecog",
+        "operator": "lte",
+        "value": 2,
+        "source_text": "Eastern Cooperative Oncology Group (ECOG) performance status \u2264 2 (or Karnofsky \u2265 60%)",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06696768",
+        "rule_id": "I8",
+        "type": "inclusion",
+        "field": "anc_10e9_l",
+        "operator": "gte",
+        "value": 1.5,
+        "source_text": "Absolute neutrophil count \u2265 1,500/mcL (within 28 days of registration)",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06696768",
+        "rule_id": "I9",
+        "type": "inclusion",
+        "field": "platelets_10e9_l",
+        "operator": "gte",
+        "value": 75,
+        "source_text": "Platelets \u2265 75,000/mcL (within 28 days of registration)",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06696768",
+        "rule_id": "I10",
+        "type": "inclusion",
+        "field": "bilirubin_uln_multiple",
+        "operator": "lte",
+        "value": 1.5,
+        "source_text": "Total bilirubin \u2264 1.5 \u00d7 institutional upper limit of normal (ULN) (within 28 days of registration)",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06696768",
+        "rule_id": "I11",
+        "type": "inclusion",
+        "field": "ast_uln_multiple",
+        "operator": "lte",
+        "value": 3,
+        "source_text": "Aspartate aminotransferase (AST) (serum glutamic oxaloacetic transaminase [SGOT])/alanine aminotransferase (ALT) (serum glutamic pyruvic transaminase [SGPT]) \u2264 3 \u00d7 institutional ULN; for those with liver metastases, 5 \u00d7 institutional ULN (within 28 days of registration)",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06696768",
+        "rule_id": "I12",
+        "type": "inclusion",
+        "field": "alt_uln_multiple",
+        "operator": "lte",
+        "value": 3,
+        "source_text": "Aspartate aminotransferase (AST) (serum glutamic oxaloacetic transaminase [SGOT])/alanine aminotransferase (ALT) (serum glutamic pyruvic transaminase [SGPT]) \u2264 3 \u00d7 institutional ULN; for those with liver metastases, 5 \u00d7 institutional ULN (within 28 days of registration)",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06696768",
+        "rule_id": "I13",
+        "type": "inclusion",
+        "field": "creatinine_clearance_ml_min",
+        "operator": "gte",
+        "value": 60,
+        "source_text": "Estimated glomerular filtration rate (eGFR) \u2265 60 mL/min/1.73 m\\^2 (within 28 days of registration)",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06696768",
+        "rule_id": "I14",
+        "type": "inclusion",
+        "field": "treatment_toxicity_grade",
+        "operator": "lt",
+        "value": 2,
+        "source_text": "Creatine phosphokinase (CPK) elevation at screening < grade 2 (CPK \u2264 2.5 x ULN) (within 28 days of registration)",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06696768",
+        "rule_id": "I15",
+        "type": "inclusion",
+        "field": "diagnosis",
+        "operator": "present",
+        "value": null,
+        "source_text": "Patients on a cholesterol lowering statin must be on a stable dose with no dose changes within 3 weeks prior to study start",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06696768",
+        "rule_id": "I16",
+        "type": "inclusion",
+        "field": "hiv_positive",
+        "operator": "present",
+        "value": null,
+        "source_text": "Human immunodeficiency virus (HIV)-infected patients on effective anti-retroviral therapy with undetectable viral load within 6 months are eligible for this trial",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06696768",
+        "rule_id": "I17",
+        "type": "inclusion",
+        "field": "hepatitis_b_active",
+        "operator": "present",
+        "value": null,
+        "source_text": "For patients with evidence of chronic hepatitis B virus (HBV) infection, the HBV viral load must be undetectable on suppressive therapy, if indicated",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06696768",
+        "rule_id": "I18",
+        "type": "inclusion",
+        "field": "hepatitis_c_active",
+        "operator": "present",
+        "value": null,
+        "source_text": "Patients with a history of hepatitis C virus (HCV) infection must have been treated and cured. For patients with HCV infection who are currently on treatment, they are eligible if they have an undetectable HCV viral load",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06696768",
+        "rule_id": "I19",
+        "type": "inclusion",
+        "field": "brain_mets_stable",
+        "operator": "eq",
+        "value": true,
+        "source_text": "Patients with treated brain metastases are eligible if follow-up brain imaging after central nervous system (CNS)-directed therapy shows no evidence of progression",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06696768",
+        "rule_id": "I20",
+        "type": "inclusion",
+        "field": "brain_mets_active",
+        "operator": "eq",
+        "value": true,
+        "source_text": "Patients with new or progressive brain metastases (active brain metastases) or leptomeningeal disease are eligible, after discussion with the principal investigator (PI) or National Cancer Institute (NCI) Cancer Therapy Evaluation Program (CTEP) Investigational Drug Branch (IDB) Monitor, if the treating physician determines that immediate CNS-specific treatment is not required and is unlikely to be required during the first cycle of therapy",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06696768",
+        "rule_id": "I21",
+        "type": "inclusion",
+        "field": "leptomeningeal_disease",
+        "operator": "eq",
+        "value": true,
+        "source_text": "Patients with new or progressive brain metastases (active brain metastases) or leptomeningeal disease are eligible, after discussion with the principal investigator (PI) or National Cancer Institute (NCI) Cancer Therapy Evaluation Program (CTEP) Investigational Drug Branch (IDB) Monitor, if the treating physician determines that immediate CNS-specific treatment is not required and is unlikely to be required during the first cycle of therapy",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06696768",
+        "rule_id": "I22",
+        "type": "inclusion",
+        "field": "other_malignancy_active",
+        "operator": "present",
+        "value": null,
+        "source_text": "Patients with a prior or concurrent malignancy whose natural history or treatment does not have the potential to interfere with the safety or efficacy assessment of the investigational regimen are eligible for this trial",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06696768",
+        "rule_id": "I23",
+        "type": "inclusion",
+        "field": "diagnosis",
+        "operator": "present",
+        "value": null,
+        "source_text": "Patients with known history or current symptoms of cardiac disease, or history of treatment with cardiotoxic agents, should have a clinical risk assessment of cardiac function using the New York Heart Association Functional Classification. To be eligible for this trial, patients should be class II or better",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06696768",
+        "rule_id": "I24",
+        "type": "inclusion",
+        "field": "diagnosis",
+        "operator": "present",
+        "value": null,
+        "source_text": "Patients must be able to take oral medications",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06696768",
+        "rule_id": "I25",
+        "type": "inclusion",
+        "field": "contraception_agreement",
+        "operator": "eq",
+        "value": true,
+        "source_text": "The effects of CA-4948 (emavusertib) on the developing human fetus are unknown. For this reason, women of child-bearing potential and men must agree to use adequate contraception (hormonal or barrier method of birth control; abstinence) prior to study entry and for the duration of study participation. Women of childbearing potential must continue contraception for 9 months following the last dose of study drugs. Should a woman become pregnant or suspect she is pregnant while she or her partner is participating in this study, she should inform her treating physician immediately. Males treated or enrolled on this protocol and involved with women of childbearing potential must also agree to use adequate contraception prior to the study, for the duration of study participation, and for 6 months following the last dose of study drugs",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06696768",
+        "rule_id": "I26",
+        "type": "inclusion",
+        "field": "diagnosis",
+        "operator": "present",
+        "value": null,
+        "source_text": "Patients must have the ability to understand and the willingness to sign a written informed consent document",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06696768",
+        "rule_id": "E1",
+        "type": "exclusion",
+        "field": "msi_high",
+        "operator": "eq",
+        "value": true,
+        "source_text": "Patients with high-frequency microsatellite instability (MSI-H) or deficient deoxyribonucleic acid (DNA) mismatch repair (dMMR) colorectal cancer at pre-enrollment screening",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06696768",
+        "rule_id": "E2",
+        "type": "exclusion",
+        "field": "mmr_deficient",
+        "operator": "eq",
+        "value": true,
+        "source_text": "Patients with high-frequency microsatellite instability (MSI-H) or deficient deoxyribonucleic acid (DNA) mismatch repair (dMMR) colorectal cancer at pre-enrollment screening",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06696768",
+        "rule_id": "E3",
+        "type": "exclusion",
+        "field": "diagnosis",
+        "operator": "present",
+        "value": null,
+        "source_text": "Patients with prolonged QT interval by Fridericia's correction formula (QTcF) (> 450ms) on screening electrocardiogram (ECG)",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06696768",
+        "rule_id": "E4",
+        "type": "exclusion",
+        "field": "treatment_toxicity_grade",
+        "operator": "gt",
+        "value": 1,
+        "source_text": "Patients who have not recovered from adverse events due to prior anti-cancer therapy (i.e., have residual toxicities > grade 1), with the exception of alopecia",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06696768",
+        "rule_id": "E5",
+        "type": "exclusion",
+        "field": "prior_systemic_therapy",
+        "operator": "eq",
+        "value": true,
+        "source_text": "Patients who have received prior treatment with any chemotherapy (either in the adjuvant or metastatic setting), including FOLFOX, fluorouracil/leucovorin/irinotecan (FOLFIRI), folinic acid/fluorouracil/oxaliplatin/irinotecan (FOLFOXIRI), or antiangiogenic agents such as bevacizumab and similar agents, are not eligible for this study",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06696768",
+        "rule_id": "E6",
+        "type": "exclusion",
+        "field": "prior_fluoropyrimidine_therapy",
+        "operator": "eq",
+        "value": true,
+        "source_text": "Patients who have received prior treatment with any chemotherapy (either in the adjuvant or metastatic setting), including FOLFOX, fluorouracil/leucovorin/irinotecan (FOLFIRI), folinic acid/fluorouracil/oxaliplatin/irinotecan (FOLFOXIRI), or antiangiogenic agents such as bevacizumab and similar agents, are not eligible for this study",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06696768",
+        "rule_id": "E7",
+        "type": "exclusion",
+        "field": "prior_irinotecan_therapy",
+        "operator": "eq",
+        "value": true,
+        "source_text": "Patients who have received prior treatment with any chemotherapy (either in the adjuvant or metastatic setting), including FOLFOX, fluorouracil/leucovorin/irinotecan (FOLFIRI), folinic acid/fluorouracil/oxaliplatin/irinotecan (FOLFOXIRI), or antiangiogenic agents such as bevacizumab and similar agents, are not eligible for this study",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06696768",
+        "rule_id": "E8",
+        "type": "exclusion",
+        "field": "prior_oxaliplatin_therapy",
+        "operator": "eq",
+        "value": true,
+        "source_text": "Patients who have received prior treatment with any chemotherapy (either in the adjuvant or metastatic setting), including FOLFOX, fluorouracil/leucovorin/irinotecan (FOLFIRI), folinic acid/fluorouracil/oxaliplatin/irinotecan (FOLFOXIRI), or antiangiogenic agents such as bevacizumab and similar agents, are not eligible for this study",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06696768",
+        "rule_id": "E9",
+        "type": "exclusion",
+        "field": "prior_anti_vegf_therapy",
+        "operator": "eq",
+        "value": true,
+        "source_text": "Patients who have received prior treatment with any chemotherapy (either in the adjuvant or metastatic setting), including FOLFOX, fluorouracil/leucovorin/irinotecan (FOLFIRI), folinic acid/fluorouracil/oxaliplatin/irinotecan (FOLFOXIRI), or antiangiogenic agents such as bevacizumab and similar agents, are not eligible for this study",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06696768",
+        "rule_id": "E10",
+        "type": "exclusion",
+        "field": "diagnosis",
+        "operator": "present",
+        "value": null,
+        "source_text": "Patients with a known dihydropyrimidine dehydrogenase deficiency",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06696768",
+        "rule_id": "E11",
+        "type": "exclusion",
+        "field": "diagnosis",
+        "operator": "present",
+        "value": null,
+        "source_text": "Patients with a history of allergic reactions attributed to compounds of similar chemical or biologic composition to CA-4948 (emavusertib) or other agents used in the study",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06696768",
+        "rule_id": "E12",
+        "type": "exclusion",
+        "field": "diagnosis",
+        "operator": "present",
+        "value": null,
+        "source_text": "Patients with a gastrointestinal (GI) condition that could impair absorption of CA-4948 (emavusertib) or cause an inability to ingest CA-4948 (emavusertib)",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06696768",
+        "rule_id": "E13",
+        "type": "exclusion",
+        "field": "diagnosis",
+        "operator": "present",
+        "value": null,
+        "source_text": "Patients with uncontrolled intercurrent illness or any other significant condition(s) that would make participation in this protocol unreasonably hazardous",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06696768",
+        "rule_id": "E14",
+        "type": "exclusion",
+        "field": "pregnant",
+        "operator": "eq",
+        "value": true,
+        "source_text": "Pregnant women are excluded from this study because CA-4948 (emavusertib) is a blood-brain barrier penetrant with the potential for teratogenic or abortifacient effects. Because there is an unknown but potential risk for adverse events in nursing infants secondary to treatment of the mother with CA-4948 (emavusertib), breastfeeding should be discontinued if the mother is treated with CA-4948 (emavusertib). These potential risks may also apply to other agents used in this study. Women of childbearing potential must have a negative pregnancy test within 7 days of study registration",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06696768",
+        "rule_id": "E15",
+        "type": "exclusion",
+        "field": "breastfeeding",
+        "operator": "eq",
+        "value": true,
+        "source_text": "Pregnant women are excluded from this study because CA-4948 (emavusertib) is a blood-brain barrier penetrant with the potential for teratogenic or abortifacient effects. Because there is an unknown but potential risk for adverse events in nursing infants secondary to treatment of the mother with CA-4948 (emavusertib), breastfeeding should be discontinued if the mother is treated with CA-4948 (emavusertib). These potential risks may also apply to other agents used in this study. Women of childbearing potential must have a negative pregnancy test within 7 days of study registration",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06696768",
+        "rule_id": "E16",
+        "type": "exclusion",
+        "field": "pregnant",
+        "operator": "present",
+        "value": null,
+        "source_text": "Pregnant women are excluded from this study because CA-4948 (emavusertib) is a blood-brain barrier penetrant with the potential for teratogenic or abortifacient effects. Because there is an unknown but potential risk for adverse events in nursing infants secondary to treatment of the mother with CA-4948 (emavusertib), breastfeeding should be discontinued if the mother is treated with CA-4948 (emavusertib). These potential risks may also apply to other agents used in this study. Women of childbearing potential must have a negative pregnancy test within 7 days of study registration",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06696768",
+        "rule_id": "E17",
+        "type": "exclusion",
+        "field": "diagnosis",
+        "operator": "present",
+        "value": null,
+        "source_text": "Patients with a history of allogeneic organ or stem cell transplantation",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06696768",
+        "rule_id": "E18",
+        "type": "exclusion",
+        "field": "diagnosis",
+        "operator": "present",
+        "value": null,
+        "source_text": "Patients with significant active bleeding or those in whom the treating physician believes bevacizumab would not be safe or appropriate",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06696768",
+        "rule_id": "E19",
+        "type": "exclusion",
+        "field": "palliative_radiation_within_days",
+        "operator": "lte",
+        "value": 14,
+        "source_text": "Patients who have had palliative radiation to bone metastases within 2 weeks prior to day 1 of the study treatment",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06696768",
+        "rule_id": "E20",
+        "type": "exclusion",
+        "field": "radiation_within_days",
+        "operator": "lte",
+        "value": 28,
+        "source_text": "Patients who have had a major surgical procedure within 4 weeks prior to day 1 of the study treatment",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06696768",
+        "rule_id": "E21",
+        "type": "exclusion",
+        "field": "diagnosis",
+        "operator": "present",
+        "value": null,
+        "source_text": "Patients with hypertension not controlled by antihypertensive medication",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06696768",
+        "rule_id": "E22",
+        "type": "exclusion",
+        "field": "systemic_immunosuppression",
+        "operator": "eq",
+        "value": true,
+        "source_text": "Treatment with systemic immunosuppressive medications (including, but not limited to, prednisone, cyclophosphamide, azathioprine, methotrexate, thalidomide, and anti-tumor necrosis factor [anti-TNF] agents) within 14 days prior to treatment; however,",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06696768",
+        "rule_id": "E23",
+        "type": "exclusion",
+        "field": "diagnosis",
+        "operator": "present",
+        "value": null,
+        "source_text": "  * Patients who have received acute, low dose, systemic immunosuppressant medications (e.g., a one-time dose of dexamethasone for nausea; or chronic daily treatment with corticosteroids with a dose of \u2264 10 mg/day methylprednisolone equivalent) may be enrolled",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06696768",
+        "rule_id": "E24",
+        "type": "exclusion",
+        "field": "diagnosis",
+        "operator": "present",
+        "value": null,
+        "source_text": "  * The use of inhaled corticosteroids and mineralocorticoids (e.g., fludrocortisone) for patients with orthostatic hypotension or adrenocortical insufficiency is allowed",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06696768",
+        "rule_id": "E25",
+        "type": "exclusion",
+        "field": "diagnosis",
+        "operator": "present",
+        "value": null,
+        "source_text": "Severe infections within 28 days prior to treatment, including but not limited to, hospitalization for complications of infection, bacteremia, or severe pneumonia. This includes receipt of oral or IV antibiotics within 14 days prior to registration. Patients receiving prophylactic antibiotics (e.g., for prevention of a urinary tract infection or chronic obstructive pulmonary disease) are eligible",
+        "manual_review": true
+      }
+    ],
+    "study_type": "Interventional",
+    "intervention_types": [
+      "Biological",
+      "Drug",
+      "Procedure"
+    ],
+    "synthetic": false
+  },
+  {
+    "trial_id": "NCT06992258",
+    "title": "A Randomized Phase 2 Trial of Fruquintinib and TAS-102 as Compared to Fruquintinib in Patients With Refractory Advanced/Metastatic Colorectal Cancer",
+    "phase": "Phase2",
+    "status": "Recruiting",
+    "summary": "A Randomized Phase 2 Trial of Fruquintinib and TAS-102 as Compared to Fruquintinib in Patients with Refractory Advanced/Metastatic Microsatellite Stable Colorectal Cancer",
+    "conditions": [
+      "Colorectal Cancer"
+    ],
+    "locations": [
+      {
+        "facility": "Yale University",
+        "city": "New Haven",
+        "state": "Connecticut"
+      },
+      {
+        "facility": "Mount Sinai Cancer Research Program",
+        "city": "Miami Beach",
+        "state": "Florida"
+      },
+      {
+        "facility": "Orlando Health Cancer Institute",
+        "city": "Orlando",
+        "state": "Florida"
+      },
+      {
+        "facility": "Rutgers Cancer Institute",
+        "city": "New Brunswick",
+        "state": "New Jersey"
+      },
+      {
+        "facility": "NYU Langone Health",
+        "city": "New York",
+        "state": "New York"
+      },
+      {
+        "facility": "UPenn Lancaster-Ann B. Barshinger Cancer Institute",
+        "city": "Lancaster",
+        "state": "Pennsylvania"
+      },
+      {
+        "facility": "Thomas Jefferson University - Sidney Kimmel Comprehensive Cancer Center",
+        "city": "Philadelphia",
+        "state": "Pennsylvania"
+      },
+      {
+        "facility": "UPMC / University of Pittsburgh Medical Center",
+        "city": "Pittsburgh",
+        "state": "Pennsylvania"
+      }
+    ],
+    "rules": [
+      {
+        "trial_id": "NCT06992258",
+        "rule_id": "NCT06992258-I01",
+        "type": "inclusion",
+        "field": "diagnosis",
+        "operator": "present",
+        "value": null,
+        "source_text": "1. Provision to sign and date the consent form",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06992258",
+        "rule_id": "NCT06992258-I02",
+        "type": "inclusion",
+        "field": "diagnosis",
+        "operator": "present",
+        "value": null,
+        "source_text": "2. Able to comply with all study procedures and be available for the duration of the study in the investigator's judgment",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06992258",
+        "rule_id": "NCT06992258-I03",
+        "type": "inclusion",
+        "field": "age_years",
+        "operator": "gte",
+        "value": 18,
+        "source_text": "3. Age \u226518",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06992258",
+        "rule_id": "NCT06992258-I04",
+        "type": "inclusion",
+        "field": "ecog",
+        "operator": "lte",
+        "value": 1,
+        "source_text": "4. Eastern Cooperative Oncology Group (ECOG) Performance Status of \u2264 1",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06992258",
+        "rule_id": "NCT06992258-I05",
+        "type": "inclusion",
+        "field": "histology",
+        "operator": "eq",
+        "value": "colorectal adenocarcinoma",
+        "source_text": "5. Histologically or cytologically confirmed advanced or metastatic colorectal adenocarcinoma",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06992258",
+        "rule_id": "NCT06992258-I06",
+        "type": "inclusion",
+        "field": "metastatic_disease",
+        "operator": "eq",
+        "value": true,
+        "source_text": "5. Histologically or cytologically confirmed advanced or metastatic colorectal adenocarcinoma",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06992258",
+        "rule_id": "NCT06992258-I07",
+        "type": "inclusion",
+        "field": "prior_fluoropyrimidine_therapy",
+        "operator": "eq",
+        "value": true,
+        "source_text": "6. Prior treatment with fluoropyrimidine, oxaliplatin, irinotecan, bevacizumab (unless contraindicated) and cetuximab/panitumumab (for RAS-wild type disease) for the treatment of advanced or metastatic colorectal cancer and had demonstrated progressive disease or intolerance to their last regimen.",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06992258",
+        "rule_id": "NCT06992258-I08",
+        "type": "inclusion",
+        "field": "prior_oxaliplatin_therapy",
+        "operator": "eq",
+        "value": true,
+        "source_text": "6. Prior treatment with fluoropyrimidine, oxaliplatin, irinotecan, bevacizumab (unless contraindicated) and cetuximab/panitumumab (for RAS-wild type disease) for the treatment of advanced or metastatic colorectal cancer and had demonstrated progressive disease or intolerance to their last regimen.",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06992258",
+        "rule_id": "NCT06992258-I09",
+        "type": "inclusion",
+        "field": "prior_irinotecan_therapy",
+        "operator": "eq",
+        "value": true,
+        "source_text": "6. Prior treatment with fluoropyrimidine, oxaliplatin, irinotecan, bevacizumab (unless contraindicated) and cetuximab/panitumumab (for RAS-wild type disease) for the treatment of advanced or metastatic colorectal cancer and had demonstrated progressive disease or intolerance to their last regimen.",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06992258",
+        "rule_id": "NCT06992258-I10",
+        "type": "inclusion",
+        "field": "prior_anti_vegf_therapy",
+        "operator": "eq",
+        "value": true,
+        "source_text": "6. Prior treatment with fluoropyrimidine, oxaliplatin, irinotecan, bevacizumab (unless contraindicated) and cetuximab/panitumumab (for RAS-wild type disease) for the treatment of advanced or metastatic colorectal cancer and had demonstrated progressive disease or intolerance to their last regimen.",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06992258",
+        "rule_id": "NCT06992258-I11",
+        "type": "inclusion",
+        "field": "prior_anti_egfr_therapy",
+        "operator": "eq",
+        "value": true,
+        "source_text": "6. Prior treatment with fluoropyrimidine, oxaliplatin, irinotecan, bevacizumab (unless contraindicated) and cetuximab/panitumumab (for RAS-wild type disease) for the treatment of advanced or metastatic colorectal cancer and had demonstrated progressive disease or intolerance to their last regimen.",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06992258",
+        "rule_id": "NCT06992258-I12",
+        "type": "inclusion",
+        "field": "prior_systemic_therapy",
+        "operator": "eq",
+        "value": true,
+        "source_text": "6. Prior treatment with fluoropyrimidine, oxaliplatin, irinotecan, bevacizumab (unless contraindicated) and cetuximab/panitumumab (for RAS-wild type disease) for the treatment of advanced or metastatic colorectal cancer and had demonstrated progressive disease or intolerance to their last regimen.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06992258",
+        "rule_id": "NCT06992258-I13",
+        "type": "inclusion",
+        "field": "mmr_deficient",
+        "operator": "eq",
+        "value": false,
+        "source_text": "7. Mismatch repair proficient (MMRp) status documented by local IHC testing",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06992258",
+        "rule_id": "NCT06992258-I14",
+        "type": "inclusion",
+        "field": "biomarkers",
+        "operator": "present",
+        "value": null,
+        "source_text": "8. RAS and BRAF status documented",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06992258",
+        "rule_id": "NCT06992258-I15",
+        "type": "inclusion",
+        "field": "measurable_disease",
+        "operator": "eq",
+        "value": true,
+        "source_text": "9. Measurable disease according to RECIST v1.1",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06992258",
+        "rule_id": "NCT06992258-I16",
+        "type": "inclusion",
+        "field": "diagnosis",
+        "operator": "present",
+        "value": null,
+        "source_text": "10. Able to swallow and absorb oral medication",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06992258",
+        "rule_id": "NCT06992258-I17",
+        "type": "inclusion",
+        "field": "anc_10e9_l",
+        "operator": "gte",
+        "value": 1.5,
+        "source_text": "1. ANC \u2265 1.5 \u00d7 109/L",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06992258",
+        "rule_id": "NCT06992258-I18",
+        "type": "inclusion",
+        "field": "platelets_10e9_l",
+        "operator": "gte",
+        "value": 70,
+        "source_text": "2. Platelet count \u2265 70 \u00d7 109/L",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06992258",
+        "rule_id": "NCT06992258-I19",
+        "type": "inclusion",
+        "field": "hemoglobin_g_dl",
+        "operator": "gte",
+        "value": 9,
+        "source_text": "3. Hemoglobin \u2265 9 g/dL in the previous week",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06992258",
+        "rule_id": "NCT06992258-I20",
+        "type": "inclusion",
+        "field": "bilirubin_uln_multiple",
+        "operator": "lte",
+        "value": 1.5,
+        "source_text": "4. Serum bilirubin \u2264 1.5 x the upper limit of normal (ULN); patients with known Gilbert's disease may have a bilirubin \u2264 3.0 \u00d7ULN",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06992258",
+        "rule_id": "NCT06992258-I21",
+        "type": "inclusion",
+        "field": "bilirubin_uln_multiple",
+        "operator": "lte",
+        "value": 3,
+        "source_text": "4. Serum bilirubin \u2264 1.5 x the upper limit of normal (ULN); patients with known Gilbert's disease may have a bilirubin \u2264 3.0 \u00d7ULN",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06992258",
+        "rule_id": "NCT06992258-I22",
+        "type": "inclusion",
+        "field": "ast_uln_multiple",
+        "operator": "lt",
+        "value": 3,
+        "source_text": "5. Aspartate aminotransferase (AST) and alanine aminotransferase ALT) < 3 \u00d7 upper limit of normal (ULN) (in the presence of liver metastases \u2264 5 \u00d7 ULN)",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06992258",
+        "rule_id": "NCT06992258-I23",
+        "type": "inclusion",
+        "field": "alt_uln_multiple",
+        "operator": "lt",
+        "value": 3,
+        "source_text": "5. Aspartate aminotransferase (AST) and alanine aminotransferase ALT) < 3 \u00d7 upper limit of normal (ULN) (in the presence of liver metastases \u2264 5 \u00d7 ULN)",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06992258",
+        "rule_id": "NCT06992258-I24",
+        "type": "inclusion",
+        "field": "ast_uln_multiple",
+        "operator": "lte",
+        "value": 5,
+        "source_text": "5. Aspartate aminotransferase (AST) and alanine aminotransferase ALT) < 3 \u00d7 upper limit of normal (ULN) (in the presence of liver metastases \u2264 5 \u00d7 ULN)",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06992258",
+        "rule_id": "NCT06992258-I25",
+        "type": "inclusion",
+        "field": "alt_uln_multiple",
+        "operator": "lte",
+        "value": 5,
+        "source_text": "5. Aspartate aminotransferase (AST) and alanine aminotransferase ALT) < 3 \u00d7 upper limit of normal (ULN) (in the presence of liver metastases \u2264 5 \u00d7 ULN)",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06992258",
+        "rule_id": "NCT06992258-I26",
+        "type": "inclusion",
+        "field": "creatinine_clearance_ml_min",
+        "operator": "gte",
+        "value": 30,
+        "source_text": "6. Estimated creatinine clearance \u2265 30 mL/min by Cockcroft-Gault Equation (or similar formula) or as calculated using a timed urine collection",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06992258",
+        "rule_id": "NCT06992258-I27",
+        "type": "inclusion",
+        "field": "contraception_agreement",
+        "operator": "eq",
+        "value": true,
+        "source_text": "12. For women of childbearing potential: agreement to remain abstinent (refrain from heterosexual intercourse) or use of contraceptive methods that result in a failure rate of < 1% per year during the treatment period and for at least 180 days after the last study treatment. A woman is considered to be of childbearing potential if she is post-menarchal, has not reached a postmenopausal state (\u2265 12 continuous months of amenorrhea with no identified cause other than menopause), and has not undergone surgical sterilization (removal of ovaries and/or uterus). Examples of contraceptive methods with a failure rate of < 1% per year include bilateral tubal ligation, male sterilization, hormonal contraceptives that inhibit ovulation, hormone-releasing intrauterine devices and copper intrauterine devices. The reliability of sexual abstinence should be evaluated in relation to the duration of the clinical trial and the preferred and usual lifestyle of the patient. Periodic abstinence (e.g., calendar, ovulation, symptothermal, or postovulation methods) and withdrawal are not acceptable methods of contraception.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06992258",
+        "rule_id": "NCT06992258-I28",
+        "type": "inclusion",
+        "field": "contraception_agreement",
+        "operator": "eq",
+        "value": true,
+        "source_text": "13. For men: agreement to remain abstinent (refrain from heterosexual intercourse) or use contraceptive measures and agreement to refrain from donating sperm, as defined below: With female partners of childbearing potential or pregnant female partners, men must remain abstinent or use a condom during the treatment period and for at least 180 days after the last dose of study treatment. Men must refrain from donating sperm during this same period. The reliability of sexual abstinence should be evaluated in relation to the duration of the clinical trial and the preferred and usual lifestyle of the patient. Periodic abstinence (e.g., calendar, ovulation, symptothermal, or postovulation methods) and withdrawal are not acceptable methods of contraception.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06992258",
+        "rule_id": "NCT06992258-E01",
+        "type": "exclusion",
+        "field": "msi_high",
+        "operator": "eq",
+        "value": true,
+        "source_text": "1. Patients with known MSI-high or mismatch repair deficient (dMMR) status or in whom the status of both are unknown",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06992258",
+        "rule_id": "NCT06992258-E02",
+        "type": "exclusion",
+        "field": "mmr_deficient",
+        "operator": "eq",
+        "value": true,
+        "source_text": "1. Patients with known MSI-high or mismatch repair deficient (dMMR) status or in whom the status of both are unknown",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06992258",
+        "rule_id": "NCT06992258-E03",
+        "type": "exclusion",
+        "field": "biomarkers",
+        "operator": "absent",
+        "value": null,
+        "source_text": "1. Patients with known MSI-high or mismatch repair deficient (dMMR) status or in whom the status of both are unknown",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06992258",
+        "rule_id": "NCT06992258-E04",
+        "type": "exclusion",
+        "field": "braf_v600e_mutation",
+        "operator": "eq",
+        "value": true,
+        "source_text": "2. Patients with BRAF V600 mutations",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06992258",
+        "rule_id": "NCT06992258-E05",
+        "type": "exclusion",
+        "field": "prior_systemic_therapy",
+        "operator": "eq",
+        "value": true,
+        "source_text": "3. Prior treatment with regorafenib, trifluridine-tipiracil (TAS-102), or fruquintinib.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06992258",
+        "rule_id": "NCT06992258-E06",
+        "type": "exclusion",
+        "field": "diagnosis",
+        "operator": "present",
+        "value": null,
+        "source_text": "4. Major surgery within 14 days of C1D1. Minor procedures (e.g. biopsies, central venous catheters) are not considered major surgery.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06992258",
+        "rule_id": "NCT06992258-E07",
+        "type": "exclusion",
+        "field": "treatment_toxicity_grade",
+        "operator": "gt",
+        "value": 0,
+        "source_text": "5. Patients must have recovered from clinically significant AEs of their most recent prior therapy/intervention prior to enrollment as determined by relevant clinical and laboratory parameters.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06992258",
+        "rule_id": "NCT06992258-E08",
+        "type": "exclusion",
+        "field": "brain_mets_active",
+        "operator": "eq",
+        "value": true,
+        "source_text": "6. Untreated CNS metastases or known leptomeningeal disease. Patients with treated CNS metastases (either by surgical or radiation techniques) are eligible provided there is no evidence of progression for at least 4 weeks after CNS-directed therapy as ascertained by clinical examination and brain imaging (MRI or CT) during the screening period.",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06992258",
+        "rule_id": "NCT06992258-E09",
+        "type": "exclusion",
+        "field": "leptomeningeal_disease",
+        "operator": "eq",
+        "value": true,
+        "source_text": "6. Untreated CNS metastases or known leptomeningeal disease. Patients with treated CNS metastases (either by surgical or radiation techniques) are eligible provided there is no evidence of progression for at least 4 weeks after CNS-directed therapy as ascertained by clinical examination and brain imaging (MRI or CT) during the screening period.",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06992258",
+        "rule_id": "NCT06992258-E10",
+        "type": "exclusion",
+        "field": "other_malignancy_active",
+        "operator": "eq",
+        "value": true,
+        "source_text": "7. Patients with a prior or concurrent malignancy whose natural history or treatment has the potential to interfere with the safety or efficacy assessments of the investigational regimen. Patients whose prior or concurrent malignancy natural history and/or treatment does NOT have the potential to impact safety or study assessments are eligible.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06992258",
+        "rule_id": "NCT06992258-E11",
+        "type": "exclusion",
+        "field": "pleural_effusion_symptomatic",
+        "operator": "eq",
+        "value": true,
+        "source_text": "1. Uncontrolled pleural effusion, pericardial effusion or ascites defined as requiring recurrent drainage procedures within 3 weeks of C1D1",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06992258",
+        "rule_id": "NCT06992258-E12",
+        "type": "exclusion",
+        "field": "ascites_symptomatic",
+        "operator": "eq",
+        "value": true,
+        "source_text": "1. Uncontrolled pleural effusion, pericardial effusion or ascites defined as requiring recurrent drainage procedures within 3 weeks of C1D1",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06992258",
+        "rule_id": "NCT06992258-E13",
+        "type": "exclusion",
+        "field": "lvef_pct",
+        "operator": "lt",
+        "value": 50,
+        "source_text": "5. New York Heart Association (NYHA) Functional Classification class 3 or 4 congestive heart failure or left ventricular ejection fraction < 50%",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06992258",
+        "rule_id": "NCT06992258-E14",
+        "type": "exclusion",
+        "field": "hiv_positive",
+        "operator": "eq",
+        "value": true,
+        "source_text": "16. Patients with AIDS. HIV-infected patients on effective anti-retroviral therapy with an undetectable viral load during the screening period are eligible.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06992258",
+        "rule_id": "NCT06992258-E15",
+        "type": "exclusion",
+        "field": "hepatitis_b_active",
+        "operator": "eq",
+        "value": true,
+        "source_text": "17. For patients with known chronic hepatitis B virus (HBV) infection, the HBV viral load must be undetectable on suppressive therapy during the screening period. Patients with a history of hepatitis C virus (HCV) infection must have been treated and cured. For patients with HCV infection who are currently on treatment, they are eligible if they have an undetectable HCV viral load during the screening period.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06992258",
+        "rule_id": "NCT06992258-E16",
+        "type": "exclusion",
+        "field": "hepatitis_c_active",
+        "operator": "eq",
+        "value": true,
+        "source_text": "17. For patients with known chronic hepatitis B virus (HBV) infection, the HBV viral load must be undetectable on suppressive therapy during the screening period. Patients with a history of hepatitis C virus (HCV) infection must have been treated and cured. For patients with HCV infection who are currently on treatment, they are eligible if they have an undetectable HCV viral load during the screening period.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06992258",
+        "rule_id": "NCT06992258-E17",
+        "type": "exclusion",
+        "field": "pregnant",
+        "operator": "eq",
+        "value": true,
+        "source_text": "21. Pregnant or lactating or intending to become pregnant during the study interval",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06992258",
+        "rule_id": "NCT06992258-E18",
+        "type": "exclusion",
+        "field": "breastfeeding",
+        "operator": "eq",
+        "value": true,
+        "source_text": "21. Pregnant or lactating or intending to become pregnant during the study interval",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06992258",
+        "rule_id": "NCT06992258-E19",
+        "type": "exclusion",
+        "field": "diagnosis",
+        "operator": "present",
+        "value": null,
+        "source_text": "8. Uncontrolled intercurrent illness (defined as but not limited to others in the opinion of the treating investigator):",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06992258",
+        "rule_id": "NCT06992258-E20",
+        "type": "exclusion",
+        "field": "diagnosis",
+        "operator": "present",
+        "value": null,
+        "source_text": "9. History of or active gastric/duodenal ulcer or ulcerative colitis, active hemorrhage of an unresected gastrointestinal tumor, history of obstruction, perforation or fistulas, and any other condition that could, in the investigator's judgment, result in significant gastrointestinal hemorrhage or perforation, within 6 months prior to C1D1.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06992258",
+        "rule_id": "NCT06992258-E21",
+        "type": "exclusion",
+        "field": "diagnosis",
+        "operator": "present",
+        "value": null,
+        "source_text": "10. History or presence of hemorrhage from any other site (e.g. hemoptysis or hematemesis) within 3 months prior to C1D1.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06992258",
+        "rule_id": "NCT06992258-E22",
+        "type": "exclusion",
+        "field": "diagnosis",
+        "operator": "present",
+        "value": null,
+        "source_text": "11. History of a venous thromboembolic event (e.g. deep vein thrombosis or pulmonary embolism) within 3 months prior to C1D1.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06992258",
+        "rule_id": "NCT06992258-E23",
+        "type": "exclusion",
+        "field": "diagnosis",
+        "operator": "present",
+        "value": null,
+        "source_text": "12. History of an arterial thromboembolic event (e.g. stroke/CVA, transient ischemic event, unstable angina, acute myocardial infarction/coronary artery bypass surgery) within 6 months prior to C1D1.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06992258",
+        "rule_id": "NCT06992258-E24",
+        "type": "exclusion",
+        "field": "diagnosis",
+        "operator": "present",
+        "value": null,
+        "source_text": "13. Tumor invasion of a large vascular structure (e.g. pulmonary artery, superior or inferior vena cava).",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06992258",
+        "rule_id": "NCT06992258-E25",
+        "type": "exclusion",
+        "field": "diagnosis",
+        "operator": "present",
+        "value": null,
+        "source_text": "14. Inability to discontinue medications with a known risk of causing QT prolongation and/or torsades de pointes within 7 days of C1D1.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06992258",
+        "rule_id": "NCT06992258-E26",
+        "type": "exclusion",
+        "field": "diagnosis",
+        "operator": "present",
+        "value": null,
+        "source_text": "15. Use of strong or moderate inducers of CYP3A within 7 days of C1D1.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06992258",
+        "rule_id": "NCT06992258-E27",
+        "type": "exclusion",
+        "field": "diagnosis",
+        "operator": "present",
+        "value": null,
+        "source_text": "18. Recent COVID-19 diagnosis (symptomatic or asymptomatic). To become eligible (following symptomatic infection), the patient must not have fever for 24 hours (without using medicine to reduce fever), other symptoms have improved, and at least 10 days have passed since onset of symptoms. To become eligible (following asymptomatic infection, e.g. positive test only), at least 10 days have passed since the positive test. In either case, a repeat COVID-19 test is not required. Likewise, a persistently positive test (if obtained) does not continue to exclude the patient should the other criteria be satisfied.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06992258",
+        "rule_id": "NCT06992258-E28",
+        "type": "exclusion",
+        "field": "diagnosis",
+        "operator": "present",
+        "value": null,
+        "source_text": "19. History of severe allergic, anaphylactic, or other hypersensitivity reactions to any of the study medications or their classes",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06992258",
+        "rule_id": "NCT06992258-E29",
+        "type": "exclusion",
+        "field": "diagnosis",
+        "operator": "present",
+        "value": null,
+        "source_text": "20. Inability to swallow, retain and/or absorb oral medications",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06992258",
+        "rule_id": "NCT06992258-E30",
+        "type": "exclusion",
+        "field": "diagnosis",
+        "operator": "present",
+        "value": null,
+        "source_text": "22. Other uncontrolled serious medical or psychiatric illness that would impact study participation and/or follow up in the opinion of the treating investigator",
+        "manual_review": true
+      }
+    ],
+    "study_type": "Interventional",
+    "intervention_types": [
+      "Drug"
+    ],
+    "synthetic": false
+  },
+  {
+    "trial_id": "NCT07061210",
+    "title": "An Explorative Study of HRS-2189 Combined With Adebrelimab and BP102 for Metastatic Colorectal Cancer",
+    "phase": "Phase2",
+    "status": "Not Yet Recruiting",
+    "summary": "To evaluate the safety and efficacy of HRS-2189 combined with Adebrelimab and BP102 in the treatment of metastatic colorectal cancer",
+    "conditions": [
+      "Colorectal Cancer Metastatic"
+    ],
+    "locations": [
+      {
+        "facility": "Contact study team",
+        "city": "Unknown",
+        "state": ""
+      }
+    ],
+    "rules": [
+      {
+        "trial_id": "NCT07061210",
+        "rule_id": "I1_age_min",
+        "type": "inclusion",
+        "field": "age_years",
+        "operator": "gte",
+        "value": 18,
+        "source_text": "1.18-75 years; 2.Histological confirmed metastatic colorectal cancer; 3.ECOG PS 0-1; 4.At least one measurable lesion (according to RECIST1.1); 5.Patients voluntarily enroll in the study.",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT07061210",
+        "rule_id": "I1_age_max",
+        "type": "inclusion",
+        "field": "age_years",
+        "operator": "lte",
+        "value": 75,
+        "source_text": "1.18-75 years; 2.Histological confirmed metastatic colorectal cancer; 3.ECOG PS 0-1; 4.At least one measurable lesion (according to RECIST1.1); 5.Patients voluntarily enroll in the study.",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT07061210",
+        "rule_id": "I2_histology",
+        "type": "inclusion",
+        "field": "histology",
+        "operator": "eq",
+        "value": "colorectal cancer",
+        "source_text": "1.18-75 years; 2.Histological confirmed metastatic colorectal cancer; 3.ECOG PS 0-1; 4.At least one measurable lesion (according to RECIST1.1); 5.Patients voluntarily enroll in the study.",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT07061210",
+        "rule_id": "I2_metastatic",
+        "type": "inclusion",
+        "field": "metastatic_disease",
+        "operator": "eq",
+        "value": true,
+        "source_text": "1.18-75 years; 2.Histological confirmed metastatic colorectal cancer; 3.ECOG PS 0-1; 4.At least one measurable lesion (according to RECIST1.1); 5.Patients voluntarily enroll in the study.",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT07061210",
+        "rule_id": "I3_ecog_min",
+        "type": "inclusion",
+        "field": "ecog",
+        "operator": "gte",
+        "value": 0,
+        "source_text": "1.18-75 years; 2.Histological confirmed metastatic colorectal cancer; 3.ECOG PS 0-1; 4.At least one measurable lesion (according to RECIST1.1); 5.Patients voluntarily enroll in the study.",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT07061210",
+        "rule_id": "I3_ecog_max",
+        "type": "inclusion",
+        "field": "ecog",
+        "operator": "lte",
+        "value": 1,
+        "source_text": "1.18-75 years; 2.Histological confirmed metastatic colorectal cancer; 3.ECOG PS 0-1; 4.At least one measurable lesion (according to RECIST1.1); 5.Patients voluntarily enroll in the study.",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT07061210",
+        "rule_id": "I4_measurable_disease",
+        "type": "inclusion",
+        "field": "measurable_disease",
+        "operator": "eq",
+        "value": true,
+        "source_text": "1.18-75 years; 2.Histological confirmed metastatic colorectal cancer; 3.ECOG PS 0-1; 4.At least one measurable lesion (according to RECIST1.1); 5.Patients voluntarily enroll in the study.",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT07061210",
+        "rule_id": "I5_voluntary_enrollment",
+        "type": "inclusion",
+        "field": "diagnosis",
+        "operator": "present",
+        "value": null,
+        "source_text": "1.18-75 years; 2.Histological confirmed metastatic colorectal cancer; 3.ECOG PS 0-1; 4.At least one measurable lesion (according to RECIST1.1); 5.Patients voluntarily enroll in the study.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT07061210",
+        "rule_id": "E1_other_malignancy",
+        "type": "exclusion",
+        "field": "other_malignancy_active",
+        "operator": "eq",
+        "value": true,
+        "source_text": "1. The patient has had other malignant tumors within 5 years (except cured basal cell carcinoma of the skin and carcinoma in situ of the cervix);",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT07061210",
+        "rule_id": "E2_brain_meningeal_metastases",
+        "type": "exclusion",
+        "field": "brain_mets_active",
+        "operator": "present",
+        "value": null,
+        "source_text": "2. Symptomatic brain or meningeal metastases (except for those whose BMS disease is stable for at least 4 weeks);",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT07061210",
+        "rule_id": "E3_allergy",
+        "type": "exclusion",
+        "field": "immunocompromised",
+        "operator": "present",
+        "value": null,
+        "source_text": "3. Allergy to the study drug or any of its excipients;",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT07061210",
+        "rule_id": "E4_1_major_surgery",
+        "type": "exclusion",
+        "field": "treatment_toxicity_grade",
+        "operator": "present",
+        "value": null,
+        "source_text": "1. Major surgery within 28 days before treatment (tissue biopsy for diagnostic purposes is allowed).",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT07061210",
+        "rule_id": "E4_2_immunosuppressive_drugs",
+        "type": "exclusion",
+        "field": "systemic_immunosuppression",
+        "operator": "eq",
+        "value": true,
+        "source_text": "2. Use of immunosuppressive drugs within 7 days before treatment, excluding intranasal and inhaled corticosteroids or physiological doses of systemic steroids (i.e., no more than 10 mg/day of prednisone or an equivalent dose of other corticosteroids);",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT07061210",
+        "rule_id": "E4_3_immunomodulatory_drugs",
+        "type": "exclusion",
+        "field": "systemic_immunosuppression",
+        "operator": "present",
+        "value": null,
+        "source_text": "3. Administration of immunomodulatory drugs (such as thymosin, interferon, interleukin) within 3 weeks before treatment;",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT07061210",
+        "rule_id": "E4_4_live_vaccine",
+        "type": "exclusion",
+        "field": "live_vaccine_within_days",
+        "operator": "lte",
+        "value": 28,
+        "source_text": "4. Vaccination with live attenuated vaccines within 28 days before treatment;",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT07061210",
+        "rule_id": "E4_5_prior_systemic_therapy",
+        "type": "exclusion",
+        "field": "prior_systemic_therapy",
+        "operator": "eq",
+        "value": true,
+        "source_text": "5. Other systemic anti-tumor therapies within 28 days before treatment;",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT07061210",
+        "rule_id": "E5_active_autoimmune",
+        "type": "exclusion",
+        "field": "autoimmune_disease_active",
+        "operator": "eq",
+        "value": true,
+        "source_text": "5. Any active autoimmune disease or a history of autoimmune disease with an anticipated recurrence;",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT07061210",
+        "rule_id": "E6_allogeneic_transplant",
+        "type": "exclusion",
+        "field": "immunocompromised",
+        "operator": "present",
+        "value": null,
+        "source_text": "6. Known history of allogeneic organ transplantation or allogeneic hematopoietic stem cell transplantation;",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT07061210",
+        "rule_id": "E7_active_infection_fever",
+        "type": "exclusion",
+        "field": "immunocompromised",
+        "operator": "present",
+        "value": null,
+        "source_text": "7. Active infection or unexplained fever >38.5\u00b0C within 4 weeks before the first dose or on the day of the first dose (fever due to tumor may be included in the study at the investigator's discretion)\uff1b",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT07061210",
+        "rule_id": "E8_myocardial_infarction",
+        "type": "exclusion",
+        "field": "lvef_pct",
+        "operator": "present",
+        "value": null,
+        "source_text": "8. Within 6 months prior to study entry, any of the following conditions: myocardial infarction, severe/unstable angina, NYHA Class 2 or higher cardiac insufficiency, or clinically significant supraventricular/ventricular arrhythmia requiring clinical intervention; poorly controlled hypertension despite medication;",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT07061210",
+        "rule_id": "E8_angina",
+        "type": "exclusion",
+        "field": "lvef_pct",
+        "operator": "present",
+        "value": null,
+        "source_text": "8. Within 6 months prior to study entry, any of the following conditions: myocardial infarction, severe/unstable angina, NYHA Class 2 or higher cardiac insufficiency, or clinically significant supraventricular/ventricular arrhythmia requiring clinical intervention; poorly controlled hypertension despite medication;",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT07061210",
+        "rule_id": "E8_cardiac_insufficiency",
+        "type": "exclusion",
+        "field": "lvef_pct",
+        "operator": "present",
+        "value": null,
+        "source_text": "8. Within 6 months prior to study entry, any of the following conditions: myocardial infarction, severe/unstable angina, NYHA Class 2 or higher cardiac insufficiency, or clinically significant supraventricular/ventricular arrhythmia requiring clinical intervention; poorly controlled hypertension despite medication;",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT07061210",
+        "rule_id": "E8_arrhythmia",
+        "type": "exclusion",
+        "field": "lvef_pct",
+        "operator": "present",
+        "value": null,
+        "source_text": "8. Within 6 months prior to study entry, any of the following conditions: myocardial infarction, severe/unstable angina, NYHA Class 2 or higher cardiac insufficiency, or clinically significant supraventricular/ventricular arrhythmia requiring clinical intervention; poorly controlled hypertension despite medication;",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT07061210",
+        "rule_id": "E8_hypertension",
+        "type": "exclusion",
+        "field": "lvef_pct",
+        "operator": "present",
+        "value": null,
+        "source_text": "8. Within 6 months prior to study entry, any of the following conditions: myocardial infarction, severe/unstable angina, NYHA Class 2 or higher cardiac insufficiency, or clinically significant supraventricular/ventricular arrhythmia requiring clinical intervention; poorly controlled hypertension despite medication;",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT07061210",
+        "rule_id": "E9_severe_bleeding",
+        "type": "exclusion",
+        "field": "treatment_toxicity_grade",
+        "operator": "present",
+        "value": null,
+        "source_text": "9. History of severe bleeding (>30 mL per episode) within 3 months, hemoptysis (>5 mL per episode) within 1 month, or arterial/venous thrombotic events within 6 months before the first dose;",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT07061210",
+        "rule_id": "E9_hemoptysis",
+        "type": "exclusion",
+        "field": "treatment_toxicity_grade",
+        "operator": "present",
+        "value": null,
+        "source_text": "9. History of severe bleeding (>30 mL per episode) within 3 months, hemoptysis (>5 mL per episode) within 1 month, or arterial/venous thrombotic events within 6 months before the first dose;",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT07061210",
+        "rule_id": "E9_thrombotic_events",
+        "type": "exclusion",
+        "field": "treatment_toxicity_grade",
+        "operator": "present",
+        "value": null,
+        "source_text": "9. History of severe bleeding (>30 mL per episode) within 3 months, hemoptysis (>5 mL per episode) within 1 month, or arterial/venous thrombotic events within 6 months before the first dose;",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT07061210",
+        "rule_id": "E10_swallowing",
+        "type": "exclusion",
+        "field": "diagnosis",
+        "operator": "present",
+        "value": null,
+        "source_text": "10. Inability to swallow the study drug, or presence of factors affecting drug administration and absorption such as chronic diarrhea (including but not limited to irritable bowel syndrome, Crohn's disease, ulcerative colitis) or intestinal obstruction;",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT07061210",
+        "rule_id": "E10_absorption_factors",
+        "type": "exclusion",
+        "field": "diagnosis",
+        "operator": "present",
+        "value": null,
+        "source_text": "10. Inability to swallow the study drug, or presence of factors affecting drug administration and absorption such as chronic diarrhea (including but not limited to irritable bowel syndrome, Crohn's disease, ulcerative colitis) or intestinal obstruction;",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT07061210",
+        "rule_id": "E11_pregnancy",
+        "type": "exclusion",
+        "field": "pregnant",
+        "operator": "eq",
+        "value": true,
+        "source_text": "11. Pregnant or breastfeeding women, or subjects of reproductive potential unwilling to use effective contraception;",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT07061210",
+        "rule_id": "E11_breastfeeding",
+        "type": "exclusion",
+        "field": "breastfeeding",
+        "operator": "eq",
+        "value": true,
+        "source_text": "11. Pregnant or breastfeeding women, or subjects of reproductive potential unwilling to use effective contraception;",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT07061210",
+        "rule_id": "E11_contraception",
+        "type": "exclusion",
+        "field": "contraception_agreement",
+        "operator": "eq",
+        "value": false,
+        "source_text": "11. Pregnant or breastfeeding women, or subjects of reproductive potential unwilling to use effective contraception;",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT07061210",
+        "rule_id": "E12_other_severe_abnormalities",
+        "type": "exclusion",
+        "field": "treatment_toxicity_grade",
+        "operator": "present",
+        "value": null,
+        "source_text": "12. Presence of other severe physical or laboratory abnormalities that may increase the risk of study participation, interfere with study results, or patients deemed unsuitable for the study by the investigator.",
+        "manual_review": true
+      }
+    ],
+    "study_type": "Interventional",
+    "intervention_types": [
+      "Drug"
+    ],
+    "synthetic": false
+  },
+  {
+    "trial_id": "NCT06192680",
+    "title": "Liposomal Irinotecan and Capecitabine Plus Bevacizumab as Second-line Therapy in Metastatic Colorectal Cancer",
+    "phase": "Phase2",
+    "status": "Not Yet Recruiting",
+    "summary": "This multicenter, single-arm trial will explore the efficacy and safety of liposomal irinotecan and capecitabine plus bevacizumab as second-line therapy in metastatic colorectal cancer.",
+    "conditions": [
+      "Colorectal Cancer"
+    ],
+    "locations": [
+      {
+        "facility": "Contact study team",
+        "city": "Unknown",
+        "state": ""
+      }
+    ],
+    "rules": [
+      {
+        "trial_id": "NCT06192680",
+        "rule_id": "INC-001",
+        "type": "inclusion",
+        "field": "age_years",
+        "operator": "gte",
+        "value": 18,
+        "source_text": "* Age: \u226518 years old.",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06192680",
+        "rule_id": "INC-002",
+        "type": "inclusion",
+        "field": "diagnosis",
+        "operator": "eq",
+        "value": "colorectal adenocarcinoma",
+        "source_text": "* Histopathologically and/or cytologically confirmed unresectable metastatic colorectal adenocarcinoma, and patients failed or are intolerant to first-line treatment with oxaliplatin \u00b1 VEGF/EGFR.",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06192680",
+        "rule_id": "INC-003",
+        "type": "inclusion",
+        "field": "histology",
+        "operator": "eq",
+        "value": "adenocarcinoma",
+        "source_text": "* Histopathologically and/or cytologically confirmed unresectable metastatic colorectal adenocarcinoma, and patients failed or are intolerant to first-line treatment with oxaliplatin \u00b1 VEGF/EGFR.",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06192680",
+        "rule_id": "INC-004",
+        "type": "inclusion",
+        "field": "unresectable_disease",
+        "operator": "eq",
+        "value": true,
+        "source_text": "* Histopathologically and/or cytologically confirmed unresectable metastatic colorectal adenocarcinoma, and patients failed or are intolerant to first-line treatment with oxaliplatin \u00b1 VEGF/EGFR.",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06192680",
+        "rule_id": "INC-005",
+        "type": "inclusion",
+        "field": "metastatic_disease",
+        "operator": "eq",
+        "value": true,
+        "source_text": "* Histopathologically and/or cytologically confirmed unresectable metastatic colorectal adenocarcinoma, and patients failed or are intolerant to first-line treatment with oxaliplatin \u00b1 VEGF/EGFR.",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06192680",
+        "rule_id": "INC-006",
+        "type": "inclusion",
+        "field": "prior_oxaliplatin_therapy",
+        "operator": "present",
+        "value": null,
+        "source_text": "* Histopathologically and/or cytologically confirmed unresectable metastatic colorectal adenocarcinoma, and patients failed or are intolerant to first-line treatment with oxaliplatin \u00b1 VEGF/EGFR.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06192680",
+        "rule_id": "INC-007",
+        "type": "inclusion",
+        "field": "prior_anti_vegf_therapy",
+        "operator": "present",
+        "value": null,
+        "source_text": "* Histopathologically and/or cytologically confirmed unresectable metastatic colorectal adenocarcinoma, and patients failed or are intolerant to first-line treatment with oxaliplatin \u00b1 VEGF/EGFR.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06192680",
+        "rule_id": "INC-008",
+        "type": "inclusion",
+        "field": "prior_anti_egfr_therapy",
+        "operator": "present",
+        "value": null,
+        "source_text": "* Histopathologically and/or cytologically confirmed unresectable metastatic colorectal adenocarcinoma, and patients failed or are intolerant to first-line treatment with oxaliplatin \u00b1 VEGF/EGFR.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06192680",
+        "rule_id": "INC-009",
+        "type": "inclusion",
+        "field": "measurable_disease",
+        "operator": "eq",
+        "value": true,
+        "source_text": "* At least one measurable lesion (according to RECIST v1.1).",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06192680",
+        "rule_id": "INC-010",
+        "type": "inclusion",
+        "field": "ecog",
+        "operator": "in",
+        "value": [
+          "0",
+          "1"
+        ],
+        "source_text": "* Eastern Cooperative Oncology Group (ECOG) performance status of 0 \\~ 1.",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06192680",
+        "rule_id": "INC-011",
+        "type": "inclusion",
+        "field": "life_expectancy_months",
+        "operator": "gte",
+        "value": 3,
+        "source_text": "* The expected survival time \u22653 months.",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06192680",
+        "rule_id": "INC-012",
+        "type": "inclusion",
+        "field": "anc_10e9_l",
+        "operator": "gte",
+        "value": 1.5,
+        "source_text": "* Subject has adequate biological parameters as demonstrated by the following: Absolute neutrophil count (ANC) \u22651.5\u00d710\\^9/L, Platelet count \u2265100\u00d710\\^9/L, Hemoglobin (Hgb) \u226590 g/L.",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06192680",
+        "rule_id": "INC-013",
+        "type": "inclusion",
+        "field": "platelets_10e9_l",
+        "operator": "gte",
+        "value": 100,
+        "source_text": "* Subject has adequate biological parameters as demonstrated by the following: Absolute neutrophil count (ANC) \u22651.5\u00d710\\^9/L, Platelet count \u2265100\u00d710\\^9/L, Hemoglobin (Hgb) \u226590 g/L.",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06192680",
+        "rule_id": "INC-014",
+        "type": "inclusion",
+        "field": "hemoglobin_g_dl",
+        "operator": "gte",
+        "value": 9,
+        "source_text": "* Subject has adequate biological parameters as demonstrated by the following: Absolute neutrophil count (ANC) \u22651.5\u00d710\\^9/L, Platelet count \u2265100\u00d710\\^9/L, Hemoglobin (Hgb) \u226590 g/L.",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06192680",
+        "rule_id": "INC-015",
+        "type": "inclusion",
+        "field": "bilirubin_uln_multiple",
+        "operator": "lte",
+        "value": 1.5,
+        "source_text": "* Adequate hepatic function as evidenced by: Total bilirubin \u22641.5 \u00d7 upper limit of normal (ULN), Aspartate aminotransferase (AST) and alanine aminotransferase (ALT) \u22642.5 \u00d7 ULN, \u22645 \u00d7 ULN if liver metastases are present. Serum albumin \u22653 g/dL.",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06192680",
+        "rule_id": "INC-016",
+        "type": "inclusion",
+        "field": "ast_uln_multiple",
+        "operator": "lte",
+        "value": 2.5,
+        "source_text": "* Adequate hepatic function as evidenced by: Total bilirubin \u22641.5 \u00d7 upper limit of normal (ULN), Aspartate aminotransferase (AST) and alanine aminotransferase (ALT) \u22642.5 \u00d7 ULN, \u22645 \u00d7 ULN if liver metastases are present. Serum albumin \u22653 g/dL.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06192680",
+        "rule_id": "INC-017",
+        "type": "inclusion",
+        "field": "alt_uln_multiple",
+        "operator": "lte",
+        "value": 2.5,
+        "source_text": "* Adequate hepatic function as evidenced by: Total bilirubin \u22641.5 \u00d7 upper limit of normal (ULN), Aspartate aminotransferase (AST) and alanine aminotransferase (ALT) \u22642.5 \u00d7 ULN, \u22645 \u00d7 ULN if liver metastases are present. Serum albumin \u22653 g/dL.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06192680",
+        "rule_id": "INC-018",
+        "type": "inclusion",
+        "field": "creatinine_clearance_ml_min",
+        "operator": "gte",
+        "value": 60,
+        "source_text": "* Adequate renal function as evidenced by serum creatinine (Cr) \u22641.5 \u00d7 ULN or creatinine clearance \u226560 mL/min. Proteinuria < 2+ (those with proteinuria \u22652+ at baseline had to demonstrate \u22641 g protein per 24 hours).",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06192680",
+        "rule_id": "INC-019",
+        "type": "inclusion",
+        "field": "creatinine_mg_dl",
+        "operator": "lte",
+        "value": 1.5,
+        "source_text": "* Adequate renal function as evidenced by serum creatinine (Cr) \u22641.5 \u00d7 ULN or creatinine clearance \u226560 mL/min. Proteinuria < 2+ (those with proteinuria \u22652+ at baseline had to demonstrate \u22641 g protein per 24 hours).",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06192680",
+        "rule_id": "INC-020",
+        "type": "inclusion",
+        "field": "lvef_pct",
+        "operator": "gte",
+        "value": 50,
+        "source_text": "* Left ventricular ejection fraction (LVEF) \u226550%.",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06192680",
+        "rule_id": "INC-021",
+        "type": "inclusion",
+        "field": "contraception_agreement",
+        "operator": "eq",
+        "value": true,
+        "source_text": "* Subjects agree to use contraception and are not pregnant or breastfeeding women.",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06192680",
+        "rule_id": "EXC-001",
+        "type": "exclusion",
+        "field": "pregnant",
+        "operator": "eq",
+        "value": true,
+        "source_text": "* Subjects agree to use contraception and are not pregnant or breastfeeding women.",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06192680",
+        "rule_id": "EXC-002",
+        "type": "exclusion",
+        "field": "breastfeeding",
+        "operator": "eq",
+        "value": true,
+        "source_text": "* Subjects agree to use contraception and are not pregnant or breastfeeding women.",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06192680",
+        "rule_id": "INC-022",
+        "type": "inclusion",
+        "field": "diagnosis",
+        "operator": "present",
+        "value": null,
+        "source_text": "* Agree and be able to comply with the plan during the study period. Provide written informed consent before entering the study screening.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06192680",
+        "rule_id": "EXC-003",
+        "type": "exclusion",
+        "field": "other_malignancy_active",
+        "operator": "eq",
+        "value": true,
+        "source_text": "* Any other malignancy within 5 years, with the exception of cured in-situ carcinoma or basal cell carcinoma etc.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06192680",
+        "rule_id": "EXC-004",
+        "type": "exclusion",
+        "field": "prior_irinotecan_therapy",
+        "operator": "present",
+        "value": null,
+        "source_text": "* Previous treatment with irinotecan/liposomal irinotecan.",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06192680",
+        "rule_id": "EXC-005",
+        "type": "exclusion",
+        "field": "kras_mutation",
+        "operator": "eq",
+        "value": false,
+        "source_text": "* Patients with the primary lesion located in the left colon and RAS/BRAF wild-type who did not use cetuximab on the first line.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06192680",
+        "rule_id": "EXC-006",
+        "type": "exclusion",
+        "field": "nras_mutation",
+        "operator": "eq",
+        "value": false,
+        "source_text": "* Patients with the primary lesion located in the left colon and RAS/BRAF wild-type who did not use cetuximab on the first line.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06192680",
+        "rule_id": "EXC-007",
+        "type": "exclusion",
+        "field": "braf_v600e_mutation",
+        "operator": "eq",
+        "value": false,
+        "source_text": "* Patients with the primary lesion located in the left colon and RAS/BRAF wild-type who did not use cetuximab on the first line.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06192680",
+        "rule_id": "EXC-008",
+        "type": "exclusion",
+        "field": "prior_anti_egfr_therapy",
+        "operator": "absent",
+        "value": null,
+        "source_text": "* Patients with the primary lesion located in the left colon and RAS/BRAF wild-type who did not use cetuximab on the first line.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06192680",
+        "rule_id": "EXC-009",
+        "type": "exclusion",
+        "field": "msi_high",
+        "operator": "eq",
+        "value": true,
+        "source_text": "* Known as high microsatellite instability (MSI-H) or mismatch repair deficiency (dMMR).",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06192680",
+        "rule_id": "EXC-010",
+        "type": "exclusion",
+        "field": "mmr_deficient",
+        "operator": "eq",
+        "value": true,
+        "source_text": "* Known as high microsatellite instability (MSI-H) or mismatch repair deficiency (dMMR).",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06192680",
+        "rule_id": "EXC-011",
+        "type": "exclusion",
+        "field": "pleural_effusion_symptomatic",
+        "operator": "eq",
+        "value": true,
+        "source_text": "* Massive pleural effusion or ascites requiring intervention.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06192680",
+        "rule_id": "EXC-012",
+        "type": "exclusion",
+        "field": "ascites_symptomatic",
+        "operator": "eq",
+        "value": true,
+        "source_text": "* Massive pleural effusion or ascites requiring intervention.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06192680",
+        "rule_id": "EXC-013",
+        "type": "exclusion",
+        "field": "immunocompromised",
+        "operator": "eq",
+        "value": true,
+        "source_text": "* Active, uncontrolled bacterial, viral, or fungal infections that require systemic treatment.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06192680",
+        "rule_id": "EXC-014",
+        "type": "exclusion",
+        "field": "hiv_positive",
+        "operator": "eq",
+        "value": true,
+        "source_text": "* Active HIV infection.",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06192680",
+        "rule_id": "EXC-015",
+        "type": "exclusion",
+        "field": "autoimmune_disease_active",
+        "operator": "eq",
+        "value": true,
+        "source_text": "* Combined with uncontrollable systemic diseases within 6 months before the first administration.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06192680",
+        "rule_id": "EXC-016",
+        "type": "exclusion",
+        "field": "diagnosis",
+        "operator": "present",
+        "value": null,
+        "source_text": "* Presence of severe gastrointestinal disease.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06192680",
+        "rule_id": "EXC-017",
+        "type": "exclusion",
+        "field": "prior_systemic_therapy",
+        "operator": "present",
+        "value": null,
+        "source_text": "* History of major surgery (such as laparotomy, thoracotomy or intestinal resection) within 28 days before the first administration, or plan to undergo major surgery during the study period.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06192680",
+        "rule_id": "EXC-018",
+        "type": "exclusion",
+        "field": "interstitial_lung_disease",
+        "operator": "eq",
+        "value": true,
+        "source_text": "* Presence of interstitial pneumonia or pulmonary fibrosis.",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06192680",
+        "rule_id": "EXC-019",
+        "type": "exclusion",
+        "field": "pneumonitis_history",
+        "operator": "eq",
+        "value": true,
+        "source_text": "* Presence of interstitial pneumonia or pulmonary fibrosis.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06192680",
+        "rule_id": "EXC-020",
+        "type": "exclusion",
+        "field": "diagnosis",
+        "operator": "present",
+        "value": null,
+        "source_text": "* History of allergy or hypersensitivity to drug or any of their excipients.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06192680",
+        "rule_id": "EXC-021",
+        "type": "exclusion",
+        "field": "treatment_toxicity_grade",
+        "operator": "gte",
+        "value": 2,
+        "source_text": "* History of pulmonary hemorrhage/hemoptysis \u2265Grade 2 (defined as bright red blood of at least 2.5mL) within one month before the first administration.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06192680",
+        "rule_id": "EXC-022",
+        "type": "exclusion",
+        "field": "diagnosis",
+        "operator": "present",
+        "value": null,
+        "source_text": "* Presence of arterial embolism, severe bleeding (excluding bleeding caused by surgery) or tendency for existing embolism or severe bleeding within 6 months before the first administration.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06192680",
+        "rule_id": "EXC-023",
+        "type": "exclusion",
+        "field": "brain_mets_active",
+        "operator": "eq",
+        "value": true,
+        "source_text": "* Combined symptomatic brain metastasis, meningeal metastasis, spinal cord tumor invasion, and spinal cord compression syndrome.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06192680",
+        "rule_id": "EXC-024",
+        "type": "exclusion",
+        "field": "leptomeningeal_disease",
+        "operator": "eq",
+        "value": true,
+        "source_text": "* Combined symptomatic brain metastasis, meningeal metastasis, spinal cord tumor invasion, and spinal cord compression syndrome.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06192680",
+        "rule_id": "EXC-025",
+        "type": "exclusion",
+        "field": "diagnosis",
+        "operator": "present",
+        "value": null,
+        "source_text": "* Combined symptomatic brain metastasis, meningeal metastasis, spinal cord tumor invasion, and spinal cord compression syndrome.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06192680",
+        "rule_id": "EXC-026",
+        "type": "exclusion",
+        "field": "diagnosis",
+        "operator": "present",
+        "value": null,
+        "source_text": "* Use of strong inhibitors or inducers of CYP3A4, CYP2C8 and UGT1A1 within 14 days before the first administration.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06192680",
+        "rule_id": "EXC-027",
+        "type": "exclusion",
+        "field": "prior_systemic_therapy",
+        "operator": "present",
+        "value": null,
+        "source_text": "* Use other study drug within 1 month before the first administration.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06192680",
+        "rule_id": "EXC-028",
+        "type": "exclusion",
+        "field": "diagnosis",
+        "operator": "present",
+        "value": null,
+        "source_text": "* Patients who are not suitable to participate in this trial for any reason judged by the investigator.",
+        "manual_review": true
+      }
+    ],
+    "study_type": "Interventional",
+    "intervention_types": [
+      "Drug"
+    ],
+    "synthetic": false
+  },
+  {
+    "trial_id": "NCT06598007",
+    "title": "A Study to Determine the Effect of CT3001 in Patients With Advanced Solid Tumors",
+    "phase": "Phase1 / Phase2",
+    "status": "Recruiting",
+    "summary": "This is an FIH, multicenter, open-label, dose escalation and dose expansion/dose optimization study of CT3001, which will be conducted in 2 phases: Phase 1 and Phase 2b. Phase 1 will be a standard 3+3 dose escalation and dose finding study in patients with advanced solid tumors for whom there is no available therapy (or patients are not candidates for such therapy) for the assessment of DLTs at up to 7 dose levels of CT3001. Phase 2b is a dose finding/dose optimization study of CT3001 in combination with SOC chemotherapy (FOLFOX) to evaluate the safety and preliminary efficacy of CT3001 in patients with advanced CRC who are eligible for re-engaging FOLFOX-based chemotherapy.",
+    "conditions": [
+      "Solid Tumor, Adult",
+      "Colorectal Cancer",
+      "Pancreatic Ductal Adenocarcinoma"
+    ],
+    "locations": [
+      {
+        "facility": "MD Anderson Cancer Center",
+        "city": "Houston",
+        "state": "Texas"
+      }
+    ],
+    "rules": [
+      {
+        "trial_id": "NCT06598007",
+        "rule_id": "INC-01",
+        "type": "inclusion",
+        "field": "diagnosis",
+        "operator": "present",
+        "value": true,
+        "source_text": "Able to give voluntary informed consent and understand the study and are willing to follow and complete all the test procedures.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06598007",
+        "rule_id": "INC-02",
+        "type": "inclusion",
+        "field": "age_years",
+        "operator": "gte",
+        "value": 18,
+        "source_text": "Aged \u2265 18 years (or adult age as per local regulations).",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06598007",
+        "rule_id": "INC-03",
+        "type": "inclusion",
+        "field": "histology",
+        "operator": "present",
+        "value": true,
+        "source_text": "Histologically/cytologically confirmed, locally advanced unresectable or metastatic solid tumors that are refractory to standard therapy, or for whom no standard therapy exists. Note: In Phase 2b, only participants with advanced CRC who are eligible for re-engaging FOLFOX will be enrolled.",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06598007",
+        "rule_id": "INC-04",
+        "type": "inclusion",
+        "field": "unresectable_disease",
+        "operator": "eq",
+        "value": true,
+        "source_text": "Histologically/cytologically confirmed, locally advanced unresectable or metastatic solid tumors that are refractory to standard therapy, or for whom no standard therapy exists. Note: In Phase 2b, only participants with advanced CRC who are eligible for re-engaging FOLFOX will be enrolled.",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06598007",
+        "rule_id": "INC-05",
+        "type": "inclusion",
+        "field": "metastatic_disease",
+        "operator": "eq",
+        "value": true,
+        "source_text": "Histologically/cytologically confirmed, locally advanced unresectable or metastatic solid tumors that are refractory to standard therapy, or for whom no standard therapy exists. Note: In Phase 2b, only participants with advanced CRC who are eligible for re-engaging FOLFOX will be enrolled.",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06598007",
+        "rule_id": "INC-06",
+        "type": "inclusion",
+        "field": "diagnosis",
+        "operator": "present",
+        "value": true,
+        "source_text": "Histologically/cytologically confirmed, locally advanced unresectable or metastatic solid tumors that are refractory to standard therapy, or for whom no standard therapy exists. Note: In Phase 2b, only participants with advanced CRC who are eligible for re-engaging FOLFOX will be enrolled.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06598007",
+        "rule_id": "INC-07",
+        "type": "inclusion",
+        "field": "measurable_disease",
+        "operator": "eq",
+        "value": true,
+        "source_text": "Has measurable disease per RECIST Version 1.1. that was not in a prior radiation or other locally treated area unless imaging-based progression has been clearly documented following radiation or other local therapy.",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06598007",
+        "rule_id": "INC-08",
+        "type": "inclusion",
+        "field": "life_expectancy_months",
+        "operator": "gte",
+        "value": 3,
+        "source_text": "Life expectancy \u2265 3 months, in the opinion of the PI or designee.",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06598007",
+        "rule_id": "INC-09",
+        "type": "inclusion",
+        "field": "ecog",
+        "operator": "in",
+        "value": [
+          "0",
+          "1"
+        ],
+        "source_text": "Eastern Cooperative Oncology Group (ECOG) performance status of 0 or 1.",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06598007",
+        "rule_id": "INC-10",
+        "type": "inclusion",
+        "field": "anc_10e9_l",
+        "operator": "gte",
+        "value": 1.5,
+        "source_text": "1. Absolute neutrophil count \u2265 1.5 \u00d7 10\\^9/L without growth factor support in the 2 weeks prior to study entry.",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06598007",
+        "rule_id": "INC-11",
+        "type": "inclusion",
+        "field": "hemoglobin_g_dl",
+        "operator": "gte",
+        "value": 9,
+        "source_text": "2. Hemoglobin \u22659.0 g/dL without transfusion, growth factor support, or other supportive medication in the 2 weeks prior to study entry.",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06598007",
+        "rule_id": "INC-12",
+        "type": "inclusion",
+        "field": "platelets_10e9_l",
+        "operator": "gte",
+        "value": 75,
+        "source_text": "3. Platelet count \u2265 75 \u00d7 10\\^9/L without transfusion in 2 weeks prior to study entry.",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06598007",
+        "rule_id": "INC-13",
+        "type": "inclusion",
+        "field": "bilirubin_uln_multiple",
+        "operator": "lt",
+        "value": 1.5,
+        "source_text": "1. Serum TBIL < 1.5 \u00d7 ULN.",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06598007",
+        "rule_id": "INC-14",
+        "type": "inclusion",
+        "field": "ast_uln_multiple",
+        "operator": "lt",
+        "value": 3,
+        "source_text": "2. AST and ALT < 3 \u00d7 ULN.",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06598007",
+        "rule_id": "INC-15",
+        "type": "inclusion",
+        "field": "alt_uln_multiple",
+        "operator": "lt",
+        "value": 3,
+        "source_text": "2. AST and ALT < 3 \u00d7 ULN.",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06598007",
+        "rule_id": "INC-16",
+        "type": "inclusion",
+        "field": "creatinine_clearance_ml_min",
+        "operator": "gt",
+        "value": 60,
+        "source_text": "Serum creatinine clearance (CrCL) > 60 mL/min, as per the Cockcroft-Gault Equation:",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06598007",
+        "rule_id": "INC-17",
+        "type": "inclusion",
+        "field": "contraception_agreement",
+        "operator": "eq",
+        "value": true,
+        "source_text": "Participants (both males and females) of childbearing potential should be willing to use a viable contraception method that is deemed effective by the PI or designee from Screening, during the study, and for at least 3 months following the last dose of IP. Postmenopausal women must have been amenorrheal for at least 12 months to be considered of non-childbearing potential; postmenopausal status, if not known, is to be confirmed through testing of follicle-stimulating hormone (FSH) levels of \u2265 40 IU/L. Male participants must be willing not to donate sperm until 3 months following the last IP administration.",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06598007",
+        "rule_id": "INC-18",
+        "type": "inclusion",
+        "field": "contraception_agreement",
+        "operator": "eq",
+        "value": true,
+        "source_text": "Participants (both males and females) of childbearing potential should be willing to use a viable contraception method that is deemed effective by the PI or designee from Screening, during the study, and for at least 3 months following the last dose of IP. Postmenopausal women must have been amenorrheal for at least 12 months to be considered of non-childbearing potential; postmenopausal status, if not known, is to be confirmed through testing of follicle-stimulating hormone (FSH) levels of \u2265 40 IU/L. Male participants must be willing not to donate sperm until 3 months following the last IP administration.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06598007",
+        "rule_id": "INC-19",
+        "type": "inclusion",
+        "field": "contraception_agreement",
+        "operator": "eq",
+        "value": true,
+        "source_text": "Participants (both males and females) of childbearing potential should be willing to use a viable contraception method that is deemed effective by the PI or designee from Screening, during the study, and for at least 3 months following the last dose of IP. Postmenopausal women must have been amenorrheal for at least 12 months to be considered of non-childbearing potential; postmenopausal status, if not known, is to be confirmed through testing of follicle-stimulating hormone (FSH) levels of \u2265 40 IU/L. Male participants must be willing not to donate sperm until 3 months following the last IP administration.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06598007",
+        "rule_id": "EXC-01",
+        "type": "exclusion",
+        "field": "prior_systemic_therapy",
+        "operator": "present",
+        "value": true,
+        "source_text": "During Phase 1 Dose Escalation, receiving concurrent anticancer treatment (including chemotherapy, targeted drugs, radiotherapy [excluding the following small-area radiotherapy for bone metastasis], endocrine therapy, antitumor traditional Chinese Medicine), except during Phase 2b, Standard Care Chemotherapy (FOLFOX-based regimen) for advanced CRC patients is allowed.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06598007",
+        "rule_id": "EXC-02",
+        "type": "exclusion",
+        "field": "prior_systemic_therapy",
+        "operator": "present",
+        "value": true,
+        "source_text": "Use of other IP within 5 half-lives of the product (if the IP is a small molecule) or anti-cancer investigational medical device within two weeks prior to the first administration of CT3001. Prior use of investigational monoclonal antibody IP can be permitted upon obtaining an approval from the Sponsor. Use of these investigational IP or devices are not permitted for the duration of treatment with CT3001.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06598007",
+        "rule_id": "EXC-03",
+        "type": "exclusion",
+        "field": "autoimmune_disease_active",
+        "operator": "eq",
+        "value": true,
+        "source_text": "Evidence of severe or uncontrolled systemic diseases, infection, or laboratory finding that in the view of the PI or designee makes it undesirable for the patient to participate in the trial.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06598007",
+        "rule_id": "EXC-04",
+        "type": "exclusion",
+        "field": "pregnant",
+        "operator": "eq",
+        "value": true,
+        "source_text": "Females who are pregnant or nursing, or any participant who is planning to become pregnant (self or partner) at any time during the study, including the Follow-up Period.",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06598007",
+        "rule_id": "EXC-05",
+        "type": "exclusion",
+        "field": "breastfeeding",
+        "operator": "eq",
+        "value": true,
+        "source_text": "Females who are pregnant or nursing, or any participant who is planning to become pregnant (self or partner) at any time during the study, including the Follow-up Period.",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06598007",
+        "rule_id": "EXC-06",
+        "type": "exclusion",
+        "field": "treatment_toxicity_grade",
+        "operator": "present",
+        "value": true,
+        "source_text": "Has had major surgery or significant traumatic injury within 4 weeks of start of CT3001; participants have not recovered from the side effects of any major surgery (defined as requiring general anesthesia) or participant might require major surgery during the course of the study.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06598007",
+        "rule_id": "EXC-07",
+        "type": "exclusion",
+        "field": "treatment_toxicity_grade",
+        "operator": "present",
+        "value": true,
+        "source_text": "Has a prolonged QT interval corrected by Fredericia's formula (QTcF interval) of > 470 ms (determined by average of 3 readings on triplicate 12-lead ECG) or has a history of additional risk factors for Torsade de Pointes (e.g., heart failure, hypokalemia, family history of long-QT syndrome) or current use of medications that prolong the QTcF interval.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06598007",
+        "rule_id": "EXC-08",
+        "type": "exclusion",
+        "field": "diagnosis",
+        "operator": "present",
+        "value": true,
+        "source_text": "Any psychiatric, psychological, familial or geographical condition that, in the judgment of the PI or designee, may interfere with the treatment and follow-up, affect compliance or place the participant at high risk of treatment-related complications will be excluded.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06598007",
+        "rule_id": "EXC-09",
+        "type": "exclusion",
+        "field": "diagnosis",
+        "operator": "present",
+        "value": true,
+        "source_text": "Blood donation or significant blood loss within 60 days prior to the first administration of CT3001.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06598007",
+        "rule_id": "EXC-10",
+        "type": "exclusion",
+        "field": "diagnosis",
+        "operator": "present",
+        "value": true,
+        "source_text": "History of severe allergic or anaphylactic reactions, or sensitivity to the CT3001 or its constituents.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06598007",
+        "rule_id": "EXC-11",
+        "type": "exclusion",
+        "field": "live_vaccine_within_days",
+        "operator": "lte",
+        "value": 28,
+        "source_text": "Vaccination with a live vaccine within 4 weeks prior to the first administration of CT3001.",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06598007",
+        "rule_id": "EXC-12",
+        "type": "exclusion",
+        "field": "systemic_immunosuppression",
+        "operator": "eq",
+        "value": true,
+        "source_text": "Exposure to any significantly immune suppressing drug (including experimental therapies as part of a clinical study) within 5 half-lives of the product prior to the first administration of CT3001; these medications will not be permitted for the duration of treatment with CT3001.",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06598007",
+        "rule_id": "EXC-13",
+        "type": "exclusion",
+        "field": "diagnosis",
+        "operator": "present",
+        "value": true,
+        "source_text": "Use of any medications with a narrow therapeutics index that are sensitive substrates of and metabolized mainly through CYP2C8 within 5-half-lives of the products prior to the first administration of CT3001; these medications will not be permitted for the duration of treatment with CT3001.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06598007",
+        "rule_id": "EXC-14",
+        "type": "exclusion",
+        "field": "diagnosis",
+        "operator": "present",
+        "value": true,
+        "source_text": "Use of any gastric acid reducing agents during the time period between 6 hours prior to and 2 hours after the administration of CT3001.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06598007",
+        "rule_id": "EXC-15",
+        "type": "exclusion",
+        "field": "hepatitis_c_active",
+        "operator": "eq",
+        "value": true,
+        "source_text": "Positive test for hepatitis C antibody (HCV), hepatitis B surface antigen (HBsAg), or human immunodeficiency virus (HIV) antibodies (HIV-1/-2) at Screening, unless the participant meets 1 of the following criteria:",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06598007",
+        "rule_id": "EXC-16",
+        "type": "exclusion",
+        "field": "hepatitis_b_active",
+        "operator": "eq",
+        "value": true,
+        "source_text": "Positive test for hepatitis C antibody (HCV), hepatitis B surface antigen (HBsAg), or human immunodeficiency virus (HIV) antibodies (HIV-1/-2) at Screening, unless the participant meets 1 of the following criteria:",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06598007",
+        "rule_id": "EXC-17",
+        "type": "exclusion",
+        "field": "hiv_positive",
+        "operator": "eq",
+        "value": true,
+        "source_text": "Positive test for hepatitis C antibody (HCV), hepatitis B surface antigen (HBsAg), or human immunodeficiency virus (HIV) antibodies (HIV-1/-2) at Screening, unless the participant meets 1 of the following criteria:",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT06598007",
+        "rule_id": "EXC-18",
+        "type": "exclusion",
+        "field": "hepatitis_b_active",
+        "operator": "eq",
+        "value": true,
+        "source_text": "1. Has chronic hepatitis B virus (HBV) infection or virologically suppressed (VS) HBV AND has been on suppressive antiviral therapy (unless it is a prohibited medication per exclusion criteria #12) for at least 4 weeks.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06598007",
+        "rule_id": "EXC-19",
+        "type": "exclusion",
+        "field": "hepatitis_c_active",
+        "operator": "eq",
+        "value": true,
+        "source_text": "2. Has chronic HCV infection but has completed curative antiviral treatment (note: patients may be HCV antibody positive but must be HCV RNA negative to be eligible).",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT06598007",
+        "rule_id": "EXC-20",
+        "type": "exclusion",
+        "field": "diagnosis",
+        "operator": "present",
+        "value": true,
+        "source_text": "Anything that the PI considers would jeopardize the safety of the participant, prevent complete participation in the study, or compromise interpretation of study data.",
+        "manual_review": true
+      }
+    ],
+    "study_type": "Interventional",
+    "intervention_types": [
+      "Drug"
+    ],
+    "synthetic": false
+  },
+  {
+    "trial_id": "NCT07736495",
+    "title": "Protective Role of Alpha-Lipoic Acid in Chemotherapy-Induced Mucositis",
+    "phase": "Phase2 / Phase3",
+    "status": "Recruiting",
+    "summary": "Colorectal cancer (CRC) represents one of the most common cancers worldwide and 5-Fluorouracil (5-FU) is still the mainstay of treatment. However, 5-FU is often implicated in inducing oral mucositis (OM), a painful inflammatory condition that may hinder oral intake, negatively impact quality of life and disrupt adherence with cancer treatment.\n\nOxidative stress and inflammation play a vital role in OM pathogenesis. Alpha-lipoic acid (ALA) is a powerful antioxidant and anti-inflammatory agent that has demonstrated protective effects towards chemotherapy-induced mucosal damage in preclinical studies.\n\nTherefore, ALA may be a promising strategy to minimize or avoid 5-FU-induced oral mucositis in patients with colorectal cancer, which deserves additional clinical investigation.",
+    "conditions": [
+      "Colorectal Cancer"
+    ],
+    "locations": [
+      {
+        "facility": "Nasser Institute for Research and Treatment.",
+        "city": "Cairo",
+        "state": ""
+      }
+    ],
+    "rules": [
+      {
+        "trial_id": "NCT07736495",
+        "rule_id": "inc-1",
+        "type": "inclusion",
+        "field": "age_years",
+        "operator": "gt",
+        "value": 18,
+        "source_text": "1. Age >18 years.",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT07736495",
+        "rule_id": "inc-2a",
+        "type": "inclusion",
+        "field": "diagnosis",
+        "operator": "eq",
+        "value": "colorectal cancer",
+        "source_text": "2. Newly diagnosed chemotherapy naive CRC patients",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT07736495",
+        "rule_id": "inc-2b",
+        "type": "inclusion",
+        "field": "prior_systemic_therapy",
+        "operator": "absent",
+        "value": null,
+        "source_text": "2. Newly diagnosed chemotherapy naive CRC patients",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT07736495",
+        "rule_id": "inc-2c",
+        "type": "inclusion",
+        "field": "diagnosis",
+        "operator": "present",
+        "value": null,
+        "source_text": "2. Newly diagnosed chemotherapy naive CRC patients",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT07736495",
+        "rule_id": "inc-3",
+        "type": "inclusion",
+        "field": "diagnosis",
+        "operator": "present",
+        "value": null,
+        "source_text": "3. Planned to receive FOLFOX-6 protocol as adjuvant, neoadjuvant or palliative therapy.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT07736495",
+        "rule_id": "inc-4a",
+        "type": "inclusion",
+        "field": "alt_uln_multiple",
+        "operator": "lt",
+        "value": 3,
+        "source_text": "4. Adequate liver function (liver transaminases level < 3 times upper normal limits and total bilirubin < 1.5 times upper normal limits).",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT07736495",
+        "rule_id": "inc-4b",
+        "type": "inclusion",
+        "field": "ast_uln_multiple",
+        "operator": "lt",
+        "value": 3,
+        "source_text": "4. Adequate liver function (liver transaminases level < 3 times upper normal limits and total bilirubin < 1.5 times upper normal limits).",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT07736495",
+        "rule_id": "inc-4c",
+        "type": "inclusion",
+        "field": "bilirubin_uln_multiple",
+        "operator": "lt",
+        "value": 1.5,
+        "source_text": "4. Adequate liver function (liver transaminases level < 3 times upper normal limits and total bilirubin < 1.5 times upper normal limits).",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT07736495",
+        "rule_id": "inc-5",
+        "type": "inclusion",
+        "field": "creatinine_clearance_ml_min",
+        "operator": "gt",
+        "value": 60,
+        "source_text": "5. Adequate kidney function (estimated glomerular filtration rate >60 ml/min).",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT07736495",
+        "rule_id": "inc-6a",
+        "type": "inclusion",
+        "field": "anc_10e9_l",
+        "operator": "gt",
+        "value": 1.5,
+        "source_text": "6. Adequate bone marrow function (WBCs count > 3000 cells/mm3, ANC count >1500 cells/mm3 and platelets count > 100,000 cells/mm3).",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT07736495",
+        "rule_id": "inc-6b",
+        "type": "inclusion",
+        "field": "platelets_10e9_l",
+        "operator": "gt",
+        "value": 100,
+        "source_text": "6. Adequate bone marrow function (WBCs count > 3000 cells/mm3, ANC count >1500 cells/mm3 and platelets count > 100,000 cells/mm3).",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT07736495",
+        "rule_id": "inc-6c",
+        "type": "inclusion",
+        "field": "anc_10e9_l",
+        "operator": "present",
+        "value": null,
+        "source_text": "6. Adequate bone marrow function (WBCs count > 3000 cells/mm3, ANC count >1500 cells/mm3 and platelets count > 100,000 cells/mm3).",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT07736495",
+        "rule_id": "exc-1",
+        "type": "exclusion",
+        "field": "other_malignancy_active",
+        "operator": "present",
+        "value": null,
+        "source_text": "1. Presence of other primary cancers.",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT07736495",
+        "rule_id": "exc-2",
+        "type": "exclusion",
+        "field": "diagnosis",
+        "operator": "present",
+        "value": null,
+        "source_text": "2. Treatment with ALA for any other indication.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT07736495",
+        "rule_id": "exc-3",
+        "type": "exclusion",
+        "field": "diagnosis",
+        "operator": "present",
+        "value": null,
+        "source_text": "3. Allergy to ALA.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT07736495",
+        "rule_id": "exc-4a",
+        "type": "exclusion",
+        "field": "pregnant",
+        "operator": "eq",
+        "value": true,
+        "source_text": "4. Pregnant or lactating women.",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT07736495",
+        "rule_id": "exc-4b",
+        "type": "exclusion",
+        "field": "breastfeeding",
+        "operator": "eq",
+        "value": true,
+        "source_text": "4. Pregnant or lactating women.",
+        "manual_review": false
+      },
+      {
+        "trial_id": "NCT07736495",
+        "rule_id": "exc-5",
+        "type": "exclusion",
+        "field": "diagnosis",
+        "operator": "present",
+        "value": null,
+        "source_text": "5. Patients with previous mucositis for any reason.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT07736495",
+        "rule_id": "exc-6",
+        "type": "exclusion",
+        "field": "diagnosis",
+        "operator": "present",
+        "value": null,
+        "source_text": "6. Patients who cannot tolerate oral intake.",
+        "manual_review": true
+      },
+      {
+        "trial_id": "NCT07736495",
+        "rule_id": "exc-7",
+        "type": "exclusion",
+        "field": "diagnosis",
+        "operator": "present",
+        "value": null,
+        "source_text": "7. Patients receiving other dietary antioxidant supplements.",
+        "manual_review": true
+      }
+    ],
+    "study_type": "Interventional",
+    "intervention_types": [
+      "Drug",
+      "Other"
+    ],
+    "synthetic": false
+  }
+]

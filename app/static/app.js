@@ -1,11 +1,15 @@
 const state = {
   patients: [],
+  cancerTypes: [],
+  selectedCancerType: null,
+  runtime: null,
   response: null,
   filter: "candidates",
   openTrialId: null,
 };
 
 const elements = {
+  cancerSelect: document.querySelector("#cancer-select"),
   patientSelect: document.querySelector("#patient-select"),
   chartNote: document.querySelector("#chart-note"),
   characterCount: document.querySelector("#character-count"),
@@ -55,25 +59,61 @@ async function loadPatients() {
   const response = await fetch("/api/patients");
   if (!response.ok) throw new Error("Could not load demo patients.");
   state.patients = await response.json();
+}
+
+async function loadCancerTypes() {
+  const response = await fetch("/api/cancer-types");
+  if (!response.ok) throw new Error("Could not load cancer cohorts.");
+  state.cancerTypes = await response.json();
+  const defaultCohort =
+    state.cancerTypes.find((cohort) => cohort.default) ?? state.cancerTypes[0];
+  state.selectedCancerType = defaultCohort?.cancer_type ?? null;
+  elements.cancerSelect.innerHTML = state.cancerTypes
+    .map(
+      (cohort) =>
+        `<option value="${escapeHtml(cohort.cancer_type)}">${escapeHtml(cohort.label)} · ${cohort.trial_count} trials</option>`,
+    )
+    .join("");
+  elements.cancerSelect.value = state.selectedCancerType;
+}
+
+function selectCancerType(cancerType) {
+  state.selectedCancerType = cancerType;
+  elements.cancerSelect.value = cancerType;
+  const patients = state.patients.filter(
+    (patient) => patient.cancer_type === cancerType,
+  );
   elements.patientSelect.innerHTML = state.patients
+    .filter((patient) => patient.cancer_type === cancerType)
     .map(
       (patient) =>
         `<option value="${escapeHtml(patient.patient_id)}">${escapeHtml(patient.name)} · ${escapeHtml(patient.label)}</option>`,
     )
     .join("");
-  selectPatient(state.patients[0]?.patient_id);
+  if (patients.length) {
+    selectPatient(patients[0].patient_id);
+  }
+  updateRuntimeDetail();
 }
 
 async function loadRuntime() {
   const response = await fetch("/health");
   if (!response.ok) throw new Error("Could not read the screening runtime.");
   const runtime = await response.json();
+  state.runtime = runtime;
   elements.runtimeStatus.textContent = runtime.live
     ? `${runtime.model} connected`
     : `${runtime.extractor} ready`;
   elements.dataSource.textContent = runtime.data_source;
+}
+
+function updateRuntimeDetail() {
+  const cohort = state.cancerTypes.find(
+    (item) => item.cancer_type === state.selectedCancerType,
+  );
+  if (!cohort) return;
   elements.runtimeDetail.textContent =
-    `${runtime.trial_count} trials · ${runtime.rule_count} compiled rules`;
+    `${cohort.trial_count} treatment trials · ${cohort.rule_count} compiled rules`;
 }
 
 function selectPatient(patientId) {
@@ -100,7 +140,10 @@ async function screenPatient() {
     const response = await fetch("/api/screen", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ note }),
+      body: JSON.stringify({
+        note,
+        cancer_type: state.selectedCancerType,
+      }),
     });
     const responseText = await response.text();
     let payload;
@@ -132,7 +175,8 @@ async function screenPatient() {
     showView("error");
   } finally {
     elements.screenButton.disabled = false;
-    elements.screenButton.querySelector("span").textContent = "Screen against all trials";
+    elements.screenButton.querySelector("span").textContent =
+      "Screen selected cancer trials";
   }
 }
 
@@ -222,6 +266,7 @@ function renderTrialCard(trial, rank) {
             <span class="trial-rank">#${String(rank).padStart(2, "0")}</span>
             <span class="trial-id">${escapeHtml(trial.trial_id)}</span>
             <span class="trial-phase">${escapeHtml(trial.phase)}</span>
+            ${trial.intervention_types.length ? `<span class="trial-phase">${escapeHtml(trial.intervention_types.join(" / "))}</span>` : ""}
           </div>
           <h3>${escapeHtml(trial.title)}</h3>
           <p class="trial-location">${escapeHtml(locationLabel)}</p>
@@ -258,7 +303,10 @@ function renderCriteriaTable(criteria) {
       return `
         <tr>
           <td>${escapeHtml(item.criterion)}</td>
-          <td><span class="criterion-type">${escapeHtml(item.type)}</span></td>
+          <td>
+            <span class="criterion-type">${escapeHtml(item.type)}</span>
+            ${item.manual_review ? '<span class="manual-badge">Manual review</span>' : ""}
+          </td>
           <td><span class="verdict ${escapeHtml(item.verdict)}">${escapeHtml(item.verdict)}</span></td>
           <td>${evidence}</td>
         </tr>`;
@@ -302,6 +350,11 @@ elements.patientSelect.addEventListener("change", (event) => {
   selectPatient(event.target.value);
 });
 
+elements.cancerSelect.addEventListener("change", async (event) => {
+  selectCancerType(event.target.value);
+  await screenPatient();
+});
+
 elements.chartNote.addEventListener("input", updateCharacterCount);
 elements.screenButton.addEventListener("click", screenPatient);
 elements.factsToggle.addEventListener("click", () => {
@@ -326,7 +379,8 @@ elements.trialList.addEventListener("click", (event) => {
 
 async function initialize() {
   try {
-    await Promise.all([loadRuntime(), loadPatients()]);
+    await Promise.all([loadRuntime(), loadCancerTypes(), loadPatients()]);
+    selectCancerType(state.selectedCancerType);
     await screenPatient();
   } catch (error) {
     elements.errorMessage.textContent = error.message;

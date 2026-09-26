@@ -16,12 +16,13 @@ def fetch_recruiting_trials(
     condition: str,
     limit: int,
     statuses: str = "RECRUITING|NOT_YET_RECRUITING",
+    treatment_only: bool = True,
 ) -> list[dict[str, Any]]:
     query = urllib.parse.urlencode(
         {
             "query.cond": condition,
             "filter.overallStatus": statuses,
-            "pageSize": min(limit, 100),
+            "pageSize": min(max(limit * 5, 50), 100),
             "format": "json",
         }
     )
@@ -31,8 +32,30 @@ def fetch_recruiting_trials(
     )
     with urllib.request.urlopen(request, timeout=30) as response:
         payload = json.load(response)
-    studies = payload.get("studies", [])[:limit]
-    return [normalize_study(study) for study in studies]
+    studies = payload.get("studies", [])
+    if treatment_only:
+        studies = [study for study in studies if is_treatment_trial(study)]
+    return [normalize_study(study) for study in studies[:limit]]
+
+
+def is_treatment_trial(study: dict[str, Any]) -> bool:
+    protocol = study.get("protocolSection", {})
+    design = protocol.get("designModule", {})
+    interventions = protocol.get("armsInterventionsModule", {}).get(
+        "interventions",
+        [],
+    )
+    intervention_types = {
+        intervention.get("type")
+        for intervention in interventions
+    }
+    return (
+        design.get("studyType") == "INTERVENTIONAL"
+        and bool(intervention_types & {"DRUG", "BIOLOGICAL"})
+        and bool(
+            protocol.get("eligibilityModule", {}).get("eligibilityCriteria")
+        )
+    )
 
 
 def normalize_study(study: dict[str, Any]) -> dict[str, Any]:
@@ -44,6 +67,10 @@ def normalize_study(study: dict[str, Any]) -> dict[str, Any]:
     description = protocol.get("descriptionModule", {})
     contacts = protocol.get("contactsLocationsModule", {})
     eligibility = protocol.get("eligibilityModule", {})
+    interventions = protocol.get("armsInterventionsModule", {}).get(
+        "interventions",
+        [],
+    )
 
     locations = []
     for location in contacts.get("locations", []):
@@ -65,6 +92,13 @@ def normalize_study(study: dict[str, Any]) -> dict[str, Any]:
         "status": status.get("overallStatus", "Unknown").replace("_", " ").title(),
         "summary": description.get("briefSummary", ""),
         "conditions": conditions.get("conditions", []),
+        "study_type": design.get("studyType", "Unknown").replace("_", " ").title(),
+        "intervention_types": sorted(
+            {
+                intervention.get("type", "Unknown").replace("_", " ").title()
+                for intervention in interventions
+            }
+        ),
         "locations": locations[:8],
         "eligibility_text": re.sub(
             r"\\([<>\[\]])",
@@ -86,10 +120,20 @@ def main() -> None:
         default="RECRUITING|NOT_YET_RECRUITING",
         help="ClinicalTrials.gov overall-status filter.",
     )
+    parser.add_argument(
+        "--all-study-types",
+        action="store_true",
+        help="Include observational and non-drug studies.",
+    )
     parser.add_argument("--output", type=Path, default=Path("data/raw_trials.json"))
     args = parser.parse_args()
 
-    trials = fetch_recruiting_trials(args.condition, args.limit, args.statuses)
+    trials = fetch_recruiting_trials(
+        args.condition,
+        args.limit,
+        args.statuses,
+        treatment_only=not args.all_study_types,
+    )
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(trials, indent=2), encoding="utf-8")
     print(f"Saved {len(trials)} studies to {args.output}")

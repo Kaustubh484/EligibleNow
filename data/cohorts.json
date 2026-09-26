@@ -1,0 +1,20 @@
+[
+  {
+    "cancer_type": "nsclc",
+    "label": "Non-small cell lung cancer",
+    "condition": "non-small cell lung cancer",
+    "trials_file": "trials.nsclc.json"
+  },
+  {
+    "cancer_type": "breast",
+    "label": "Breast cancer",
+    "condition": "breast cancer",
+    "trials_file": "trials.breast.json"
+  },
+  {
+    "cancer_type": "colorectal",
+    "label": "Colorectal cancer",
+    "condition": "colorectal cancer",
+    "trials_file": "trials.colorectal.json"
+  }
+]

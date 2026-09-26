@@ -824,8 +824,22 @@ textarea:focus {
 }
 
 .criterion-type {
+  display: block;
   color: var(--muted);
   text-transform: capitalize;
+}
+
+.manual-badge {
+  display: inline-block;
+  border-radius: 999px;
+  margin-top: 5px;
+  padding: 2px 6px;
+  background: var(--amber-soft);
+  color: var(--amber);
+  font-size: 0.52rem;
+  font-weight: 780;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
 }
 
 .verdict {

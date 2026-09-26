@@ -25,6 +25,9 @@ ACTION_LABELS = {
     "histology": "Confirm tumor histology",
     "ecog": "Document ECOG performance status",
     "measurable_disease": "Confirm measurable disease on imaging",
+    "unresectable_disease": "Confirm whether disease is unresectable",
+    "metastatic_disease": "Confirm metastatic disease",
+    "liver_metastases": "Confirm liver metastasis status",
     "life_expectancy_months": "Document estimated life expectancy",
     "tumor_tissue_available": "Confirm archival tissue or biopsy availability",
     "creatinine_mg_dl": "Order serum creatinine",
@@ -43,12 +46,36 @@ ACTION_LABELS = {
     "prior_platinum_therapy": "Confirm prior platinum chemotherapy",
     "prior_pd1_pdl1_therapy": "Confirm prior PD-1/PD-L1 therapy",
     "prior_docetaxel_therapy": "Confirm prior docetaxel exposure",
+    "prior_taxane_therapy": "Confirm prior taxane therapy",
+    "prior_anthracycline_therapy": "Confirm prior anthracycline therapy",
+    "prior_endocrine_therapy": "Confirm prior endocrine therapy",
+    "prior_her2_therapy": "Confirm prior HER2-directed therapy",
+    "prior_cdk4_6_inhibitor": "Confirm prior CDK4/6 inhibitor therapy",
+    "prior_fluoropyrimidine_therapy": "Confirm prior fluoropyrimidine therapy",
+    "prior_oxaliplatin_therapy": "Confirm prior oxaliplatin therapy",
+    "prior_irinotecan_therapy": "Confirm prior irinotecan therapy",
+    "prior_anti_vegf_therapy": "Confirm prior anti-VEGF therapy",
+    "prior_anti_egfr_therapy": "Confirm prior anti-EGFR therapy",
     "disease_progression_after_platinum": "Confirm progression after platinum therapy",
     "disease_progression_after_pd1_pdl1": "Confirm progression after PD-1/PD-L1 therapy",
     "brain_mets_active": "Confirm active brain metastasis status",
     "brain_mets_stable": "Confirm CNS disease stability",
     "leptomeningeal_disease": "Confirm leptomeningeal disease status",
     "biomarkers": "Confirm tumor biomarker results",
+    "er_positive": "Confirm estrogen receptor status",
+    "pr_positive": "Confirm progesterone receptor status",
+    "her2_positive": "Confirm HER2 status",
+    "triple_negative_breast_cancer": "Confirm triple-negative status",
+    "brca1_mutation": "Confirm BRCA1 mutation status",
+    "brca2_mutation": "Confirm BRCA2 mutation status",
+    "pik3ca_mutation": "Confirm PIK3CA mutation status",
+    "kras_mutation": "Confirm KRAS mutation status",
+    "nras_mutation": "Confirm NRAS mutation status",
+    "braf_v600e_mutation": "Confirm BRAF V600E mutation status",
+    "msi_high": "Confirm microsatellite instability status",
+    "mmr_deficient": "Confirm mismatch repair status",
+    "pd_l1_expression_pct": "Confirm PD-L1 expression",
+    "menopausal_status": "Confirm menopausal status",
     "egfr_sensitizing_mutation": "Confirm EGFR mutation status",
     "alk_rearrangement": "Confirm ALK rearrangement status",
     "ros1_rearrangement": "Confirm ROS1 rearrangement status",
@@ -110,6 +137,8 @@ def screen_trials(trials: list[Trial], facts: list[PatientFact]) -> list[TrialRe
                 status=trial.status,
                 summary=trial.summary,
                 locations=trial.locations,
+                study_type=trial.study_type,
+                intervention_types=trial.intervention_types,
                 disposition=disposition,
                 pass_count=pass_count,
                 fail_count=fail_count,
@@ -192,7 +221,16 @@ def _compare(actual: Any, operator: Operator, expected: Any) -> bool:
             )
             matched = bool(actual_values & expected_values)
         elif isinstance(expected, list):
-            matched = _normalize(actual) in {_normalize(item) for item in expected}
+            if isinstance(actual, (int, float)) and not isinstance(actual, bool):
+                actual_value = float(actual)
+                expected_values = {
+                    _numeric_or_normalized(item)
+                    for item in expected
+                }
+            else:
+                actual_value = _normalize(actual)
+                expected_values = {_normalize(item) for item in expected}
+            matched = actual_value in expected_values
         else:
             matched = _normalize(actual) == _normalize(expected)
         return matched if operator == Operator.in_ else not matched
@@ -210,8 +248,18 @@ def _normalize(value: Any) -> Any:
         compact = re.sub(r"[^a-z0-9]+", " ", value.casefold()).strip()
         aliases = {
             "non small cell lung cancer": "nsclc",
+            "triple negative breast cancer": "tnbc",
+            "colorectal adenocarcinoma": "crc",
+            "colorectal cancer": "crc",
             "stage 4": "iv",
             "4": "iv",
         }
         return aliases.get(compact, compact)
     return value
+
+
+def _numeric_or_normalized(value: Any) -> Any:
+    try:
+        return float(value)
+    except (TypeError, ValueError):
+        return _normalize(value)

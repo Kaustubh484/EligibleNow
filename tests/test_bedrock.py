@@ -1,6 +1,6 @@
 import pytest
 
-from app.bedrock import BedrockFactExtractor
+from app.bedrock import BedrockFactExtractor, BedrockRuleCompiler
 
 
 class FakeBedrock:
@@ -71,3 +71,20 @@ def test_fact_extractor_grounds_abbreviated_quote_to_unique_sentence() -> None:
     facts = extractor.extract(note)
 
     assert facts[0].source_text == "EGFR, ALK, and ROS1 negative."
+
+
+def test_rule_compiler_rejects_duplicate_rule_ids() -> None:
+    criterion = "Age 18 years or older."
+    rule = {
+        "rule_id": "I1",
+        "type": "inclusion",
+        "field": "age_years",
+        "operator": "gte",
+        "value": 18,
+        "source_text": criterion,
+        "manual_review": False,
+    }
+    compiler = BedrockRuleCompiler(FakeBedrock({"rules": [rule, rule]}))
+
+    with pytest.raises(ValueError, match="duplicate rule IDs"):
+        compiler.compile("NCT00000000", criterion)

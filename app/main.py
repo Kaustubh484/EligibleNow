@@ -46,23 +46,25 @@ def index() -> FileResponse:
 
 @app.get("/health")
 def health() -> dict[str, str | int | bool]:
-    synthetic_count = sum(trial.synthetic for trial in repository.trials)
+    trials = repository.all_trials
+    synthetic_count = sum(trial.synthetic for trial in trials)
     manual_review_count = sum(
         rule.manual_review
-        for trial in repository.trials
+        for trial in trials
         for rule in trial.rules
     )
     if synthetic_count == 0:
         data_source = "ClinicalTrials.gov"
-    elif synthetic_count == len(repository.trials):
+    elif synthetic_count == len(trials):
         data_source = "Synthetic demo"
     else:
         data_source = "Mixed trial cache"
 
     return {
         "status": "ok",
-        "trial_count": len(repository.trials),
-        "rule_count": sum(len(trial.rules) for trial in repository.trials),
+        "cancer_type_count": len(repository.cancer_types),
+        "trial_count": len(trials),
+        "rule_count": sum(len(trial.rules) for trial in trials),
         "manual_review_count": manual_review_count,
         "extractor": extractor.__class__.__name__,
         "model": getattr(getattr(extractor, "bedrock", None), "model", "local"),
@@ -71,14 +73,28 @@ def health() -> dict[str, str | int | bool]:
     }
 
 
+@app.get("/api/cancer-types")
+def list_cancer_types():
+    return repository.cancer_types
+
+
 @app.get("/api/patients")
-def list_patients():
-    return repository.patients
+def list_patients(cancer_type: str | None = None):
+    if cancer_type and repository.get_trials(cancer_type) is None:
+        raise HTTPException(status_code=404, detail="Cancer cohort not found")
+    return [
+        patient
+        for patient in repository.patients
+        if not cancer_type or patient.cancer_type == cancer_type
+    ]
 
 
 @app.get("/api/trials")
-def list_trials():
-    return repository.trials
+def list_trials(cancer_type: str | None = None):
+    trials = repository.get_trials(cancer_type)
+    if trials is None:
+        raise HTTPException(status_code=404, detail="Cancer cohort not found")
+    return trials
 
 
 @app.get("/api/trials/{trial_id}")
@@ -96,6 +112,15 @@ def screen(request: ScreenRequest) -> ScreenResponse:
     patient = repository.get_patient(request.patient_id) if request.patient_id else None
     if request.patient_id and not patient:
         raise HTTPException(status_code=404, detail="Patient example not found")
+
+    cancer_type = (
+        request.cancer_type
+        or (patient.cancer_type if patient else None)
+        or repository.default_cancer_type
+    )
+    trials = repository.get_trials(cancer_type)
+    if trials is None:
+        raise HTTPException(status_code=404, detail="Cancer cohort not found")
 
     note = request.note or (patient.note if patient else "")
     if request.facts:
@@ -118,8 +143,9 @@ def screen(request: ScreenRequest) -> ScreenResponse:
             detail="No supported clinical facts were found in the note",
         )
 
-    results = screen_trials(repository.trials, facts)
+    results = screen_trials(trials, facts)
     return ScreenResponse(
+        cancer_type=cancer_type,
         patient_id=patient.patient_id if patient else request.patient_id,
         patient_note=note,
         facts=facts,
