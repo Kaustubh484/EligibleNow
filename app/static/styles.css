@@ -784,6 +784,23 @@ textarea:focus {
   font-size: 0.7rem;
 }
 
+.intervention-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 15px;
+}
+
+.intervention-chip {
+  border: 1px solid #cbdcd6;
+  border-radius: 999px;
+  padding: 4px 8px;
+  background: var(--green-soft);
+  color: var(--green);
+  font-size: 0.6rem;
+  font-weight: 720;
+}
+
 .criteria-table {
   width: 100%;
   border-collapse: collapse;

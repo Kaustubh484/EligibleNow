@@ -10,6 +10,7 @@ const state = {
 
 const elements = {
   cancerSelect: document.querySelector("#cancer-select"),
+  retrievalLimit: document.querySelector("#retrieval-limit"),
   patientSelect: document.querySelector("#patient-select"),
   chartNote: document.querySelector("#chart-note"),
   characterCount: document.querySelector("#character-count"),
@@ -133,7 +134,7 @@ async function screenPatient() {
   }
 
   elements.screenButton.disabled = true;
-  elements.screenButton.querySelector("span").textContent = "Screening all trials…";
+  elements.screenButton.querySelector("span").textContent = "Finding relevant trials…";
   showView("loading");
 
   try {
@@ -143,6 +144,7 @@ async function screenPatient() {
       body: JSON.stringify({
         note,
         cancer_type: state.selectedCancerType,
+        retrieval_limit: Number(elements.retrievalLimit.value),
       }),
     });
     const responseText = await response.text();
@@ -186,7 +188,8 @@ function renderResults() {
   elements.unknownCount.textContent = payload.actions.length;
   elements.excludedCount.textContent = payload.excluded_count;
   elements.disclaimer.textContent = payload.disclaimer;
-  elements.timestamp.textContent = `Screened ${new Intl.DateTimeFormat("en", {
+  elements.timestamp.textContent =
+    `Evaluated ${payload.screened_trial_count} of ${payload.total_trial_count} · ${new Intl.DateTimeFormat("en", {
     hour: "numeric",
     minute: "2-digit",
   }).format(new Date())}`;
@@ -284,7 +287,20 @@ function renderTrialCard(trial, rank) {
         isOpen
           ? `<div class="trial-details" id="details-${escapeHtml(trial.trial_id)}">
               <div class="trial-description-row">
-                <p class="trial-description">${escapeHtml(trial.summary)}</p>
+                <div>
+                  <p class="trial-description">${escapeHtml(trial.summary)}</p>
+                  ${
+                    trial.intervention_names.length
+                      ? `<div class="intervention-list">${trial.intervention_names
+                          .slice(0, 8)
+                          .map(
+                            (name) =>
+                              `<span class="intervention-chip">${escapeHtml(name)}</span>`,
+                          )
+                          .join("")}</div>`
+                      : ""
+                  }
+                </div>
                 <a class="registry-link" href="https://clinicaltrials.gov/study/${encodeURIComponent(trial.trial_id)}" target="_blank" rel="noreferrer">Registry record ↗</a>
               </div>
               ${renderCriteriaTable(trial.criteria)}
@@ -354,6 +370,8 @@ elements.cancerSelect.addEventListener("change", async (event) => {
   selectCancerType(event.target.value);
   await screenPatient();
 });
+
+elements.retrievalLimit.addEventListener("change", screenPatient);
 
 elements.chartNote.addEventListener("input", updateCharacterCount);
 elements.screenButton.addEventListener("click", screenPatient);

@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 import os
 import re
+from difflib import SequenceMatcher
 from typing import Any
 
 from app.extractor import FIELD_VOCABULARY
@@ -142,7 +143,7 @@ class BedrockOpenAIClient:
                     "schema": schema,
                 }
             },
-            max_output_tokens=int(os.getenv("BEDROCK_MAX_OUTPUT_TOKENS", "8000")),
+            max_output_tokens=int(os.getenv("BEDROCK_MAX_OUTPUT_TOKENS", "16000")),
             store=False,
         )
         output_text = getattr(response, "output_text", None)
@@ -253,9 +254,55 @@ ELIGIBILITY CRITERIA:
         rule_ids = [rule.rule_id for rule in rules]
         if len(set(rule_ids)) != len(rule_ids):
             raise ValueError("Compiled rules contain duplicate rule IDs")
+        return self._ground_sources(eligibility_text, rules)
+
+    @classmethod
+    def _ground_sources(
+        cls,
+        eligibility_text: str,
+        rules: list[Rule],
+    ) -> list[Rule]:
+        lines = [line.strip() for line in eligibility_text.splitlines() if line.strip()]
+        grounded: list[Rule] = []
         for rule in rules:
-            if rule.source_text.strip() not in eligibility_text:
-                raise ValueError(
-                    f"Rule {rule.rule_id} does not preserve an exact source quote"
-                )
-        return rules
+            quote = rule.source_text.strip()
+            if quote not in eligibility_text:
+                source_tokens = BedrockFactExtractor._tokens(quote)
+                candidates = [
+                    line
+                    for line in lines
+                    if len(source_tokens) >= 3
+                    and source_tokens <= BedrockFactExtractor._tokens(line)
+                ]
+                if len(candidates) != 1:
+                    normalized_quote = cls._normalize_source(quote)
+                    ranked = sorted(
+                        (
+                            (
+                                SequenceMatcher(
+                                    None,
+                                    normalized_quote,
+                                    cls._normalize_source(line),
+                                ).ratio(),
+                                line,
+                            )
+                            for line in lines
+                        ),
+                        reverse=True,
+                    )
+                    best_score, best_line = ranked[0] if ranked else (0.0, "")
+                    second_score = ranked[1][0] if len(ranked) > 1 else 0.0
+                    if best_score >= 0.82 and best_score - second_score >= 0.08:
+                        candidates = [best_line]
+                if len(candidates) != 1:
+                    raise ValueError(
+                        f"Rule {rule.rule_id} does not preserve an exact source "
+                        f"quote: {quote[:160]!r}"
+                    )
+                quote = candidates[0]
+            grounded.append(rule.model_copy(update={"source_text": quote}))
+        return grounded
+
+    @staticmethod
+    def _normalize_source(text: str) -> str:
+        return " ".join(re.findall(r"[a-z0-9]+", text.casefold()))

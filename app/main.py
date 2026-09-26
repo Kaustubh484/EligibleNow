@@ -12,6 +12,7 @@ from app.evaluator import build_actions, screen_trials
 from app.extractor import DemoFactExtractor
 from app.models import ScreenRequest, ScreenResponse
 from app.repository import JsonRepository
+from app.retrieval import retrieve_trials
 
 
 BASE_DIR = Path(__file__).resolve().parents[1]
@@ -143,7 +144,13 @@ def screen(request: ScreenRequest) -> ScreenResponse:
             detail="No supported clinical facts were found in the note",
         )
 
-    results = screen_trials(trials, facts)
+    retrieved_trials = retrieve_trials(
+        trials,
+        note,
+        facts,
+        request.retrieval_limit,
+    )
+    results = screen_trials(retrieved_trials, facts)
     return ScreenResponse(
         cancer_type=cancer_type,
         patient_id=patient.patient_id if patient else request.patient_id,
@@ -151,6 +158,8 @@ def screen(request: ScreenRequest) -> ScreenResponse:
         facts=facts,
         results=results,
         actions=build_actions(results),
+        total_trial_count=len(trials),
+        screened_trial_count=len(retrieved_trials),
         candidate_count=sum(result.fail_count == 0 for result in results),
         excluded_count=sum(result.fail_count > 0 for result in results),
     )

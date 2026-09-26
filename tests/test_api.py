@@ -36,6 +36,8 @@ def test_screen_demo_patient() -> None:
     assert response.status_code == 200
     payload = response.json()
     assert payload["cancer_type"] == "nsclc"
+    assert payload["total_trial_count"] == 6
+    assert payload["screened_trial_count"] == 6
     assert payload["candidate_count"] >= 1
     assert payload["results"][0]["fail_count"] == 0
     assert any(action["field"] == "lvef_pct" for action in payload["actions"])

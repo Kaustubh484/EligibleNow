@@ -3,18 +3,24 @@
     "cancer_type": "nsclc",
     "label": "Non-small cell lung cancer",
     "condition": "non-small cell lung cancer",
+    "limit": 100,
+    "raw_file": "raw_trials.nsclc.json",
     "trials_file": "trials.nsclc.json"
   },
   {
     "cancer_type": "breast",
     "label": "Breast cancer",
     "condition": "breast cancer",
+    "limit": 100,
+    "raw_file": "raw_trials.breast.json",
     "trials_file": "trials.breast.json"
   },
   {
     "cancer_type": "colorectal",
     "label": "Colorectal cancer",
     "condition": "colorectal cancer",
+    "limit": 100,
+    "raw_file": "raw_trials.colorectal.json",
     "trials_file": "trials.colorectal.json"
   }
 ]

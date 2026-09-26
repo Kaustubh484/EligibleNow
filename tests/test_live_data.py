@@ -26,14 +26,17 @@ def test_live_cache_is_real_open_and_traceable() -> None:
         )
         raw_by_id = {trial["trial_id"]: trial for trial in raw_trials}
 
-        assert len(live_trials) == 10
-        assert len(raw_by_id) == 10
-        assert {trial["trial_id"] for trial in live_trials} == set(raw_by_id)
+        assert len(raw_by_id) == cohort["limit"]
+        assert cohort["limit"] * 0.8 <= len(live_trials) <= cohort["limit"]
+        assert {trial["trial_id"] for trial in live_trials} <= set(raw_by_id)
         assert all(not trial["synthetic"] for trial in live_trials)
         assert all(
             trial["status"] in {"Recruiting", "Not Yet Recruiting"}
             and trial["study_type"] == "Interventional"
             and set(trial["intervention_types"]) & {"Drug", "Biological"}
+            and trial["intervention_names"]
+            and trial["eligibility_hash"]
+            == raw_by_id[trial["trial_id"]]["eligibility_hash"]
             for trial in live_trials
         )
 

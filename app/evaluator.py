@@ -139,6 +139,7 @@ def screen_trials(trials: list[Trial], facts: list[PatientFact]) -> list[TrialRe
                 locations=trial.locations,
                 study_type=trial.study_type,
                 intervention_types=trial.intervention_types,
+                intervention_names=trial.intervention_names,
                 disposition=disposition,
                 pass_count=pass_count,
                 fail_count=fail_count,

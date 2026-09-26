@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import re
 import urllib.parse
@@ -18,23 +19,34 @@ def fetch_recruiting_trials(
     statuses: str = "RECRUITING|NOT_YET_RECRUITING",
     treatment_only: bool = True,
 ) -> list[dict[str, Any]]:
-    query = urllib.parse.urlencode(
-        {
+    studies: list[dict[str, Any]] = []
+    page_token: str | None = None
+
+    while len(studies) < limit:
+        params = {
             "query.cond": condition,
             "filter.overallStatus": statuses,
-            "pageSize": min(max(limit * 5, 50), 100),
+            "pageSize": 100,
             "format": "json",
         }
-    )
-    request = urllib.request.Request(
-        f"{API_URL}?{query}",
-        headers={"User-Agent": "TrialCompiler/0.1 (hackathon demo)"},
-    )
-    with urllib.request.urlopen(request, timeout=30) as response:
-        payload = json.load(response)
-    studies = payload.get("studies", [])
-    if treatment_only:
-        studies = [study for study in studies if is_treatment_trial(study)]
+        if page_token:
+            params["pageToken"] = page_token
+        query = urllib.parse.urlencode(params)
+        request = urllib.request.Request(
+            f"{API_URL}?{query}",
+            headers={"User-Agent": "TrialCompiler/0.1 (hackathon demo)"},
+        )
+        with urllib.request.urlopen(request, timeout=30) as response:
+            payload = json.load(response)
+
+        page = payload.get("studies", [])
+        if treatment_only:
+            page = [study for study in page if is_treatment_trial(study)]
+        studies.extend(page)
+        page_token = payload.get("nextPageToken")
+        if not page_token:
+            break
+
     return [normalize_study(study) for study in studies[:limit]]
 
 
@@ -71,6 +83,11 @@ def normalize_study(study: dict[str, Any]) -> dict[str, Any]:
         "interventions",
         [],
     )
+    eligibility_text = re.sub(
+        r"\\([<>\[\]])",
+        r"\1",
+        eligibility.get("eligibilityCriteria", ""),
+    )
 
     locations = []
     for location in contacts.get("locations", []):
@@ -99,12 +116,18 @@ def normalize_study(study: dict[str, Any]) -> dict[str, Any]:
                 for intervention in interventions
             }
         ),
-        "locations": locations[:8],
-        "eligibility_text": re.sub(
-            r"\\([<>\[\]])",
-            r"\1",
-            eligibility.get("eligibilityCriteria", ""),
+        "intervention_names": sorted(
+            {
+                intervention["name"]
+                for intervention in interventions
+                if intervention.get("name")
+            }
         ),
+        "locations": locations[:8],
+        "eligibility_text": eligibility_text,
+        "eligibility_hash": hashlib.sha256(
+            eligibility_text.encode("utf-8")
+        ).hexdigest(),
         "synthetic": False,
     }
 

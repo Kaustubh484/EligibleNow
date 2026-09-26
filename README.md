@@ -10,8 +10,10 @@ This repository contains a complete hackathon demo:
 - FastAPI API and single-page coordinator UI
 - deterministic eligibility evaluator with inclusion and exclusion semantics
 - evidence-preserving fact extraction through an OpenAI model on Amazon Bedrock
-- three cancer cohorts with 30 Recruiting or Not Yet Recruiting treatment studies
+- three cancer cohorts with up to 100 Recruiting or Not Yet Recruiting treatment
+  studies each
 - NSCLC, breast cancer, and colorectal cancer screening
+- deterministic relevance retrieval before detailed rule evaluation
 - six synthetic fallback trials and seven synthetic patient examples
 - ranked candidates, hard-fail visibility, and unknowns-to-actions grouping
 - unit and API tests
@@ -45,7 +47,11 @@ pytest
 ```
 
 ```json
-{"note": "58-year-old woman with stage IV NSCLC. ECOG 1..."}
+{
+  "cancer_type": "nsclc",
+  "retrieval_limit": 25,
+  "note": "58-year-old woman with stage IV NSCLC. ECOG 1..."
+}
 ```
 
 ```json
@@ -61,6 +67,9 @@ pytest
 ```
 
 The `/screen` and `/trials/{id}` aliases match the original project plan.
+The response reports both `total_trial_count` and `screened_trial_count`, so
+retrieval narrowing is explicit rather than hidden. Set `retrieval_limit` to `100`
+to evaluate the full cached cohort.
 
 ## Safety and data
 
@@ -87,6 +96,7 @@ python3 -m pip install -e '.[aws]'
 export AWS_BEARER_TOKEN_BEDROCK='...'
 export AWS_REGION='us-east-1'
 export BEDROCK_MODEL='openai.gpt-5.6-luna'
+export BEDROCK_MAX_OUTPUT_TOKENS='16000'
 export TRIALCOMPILER_EXTRACTOR='bedrock'
 export TRIALCOMPILER_COHORTS_FILE='cohorts.json'
 uvicorn app.main:app --reload
@@ -105,14 +115,28 @@ Probe the enabled model IDs before a Workshop run:
 python3 -m scripts.check_bedrock --region us-east-1 --profile default
 ```
 
-## Refresh the trial cache
+## Synchronize the trial cache
 
-Fetch public recruiting interventional drug or biological studies before the demo:
+Refresh every configured cohort and incrementally compile changed protocols:
+
+```bash
+python3 -m scripts.sync_cohorts --workers 3
+```
+
+The synchronizer fetches the cohort limits in `data/cohorts.json`, hashes each
+eligibility document, reuses unchanged compiled rules, and sends only new or changed
+protocols to Bedrock. To refresh registry metadata without invoking Bedrock:
+
+```bash
+python3 -m scripts.sync_cohorts --fetch-only
+```
+
+To fetch one public recruiting interventional drug or biological cohort manually:
 
 ```bash
 python3 -m scripts.fetch_trials \
   --condition 'breast cancer' \
-  --limit 10 \
+  --limit 100 \
   --output data/raw_trials.breast.json
 ```
 
@@ -126,7 +150,9 @@ model:
 ```bash
 python3 -m scripts.compile_trials \
   --input data/raw_trials.breast.json \
-  --output data/trials.breast.json
+  --output data/trials.breast.json \
+  --resume \
+  --workers 3
 ```
 
 Point the app at that cache:
