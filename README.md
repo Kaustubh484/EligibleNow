@@ -16,6 +16,10 @@ This repository contains a complete hackathon demo:
 - deterministic relevance retrieval before detailed rule evaluation
 - six synthetic fallback trials and seven synthetic patient examples
 - ranked candidates, hard-fail visibility, and unknowns-to-actions grouping
+- optional guided screening that asks for the highest-impact missing fact, uses
+  Bedrock to structure the answer, and re-runs deterministic matching
+- concise per-trial explanations for confirmed matches, blockers, and missing evidence
+- manual incremental refresh with a visible trial-cache timestamp
 - unit and API tests
 
 ## Run it
@@ -70,6 +74,12 @@ The `/screen` and `/trials/{id}` aliases match the original project plan.
 The response reports both `total_trial_count` and `screened_trial_count`, so
 retrieval narrowing is explicit rather than hidden. Set `retrieval_limit` to `100`
 to evaluate the full cached cohort.
+
+`POST /api/guided-answer` powers the optional guided-review loop. The server
+recomputes the current action queue, selects its highest-impact unresolved fact,
+uses Bedrock to translate the coordinator's focused answer into one grounded fact,
+and re-runs the same deterministic evaluator. It never overrides a rule verdict or
+declares final eligibility.
 
 The header's **Refresh trials** button runs the same incremental synchronization in
 the background and reloads the updated cohorts without restarting the app.
