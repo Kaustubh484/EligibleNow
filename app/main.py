@@ -21,7 +21,17 @@ from app.retrieval import retrieve_trials
 
 BASE_DIR = Path(__file__).resolve().parents[1]
 STATIC_DIR = BASE_DIR / "app" / "static"
+DATA_DIR = BASE_DIR / "data"
 logger = logging.getLogger(__name__)
+
+
+def _latest_cache_timestamp() -> str | None:
+    cache_files = list(DATA_DIR.glob("raw_trials*.json"))
+    if not cache_files:
+        return None
+    latest_mtime = max(path.stat().st_mtime for path in cache_files)
+    return datetime.fromtimestamp(latest_mtime, timezone.utc).isoformat()
+
 
 app = FastAPI(
     title="TrialCompiler",
@@ -37,6 +47,7 @@ refresh_state = {
     "message": "Trial cache is ready.",
     "started_at": None,
     "finished_at": None,
+    "last_refreshed_at": _latest_cache_timestamp(),
 }
 
 
@@ -241,13 +252,15 @@ def _run_trial_refresh() -> None:
         return
 
     with refresh_lock:
+        refreshed_at = _utc_now()
         refresh_state.update(
             {
                 "status": "succeeded",
                 "message": (
                     f"Loaded {len(repository.all_trials)} refreshed trials."
                 ),
-                "finished_at": _utc_now(),
+                "finished_at": refreshed_at,
+                "last_refreshed_at": refreshed_at,
             }
         )
 

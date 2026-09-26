@@ -17,6 +17,7 @@ def reset_refresh_state():
                 "message": "Trial cache is ready.",
                 "started_at": None,
                 "finished_at": None,
+                "last_refreshed_at": None,
             }
         )
     yield
@@ -50,6 +51,7 @@ def test_trial_refresh_status_starts_idle() -> None:
 
     assert response.status_code == 200
     assert response.json()["status"] == "idle"
+    assert "last_refreshed_at" in response.json()
 
 
 def test_trial_refresh_requires_bedrock(monkeypatch) -> None:

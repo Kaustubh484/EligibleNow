@@ -7,6 +7,7 @@ const state = {
   filter: "candidates",
   openTrialId: null,
   refreshTimer: null,
+  actionsExpanded: false,
 };
 
 const elements = {
@@ -25,6 +26,7 @@ const elements = {
   unknownCount: document.querySelector("#unknown-count"),
   excludedCount: document.querySelector("#excluded-count"),
   actionList: document.querySelector("#action-list"),
+  actionsMore: document.querySelector("#actions-more"),
   factList: document.querySelector("#fact-list"),
   factsToggle: document.querySelector("#facts-toggle"),
   trialList: document.querySelector("#trial-list"),
@@ -36,6 +38,7 @@ const elements = {
   runtimeDetail: document.querySelector("#runtime-detail"),
   refreshButton: document.querySelector("#refresh-button"),
   refreshLabel: document.querySelector("#refresh-label"),
+  refreshTime: document.querySelector("#refresh-time"),
 };
 
 function escapeHtml(value) {
@@ -120,6 +123,7 @@ function renderRefreshStatus(payload) {
   elements.refreshButton.disabled = running;
   elements.refreshButton.classList.toggle("syncing", running);
   elements.refreshButton.title = payload.message;
+  elements.refreshTime.textContent = formatRefreshTime(payload.last_refreshed_at);
 
   if (running) {
     elements.refreshLabel.textContent = "Refreshing…";
@@ -234,6 +238,7 @@ async function screenPatient() {
     }
     state.response = payload;
     state.filter = payload.candidate_count ? "candidates" : "excluded";
+    state.actionsExpanded = false;
     state.openTrialId =
       payload.results.find((result) => result.fail_count === 0)?.trial_id ??
       payload.results[0]?.trial_id ??
@@ -271,9 +276,11 @@ function renderActions(actions) {
   if (!actions.length) {
     elements.actionList.innerHTML =
       '<p class="empty-actions">No missing facts across the top candidate trials.</p>';
+    elements.actionsMore.classList.add("hidden");
     return;
   }
-  elements.actionList.innerHTML = actions
+  const visibleActions = state.actionsExpanded ? actions : actions.slice(0, 5);
+  elements.actionList.innerHTML = visibleActions
     .map(
       (action, index) => `
         <div class="action-item">
@@ -283,6 +290,10 @@ function renderActions(actions) {
         </div>`,
     )
     .join("");
+  elements.actionsMore.classList.toggle("hidden", actions.length <= 5);
+  elements.actionsMore.innerHTML = state.actionsExpanded
+    ? 'Show top 5 <span aria-hidden="true">↑</span>'
+    : `Show all ${actions.length} actions <span aria-hidden="true">↓</span>`;
 }
 
 function renderFacts(facts) {
@@ -371,11 +382,75 @@ function renderTrialCard(trial, rank) {
                 </div>
                 <a class="registry-link" href="https://clinicaltrials.gov/study/${encodeURIComponent(trial.trial_id)}" target="_blank" rel="noreferrer">Registry record ↗</a>
               </div>
+              ${renderTrialExplanation(trial)}
               ${renderCriteriaTable(trial.criteria)}
             </div>`
           : ""
       }
     </article>`;
+}
+
+function renderTrialExplanation(trial) {
+  const matches = uniqueCriteria(trial.criteria, "pass");
+  const blockers = uniqueCriteria(trial.criteria, "fail");
+  const missing = uniqueCriteria(trial.criteria, "unknown");
+  return `
+    <section class="trial-explanation" aria-label="Why this trial">
+      <div class="explanation-heading">
+        <h4>Why this trial?</h4>
+        <span>Fast read · full rule audit below</span>
+      </div>
+      <div class="explanation-grid">
+        ${renderExplanationGroup("Strongest matches", "pass", matches, trial.pass_count, "No confirmed matches yet")}
+        ${renderExplanationGroup("Potential blockers", "fail", blockers, trial.fail_count, "No known blockers")}
+        ${renderExplanationGroup("Still needed", "unknown", missing, trial.unknown_count, "No unresolved criteria")}
+      </div>
+    </section>`;
+}
+
+function renderExplanationGroup(title, verdict, items, totalCount, emptyText) {
+  const content = items.length
+    ? `<ul>${items
+        .map((item) => {
+          const detail =
+            verdict === "unknown"
+              ? truncateText(item.criterion, 105)
+              : truncateText(item.evidence || item.criterion, 105);
+          return `<li title="${escapeHtml(item.criterion)}">
+              <strong>${escapeHtml(formatField(item.field))}</strong>
+              <span>${escapeHtml(detail)}</span>
+            </li>`;
+        })
+        .join("")}</ul>`
+    : `<p>${escapeHtml(emptyText)}</p>`;
+  return `
+    <div class="explanation-group ${verdict}">
+      <div class="explanation-label">
+        <span>${escapeHtml(title)}</span>
+        <span class="explanation-count">${totalCount}</span>
+      </div>
+      ${content}
+    </div>`;
+}
+
+function uniqueCriteria(criteria, verdict, limit = 3) {
+  const seen = new Set();
+  return criteria
+    .filter((item) => item.verdict === verdict)
+    .filter((item) => {
+      const key = `${item.field}:${item.criterion}`;
+      if (seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    })
+    .slice(0, limit);
+}
+
+function truncateText(value, maxLength) {
+  const text = String(value);
+  return text.length > maxLength
+    ? `${text.slice(0, maxLength - 1).trimEnd()}…`
+    : text;
 }
 
 function renderCriteriaTable(criteria) {
@@ -430,6 +505,19 @@ function formatValue(value) {
   return value;
 }
 
+function formatRefreshTime(value) {
+  if (!value) return "No refresh recorded";
+  const refreshedAt = new Date(value);
+  if (Number.isNaN(refreshedAt.getTime())) return "Refresh time unavailable";
+  const formatted = new Intl.DateTimeFormat("en", {
+    month: "short",
+    day: "numeric",
+    hour: "numeric",
+    minute: "2-digit",
+  }).format(refreshedAt);
+  return `Updated ${formatted}`;
+}
+
 elements.patientSelect.addEventListener("change", (event) => {
   selectPatient(event.target.value);
 });
@@ -441,6 +529,11 @@ elements.cancerSelect.addEventListener("change", async (event) => {
 
 elements.retrievalLimit.addEventListener("change", screenPatient);
 elements.refreshButton.addEventListener("click", refreshTrials);
+elements.actionsMore.addEventListener("click", () => {
+  if (!state.response) return;
+  state.actionsExpanded = !state.actionsExpanded;
+  renderActions(state.response.actions);
+});
 
 elements.chartNote.addEventListener("input", updateCharacterCount);
 elements.screenButton.addEventListener("click", screenPatient);
