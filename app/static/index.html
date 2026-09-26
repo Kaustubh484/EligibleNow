@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="TrialCompiler turns a patient chart into an auditable clinical-trial shortlist."
+    />
+    <title>TrialCompiler</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%23145c4d'/%3E%3Ctext x='32' y='43' text-anchor='middle' font-family='Georgia' font-size='38' fill='white'%3ET%3C/text%3E%3C/svg%3E"
+    />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <script src="/static/app.js" defer></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="TrialCompiler home">
+        <span class="brand-mark" aria-hidden="true">T</span>
+        <span>TrialCompiler</span>
+      </a>
+      <div class="topbar-meta">
+        <span class="status-dot" aria-hidden="true"></span>
+        <span id="runtime-status">Connecting…</span>
+        <span id="data-source" class="demo-pill">Loading trials</span>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div>
+          <p class="eyebrow">Clinical enrollment workspace</p>
+          <h1>One chart. Every open trial.<br /><span>Every verdict explained.</span></h1>
+          <p class="hero-copy">
+            Convert eligibility prose into auditable rules, rank likely matches, and
+            turn missing evidence into the coordinator's next actions.
+          </p>
+        </div>
+        <div class="safety-card">
+          <span class="safety-icon" aria-hidden="true">+</span>
+          <div>
+            <strong>Decision support, not a diagnosis</strong>
+            <p>Final eligibility is always verified by the study team.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="workspace" aria-label="Trial screening workspace">
+        <aside class="patient-panel">
+          <div class="panel-heading">
+            <div>
+              <p class="step-label">01 · Patient record</p>
+              <h2>Paste a chart note</h2>
+            </div>
+            <span class="private-label">No PHI</span>
+          </div>
+
+          <label class="field-label" for="patient-select">Demo patient</label>
+          <div class="select-wrap">
+            <select id="patient-select" aria-describedby="patient-help">
+              <option>Loading patients…</option>
+            </select>
+          </div>
+          <p id="patient-help" class="field-help">
+            Choose a synthetic example or edit the note below.
+          </p>
+
+          <label class="field-label note-label" for="chart-note">Clinical note</label>
+          <textarea
+            id="chart-note"
+            rows="12"
+            spellcheck="true"
+            placeholder="Paste a de-identified patient note…"
+          ></textarea>
+
+          <div class="input-footer">
+            <span id="character-count">0 characters</span>
+            <span id="runtime-detail">Evidence-grounded extraction</span>
+          </div>
+
+          <button id="screen-button" class="primary-button" type="button">
+            <span>Screen against all trials</span>
+            <span aria-hidden="true">→</span>
+          </button>
+
+          <div class="pipeline-note">
+            <div class="pipeline-node">Chart</div>
+            <span>→</span>
+            <div class="pipeline-node">Facts</div>
+            <span>→</span>
+            <div class="pipeline-node">Rules</div>
+          </div>
+          <p class="pipeline-copy">
+            The model translates. Deterministic code decides.
+          </p>
+        </aside>
+
+        <section class="results-panel" aria-live="polite" aria-busy="true">
+          <div id="loading-state" class="state-card">
+            <span class="loader" aria-hidden="true"></span>
+            <h2>Preparing the workspace</h2>
+            <p>Loading trials and patient examples…</p>
+          </div>
+
+          <div id="error-state" class="state-card hidden" role="alert">
+            <span class="state-symbol">!</span>
+            <h2>Screening could not finish</h2>
+            <p id="error-message">Please check the note and try again.</p>
+          </div>
+
+          <div id="results-content" class="hidden">
+            <div class="results-header">
+              <div>
+                <p class="step-label">02 · Ranked shortlist</p>
+                <h2>Screening results</h2>
+              </div>
+              <div class="result-timestamp" id="result-timestamp"></div>
+            </div>
+
+            <div class="metric-grid" aria-label="Screening summary">
+              <article class="metric-card candidate">
+                <span class="metric-value" id="candidate-count">0</span>
+                <span class="metric-label">Candidate trials</span>
+                <span class="metric-detail">No hard fails</span>
+              </article>
+              <article class="metric-card">
+                <span class="metric-value" id="unknown-count">0</span>
+                <span class="metric-label">Items to resolve</span>
+                <span class="metric-detail">Across top matches</span>
+              </article>
+              <article class="metric-card">
+                <span class="metric-value" id="excluded-count">0</span>
+                <span class="metric-label">Ruled out</span>
+                <span class="metric-detail">On known facts</span>
+              </article>
+            </div>
+
+            <section class="action-section" aria-labelledby="action-title">
+              <div class="section-title-row">
+                <div>
+                  <p class="step-label">03 · Next best actions</p>
+                  <h3 id="action-title">Resolve more trials with fewer steps</h3>
+                </div>
+                <span class="action-badge">Coordinator queue</span>
+              </div>
+              <div id="action-list" class="action-list"></div>
+            </section>
+
+            <section class="facts-section" aria-labelledby="facts-title">
+              <button
+                id="facts-toggle"
+                class="facts-toggle"
+                type="button"
+                aria-expanded="false"
+                aria-controls="fact-list"
+              >
+                <span>
+                  <span class="step-label">Extracted facts</span>
+                  <strong id="facts-title">View the evidence parsed from this note</strong>
+                </span>
+                <span class="chevron" aria-hidden="true">⌄</span>
+              </button>
+              <div id="fact-list" class="fact-list hidden"></div>
+            </section>
+
+            <div class="trial-toolbar">
+              <div class="filter-tabs" role="group" aria-label="Filter trial results">
+                <button class="filter-tab active" data-filter="candidates" type="button">
+                  Candidates
+                </button>
+                <button class="filter-tab" data-filter="excluded" type="button">
+                  Ruled out
+                </button>
+                <button class="filter-tab" data-filter="all" type="button">All trials</button>
+              </div>
+              <span id="trial-count-label" class="trial-count-label"></span>
+            </div>
+
+            <div id="trial-list" class="trial-list"></div>
+
+            <p id="disclaimer" class="disclaimer"></p>
+          </div>
+        </section>
+      </section>
+    </main>
+  </body>
+</html>

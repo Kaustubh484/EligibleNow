@@ -1,0 +1,26 @@
+[project]
+name = "trialcompiler"
+version = "0.1.0"
+description = "Auditable clinical-trial screening with deterministic eligibility rules."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "fastapi>=0.115,<1",
+  "pydantic>=2.9,<3",
+  "uvicorn[standard]>=0.32,<1",
+]
+
+[project.optional-dependencies]
+aws = ["openai[bedrock]>=2.28,<3"]
+dev = ["httpx>=0.28,<1", "pytest>=8.3,<9"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.setuptools.packages.find]
+include = ["app*"]
+exclude = ["data*", "scripts*", "tests*"]
+
+[tool.setuptools.package-data]
+app = ["static/*"]

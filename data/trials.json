@@ -1,0 +1,107 @@
+[
+  {
+    "trial_id": "DEMO-NSCLC-001",
+    "title": "First-line precision therapy for metastatic NSCLC",
+    "phase": "Phase 2",
+    "status": "Recruiting",
+    "summary": "Evaluates a first-line targeted combination in adults with metastatic non-small cell lung cancer.",
+    "conditions": ["Non-small cell lung cancer"],
+    "locations": [{"facility": "Bay Clinical Research Center", "city": "San Francisco", "state": "CA"}],
+    "synthetic": true,
+    "rules": [
+      {"trial_id": "DEMO-NSCLC-001", "rule_id": "inc_1", "type": "inclusion", "field": "age_years", "operator": "gte", "value": 18, "source_text": "Age 18 years or older", "manual_review": false},
+      {"trial_id": "DEMO-NSCLC-001", "rule_id": "inc_2", "type": "inclusion", "field": "diagnosis", "operator": "eq", "value": "NSCLC", "source_text": "Histologically confirmed non-small cell lung cancer", "manual_review": false},
+      {"trial_id": "DEMO-NSCLC-001", "rule_id": "inc_3", "type": "inclusion", "field": "stage", "operator": "eq", "value": "IV", "source_text": "Stage IV or metastatic disease", "manual_review": false},
+      {"trial_id": "DEMO-NSCLC-001", "rule_id": "inc_4", "type": "inclusion", "field": "ecog", "operator": "lte", "value": 1, "source_text": "ECOG performance status 0 to 1", "manual_review": false},
+      {"trial_id": "DEMO-NSCLC-001", "rule_id": "inc_5", "type": "inclusion", "field": "creatinine_mg_dl", "operator": "lte", "value": 1.5, "source_text": "Serum creatinine 1.5 mg/dL or lower", "manual_review": false},
+      {"trial_id": "DEMO-NSCLC-001", "rule_id": "inc_6", "type": "inclusion", "field": "lvef_pct", "operator": "gte", "value": 50, "source_text": "LVEF 50% or higher", "manual_review": false},
+      {"trial_id": "DEMO-NSCLC-001", "rule_id": "exc_1", "type": "exclusion", "field": "biomarkers", "operator": "in", "value": "EGFR-sensitizing", "source_text": "Known EGFR-sensitizing mutation", "manual_review": false},
+      {"trial_id": "DEMO-NSCLC-001", "rule_id": "exc_2", "type": "exclusion", "field": "brain_mets_active", "operator": "eq", "value": true, "source_text": "Active brain metastases", "manual_review": false}
+    ]
+  },
+  {
+    "trial_id": "DEMO-NSCLC-002",
+    "title": "Immunotherapy induction for untreated metastatic NSCLC",
+    "phase": "Phase 3",
+    "status": "Recruiting",
+    "summary": "Compares an investigational immunotherapy induction regimen with standard first-line treatment.",
+    "conditions": ["Non-small cell lung cancer"],
+    "locations": [{"facility": "Peninsula Oncology Institute", "city": "Burlingame", "state": "CA"}],
+    "synthetic": true,
+    "rules": [
+      {"trial_id": "DEMO-NSCLC-002", "rule_id": "inc_1", "type": "inclusion", "field": "age_years", "operator": "gte", "value": 18, "source_text": "Adults age 18 years and older", "manual_review": false},
+      {"trial_id": "DEMO-NSCLC-002", "rule_id": "inc_2", "type": "inclusion", "field": "diagnosis", "operator": "eq", "value": "NSCLC", "source_text": "Confirmed metastatic NSCLC", "manual_review": false},
+      {"trial_id": "DEMO-NSCLC-002", "rule_id": "inc_3", "type": "inclusion", "field": "ecog", "operator": "lte", "value": 1, "source_text": "ECOG performance status of 0 or 1", "manual_review": false},
+      {"trial_id": "DEMO-NSCLC-002", "rule_id": "inc_4", "type": "inclusion", "field": "prior_systemic_therapy", "operator": "eq", "value": false, "source_text": "No prior systemic treatment for metastatic disease", "manual_review": false},
+      {"trial_id": "DEMO-NSCLC-002", "rule_id": "inc_5", "type": "inclusion", "field": "lvef_pct", "operator": "gte", "value": 50, "source_text": "Baseline LVEF at least 50%", "manual_review": false},
+      {"trial_id": "DEMO-NSCLC-002", "rule_id": "exc_1", "type": "exclusion", "field": "brain_mets_active", "operator": "eq", "value": true, "source_text": "Untreated active central nervous system metastases", "manual_review": false}
+    ]
+  },
+  {
+    "trial_id": "DEMO-NSCLC-003",
+    "title": "Novel antibody combination in advanced lung cancer",
+    "phase": "Phase 1/2",
+    "status": "Recruiting",
+    "summary": "Studies the safety and activity of an antibody combination in treatment-naive advanced NSCLC.",
+    "conditions": ["Non-small cell lung cancer"],
+    "locations": [{"facility": "East Bay Cancer Trials", "city": "Oakland", "state": "CA"}],
+    "synthetic": true,
+    "rules": [
+      {"trial_id": "DEMO-NSCLC-003", "rule_id": "inc_1", "type": "inclusion", "field": "diagnosis", "operator": "eq", "value": "NSCLC", "source_text": "Advanced non-small cell lung cancer", "manual_review": false},
+      {"trial_id": "DEMO-NSCLC-003", "rule_id": "inc_2", "type": "inclusion", "field": "stage", "operator": "eq", "value": "IV", "source_text": "Stage IV disease", "manual_review": false},
+      {"trial_id": "DEMO-NSCLC-003", "rule_id": "inc_3", "type": "inclusion", "field": "ecog", "operator": "lte", "value": 1, "source_text": "ECOG 0 to 1", "manual_review": false},
+      {"trial_id": "DEMO-NSCLC-003", "rule_id": "inc_4", "type": "inclusion", "field": "bilirubin_mg_dl", "operator": "lte", "value": 1.2, "source_text": "Total bilirubin no greater than 1.2 mg/dL", "manual_review": false},
+      {"trial_id": "DEMO-NSCLC-003", "rule_id": "inc_5", "type": "inclusion", "field": "lvef_pct", "operator": "gte", "value": 50, "source_text": "Left ventricular ejection fraction at least 50%", "manual_review": false}
+    ]
+  },
+  {
+    "trial_id": "DEMO-NSCLC-004",
+    "title": "Performance-status selected NSCLC therapy",
+    "phase": "Phase 2",
+    "status": "Recruiting",
+    "summary": "Tests an intensive regimen for metastatic NSCLC in patients with excellent performance status.",
+    "conditions": ["Non-small cell lung cancer"],
+    "locations": [{"facility": "South Bay Medical Research", "city": "San Jose", "state": "CA"}],
+    "synthetic": true,
+    "rules": [
+      {"trial_id": "DEMO-NSCLC-004", "rule_id": "inc_1", "type": "inclusion", "field": "diagnosis", "operator": "eq", "value": "NSCLC", "source_text": "Metastatic NSCLC", "manual_review": false},
+      {"trial_id": "DEMO-NSCLC-004", "rule_id": "inc_2", "type": "inclusion", "field": "ecog", "operator": "eq", "value": 0, "source_text": "ECOG performance status 0", "manual_review": false},
+      {"trial_id": "DEMO-NSCLC-004", "rule_id": "inc_3", "type": "inclusion", "field": "creatinine_mg_dl", "operator": "lte", "value": 1.3, "source_text": "Creatinine no greater than 1.3 mg/dL", "manual_review": false},
+      {"trial_id": "DEMO-NSCLC-004", "rule_id": "exc_1", "type": "exclusion", "field": "prior_systemic_therapy", "operator": "eq", "value": true, "source_text": "Prior systemic therapy for metastatic disease", "manual_review": false}
+    ]
+  },
+  {
+    "trial_id": "DEMO-NSCLC-005",
+    "title": "Broad-access first-line NSCLC platform",
+    "phase": "Phase 2/3",
+    "status": "Recruiting",
+    "summary": "A pragmatic platform study evaluating several first-line regimens across NSCLC subgroups.",
+    "conditions": ["Non-small cell lung cancer"],
+    "locations": [{"facility": "Golden Gate University Hospital", "city": "San Francisco", "state": "CA"}],
+    "synthetic": true,
+    "rules": [
+      {"trial_id": "DEMO-NSCLC-005", "rule_id": "inc_1", "type": "inclusion", "field": "age_years", "operator": "gte", "value": 18, "source_text": "Age 18 or older", "manual_review": false},
+      {"trial_id": "DEMO-NSCLC-005", "rule_id": "inc_2", "type": "inclusion", "field": "diagnosis", "operator": "eq", "value": "NSCLC", "source_text": "Pathologically confirmed NSCLC", "manual_review": false},
+      {"trial_id": "DEMO-NSCLC-005", "rule_id": "inc_3", "type": "inclusion", "field": "ecog", "operator": "lte", "value": 2, "source_text": "ECOG performance status 0 to 2", "manual_review": false},
+      {"trial_id": "DEMO-NSCLC-005", "rule_id": "inc_4", "type": "inclusion", "field": "prior_systemic_therapy", "operator": "eq", "value": false, "source_text": "No previous systemic therapy for advanced disease", "manual_review": false},
+      {"trial_id": "DEMO-NSCLC-005", "rule_id": "inc_5", "type": "inclusion", "field": "brain_mets_active", "operator": "eq", "value": false, "source_text": "No active brain metastases", "manual_review": false}
+    ]
+  },
+  {
+    "trial_id": "DEMO-NSCLC-006",
+    "title": "Organ-function adaptive therapy study",
+    "phase": "Phase 1",
+    "status": "Recruiting",
+    "summary": "An early-phase study with adaptive dosing based on organ function and safety monitoring.",
+    "conditions": ["Non-small cell lung cancer"],
+    "locations": [{"facility": "Northern California Research Network", "city": "Sacramento", "state": "CA"}],
+    "synthetic": true,
+    "rules": [
+      {"trial_id": "DEMO-NSCLC-006", "rule_id": "inc_1", "type": "inclusion", "field": "diagnosis", "operator": "eq", "value": "NSCLC", "source_text": "Advanced NSCLC", "manual_review": false},
+      {"trial_id": "DEMO-NSCLC-006", "rule_id": "inc_2", "type": "inclusion", "field": "ecog", "operator": "lte", "value": 1, "source_text": "ECOG 0 to 1", "manual_review": false},
+      {"trial_id": "DEMO-NSCLC-006", "rule_id": "inc_3", "type": "inclusion", "field": "bilirubin_mg_dl", "operator": "lte", "value": 1.0, "source_text": "Total bilirubin 1.0 mg/dL or lower", "manual_review": false},
+      {"trial_id": "DEMO-NSCLC-006", "rule_id": "inc_4", "type": "inclusion", "field": "creatinine_mg_dl", "operator": "lte", "value": 1.2, "source_text": "Serum creatinine 1.2 mg/dL or lower", "manual_review": false},
+      {"trial_id": "DEMO-NSCLC-006", "rule_id": "inc_5", "type": "inclusion", "field": "histology", "operator": "present", "value": null, "source_text": "Adequate pathology for central review", "manual_review": true}
+    ]
+  }
+]
